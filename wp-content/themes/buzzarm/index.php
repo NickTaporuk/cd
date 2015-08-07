@@ -14,10 +14,10 @@
     <link href='http://fonts.googleapis.com/css?family=Muli:300' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Ubuntu:300,700' rel='stylesheet' type='text/css'>
     <!-- FONT-AWESOME -->
-    <link href="<?php echo get_template_directory_uri(); ?>/css/buzzarm/font-awesome.min.css" rel="stylesheet">
+    <link href="<?php echo get_template_directory_uri(); ?>/css/font-awesome.min.css" rel="stylesheet">
     <!-- CSS-LIBRARIES -->
-    <link href="<?php echo get_template_directory_uri(); ?>/css/buzzarm/animate.css" rel="stylesheet">
-    <link href="<?php echo get_template_directory_uri(); ?>/css/buzzarm/rotator.css" rel="stylesheet">
+    <link href="<?php echo get_template_directory_uri(); ?>/css/animate.css" rel="stylesheet">
+    <link href="<?php echo get_template_directory_uri(); ?>/css/rotator.css" rel="stylesheet">
     <!-- CUSTOM STYLES -->
     <!-- <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>css/buzzarm/normalize.min.css"> -->
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/buzzarm/style.min.css">
