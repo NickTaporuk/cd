@@ -592,7 +592,7 @@
                 <div class="card-features clearfix">
                     <div class="signalling-card card lg-card" id="animation">
                         <div class="card-logo">
-                            <img src="img/svg/logo-final.svg" alt="buzzarm">
+                            <img src="<?php echo get_template_directory_uri(); ?>/img/svg/logo-final.svg" alt="buzzarm">
                         </div>
                         <div class="card-elements clearfix" id="anim-hide">
                             <div class="indicators clearfix" id="anim-power">
@@ -666,7 +666,7 @@
             </div> <!-- end of pin-features -->
             <div class="card md-card" id="md_card">
                 <div class="card-logo">
-                    <img src="img/svg/logo-final.svg" alt="buzzarm">
+                    <img src="<?php echo get_template_directory_uri(); ?>/img/svg/logo-final.svg" alt="buzzarm">
                 </div>
             </div>
             <div class="wallet" id="anim-wallet"></div>
@@ -691,7 +691,7 @@
         <!-- SAFETY FOR TRAVELLERS -->
         <div class="travellers clearfix">
             <div class="travellers-img left-inline wow fadeInLeftSmall">
-                <img src="img/travel.png" alt="Safety for travellers">
+                <img src="<?php echo get_template_directory_uri(); ?>/img/travel.png" alt="Safety for travellers">
             </div>
             <div class="travellers-txt right-inline wow fadeInRightSmall">
                 <h3 class="travellers-txt__heading">Safety for travellers</h3>
@@ -710,7 +710,7 @@
 </section> <!-- end of about-section -->
 
 <!-- LAUNCHING SOON -->
-<section id="launching-soon" class="parallax-container" data-parallax="scroll" data-position="top" data-image-src="img/soon-bg.jpg" >
+<section id="launching-soon" class="parallax-container" data-parallax="scroll" data-position="top" data-image-src="<?php echo get_template_directory_uri(); ?>/img/soon-bg.jpg" >
 
     <div class="l-container">
         <h2 class="">Buzzarm card is launching soon!</h2>
@@ -745,7 +745,7 @@
                     <div id="iphone_first" class="iphone"></div>
                     <div class="card sm-card" id="card_first">
                         <div class="card-logo">
-                            <img src="img/svg/logo-final.svg" alt="buzzarm">
+                            <img src="<?php echo get_template_directory_uri(); ?>/img/svg/logo-final.svg" alt="buzzarm">
                         </div>
                     </div>
                     <div class="sm-wallet" id="wallet_first"></div>
@@ -819,7 +819,7 @@
                 <div class="left-relative touch-img wow fadeInLeftSmall">
                     <div class="card sm-card touch-card">
                         <div class="card-logo">
-                            <img src="img/svg/logo-final.svg" alt="buzzarm">
+                            <img src="<?php echo get_template_directory_uri(); ?>/img/svg/logo-final.svg" alt="buzzarm">
                         </div>
                     </div>
                     <div class="sm-wallet touch-wallet"></div>
@@ -916,7 +916,7 @@
                 <div class="rotate-img">
                     <div class="card sm-card card-using">
                         <div class="card-logo">
-                            <img src="img/svg/logo-final.svg" alt="buzzarm">
+                            <img src="<?php echo get_template_directory_uri(); ?>/img/svg/logo-final.svg" alt="buzzarm">
                         </div>
                     </div>
                     <div class="sm-wallet wallet-using"></div>
@@ -939,7 +939,7 @@
 </section><!-- end of how-it-works -->
 
 <!-- SHARE THE NEWS -->
-<section id="news-share" class="parallax-container" data-parallax="scroll" data-position="top" data-image-src="img/share-bg.jpg" datd-over-scroll-fix="true">
+<section id="news-share" class="parallax-container" data-parallax="scroll" data-position="top" data-image-src="<?php echo get_template_directory_uri(); ?>/img/share-bg.jpg" datd-over-scroll-fix="true">
     <div class="l-container">
         <h2 class="">Share the news about buzzarm</h2>
         <p class="">
@@ -965,7 +965,7 @@
         <div class="get-custom clearfix">
             <div class="card lg-card custom-card left-inline wow fadeInLeft">
                 <div class="card-logo">
-                    <img src="img/svg/logo-final.svg" alt="buzzarm">
+                    <img src="<?php echo get_template_directory_uri(); ?>/img/svg/logo-final.svg" alt="buzzarm">
                 </div>
                 <div class="power-light"></div>
             </div>
@@ -1108,10 +1108,10 @@
             </p>
             <div class="app-buttons">
                 <a href="#" class="app-logo btn-green">
-                    <img src="img/logo-app-store.png" alt="app-store">
+                    <img src="<?php echo get_template_directory_uri(); ?>/img/logo-app-store.png" alt="app-store">
                 </a>
                 <a href="#" class="app-logo btn-green">
-                    <img src="img/logo-g-play.png" alt="google-play">
+                    <img src="<?php echo get_template_directory_uri(); ?>/img/logo-g-play.png" alt="google-play">
                 </a>
             </div>
         </div>
@@ -1130,7 +1130,7 @@
             <div class="row first-row">
                 <div class="person">
                     <div class="person-photo">
-                        <img src="img/team/pochtar.jpg" alt="Pochtar Vitaly">
+                        <img src="<?php echo get_template_directory_uri(); ?>/img/team/pochtar.jpg" alt="Pochtar Vitaly">
                     </div>
                     <p class="name">Pochtar Vitaly</p>
                     <p class="position">CEO</p>
@@ -1142,7 +1142,7 @@
                 </div>
                 <div class="person">
                     <div class="person-photo">
-                        <img src="img/team/melnik.jpg" alt="Nikolay Melnick">
+                        <img src="<?php echo get_template_directory_uri(); ?>/img/team/melnik.jpg" alt="Nikolay Melnick">
                     </div>
                     <p class="name">Nikolay Melnick</p>
                     <p class="position">CTO/iOS developer</p>
@@ -1154,7 +1154,7 @@
                 </div>
                 <div class="person">
                     <div class="person-photo">
-                        <img src="img/team/smyk.jpg" alt="Aleksey Smyk">
+                        <img src="<?php echo get_template_directory_uri(); ?>/img/team/smyk.jpg" alt="Aleksey Smyk">
                     </div>
                     <p class="name">Aleksey Smyk</p>
                     <p class="position">COO</p>
@@ -1178,7 +1178,7 @@
                 </div>
                 <div class="person">
                     <div class="person-photo">
-                        <img src="img/team/konchakov.jpg" alt="Maksim Konchakovskiy">
+                        <img src="<?php echo get_template_directory_uri(); ?>/img/team/konchakov.jpg" alt="Maksim Konchakovskiy">
                     </div>
                     <p class="name">Maksim Konchakovskiy</p>
                     <p class="position">Android developer</p>
@@ -1193,7 +1193,7 @@
             <div class="row second-row">
                 <div class="person">
                     <div class="person-photo">
-                        <img src="img/team/parhom.jpg" alt="Anton Parhomenko">
+                        <img src="<?php echo get_template_directory_uri(); ?>/img/team/parhom.jpg" alt="Anton Parhomenko">
                     </div>
                     <p class="name">Anton Parhomenko</p>
                     <p class="position">Software engineer</p>
@@ -1205,7 +1205,7 @@
                 </div>
                 <div class="person">
                     <div class="person-photo">
-                        <img src="img/team/palamar.jpg" alt="Artem Palamarchuk">
+                        <img src="<?php echo get_template_directory_uri(); ?>/img/team/palamar.jpg" alt="Artem Palamarchuk">
                     </div>
                     <p class="name">Artem Palamarchuk</p>
                     <p class="position">Designer</p>
@@ -1217,7 +1217,7 @@
                 </div>
                 <div class="person">
                     <div class="person-photo">
-                        <img src="img/team/volochai.jpg" alt="Vlad Volochay">
+                        <img src="<?php echo get_template_directory_uri(); ?>/img/team/volochai.jpg" alt="Vlad Volochay">
                     </div>
                     <p class="name">Vlad Volochay</p>
                     <p class="position">Creative Director</p>
@@ -1229,7 +1229,7 @@
                 </div>
                 <div class="person">
                     <div class="person-photo">
-                        <img src="img/team/sapov.jpg" alt="Vadim Sapovskiy">
+                        <img src="<?php echo get_template_directory_uri(); ?>/img/team/sapov.jpg" alt="Vadim Sapovskiy">
                     </div>
                     <p class="name">Vadim Sapovskiy</p>
                     <p class="position">Web Developer</p>
@@ -1241,7 +1241,7 @@
                 </div>
                 <div class="person">
                     <div class="person-photo">
-                        <img src="img/team/mocko.jpg" alt="Artur Mockobili">
+                        <img src="<?php echo get_template_directory_uri(); ?>/img/team/mocko.jpg" alt="Artur Mockobili">
                     </div>
                     <p class="name">Artur Mockobili</p>
                     <p class="position">Marketer</p>
@@ -1369,19 +1369,19 @@
 
     });
 </script>
-<script src="js/parallax.min.js"></script>
-<script src="js/plugins.js"></script>
-<script src="js/wow.min.js"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/js/buzzarm/parallax.min.js"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/js/buzzarm/plugins.js"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/js/buzzarm/wow.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/TweenMax.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
-<script src="js/animation.gsap.js"></script>
-<script src="js/velocity.min.js"></script>
-<script src="js/animation.velocity.js"></script>
-<script src="js/velocity.ui.js"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/js/buzzarm/animation.gsap.js"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/js/buzzarm/velocity.min.js"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/js/buzzarm/animation.velocity.js"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/js/buzzarm/velocity.ui.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
 
 <!-- CUSTOM JS -->
-<script src="js/main.js"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/js/buzzarm/main.js"></script>
 
 </body>
 </html>
