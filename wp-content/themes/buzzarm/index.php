@@ -20,7 +20,7 @@
     <link href="<?php echo get_template_directory_uri(); ?>/css/rotator.css" rel="stylesheet">
     <!-- CUSTOM STYLES -->
     <!-- <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>css/buzzarm/normalize.min.css"> -->
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/buzzarm/style.min.css">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.min.css">
 
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
