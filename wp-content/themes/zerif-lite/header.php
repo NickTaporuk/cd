@@ -43,11 +43,13 @@
 
 <?php if(isset($_POST['scrollPosition'])): ?>
 
-	<body <?php body_class(); ?> onLoad="window.scrollTo(0,<?php echo intval($_POST['scrollPosition']); ?>)">
+<!--	<body --><?php //body_class(); ?><!-- onLoad="window.scrollTo(0,--><?php //echo intval($_POST['scrollPosition']); ?>////)">
+	<body onLoad="window.scrollTo(0,<?php echo intval($_POST['scrollPosition']); ?>//)">
 
 <?php else: ?>
 
-	<body <?php body_class(); ?> >
+<!--	<body --><?php //body_class(); ?><!-- >-->
+	<body >
 
 <?php endif; ?>
 
@@ -522,7 +524,7 @@ endif; ?>
 
 			<nav class="navbar-collapse bs-navbar-collapse collapse" role="navigation"   id="site-navigation">
 
-				<?php wp_nav_menu( array('theme_location' => 'primary', 'container' => false, 'menu_class' => 'nav navbar-nav navbar-right responsive-nav main-nav-list', 'fallback_cb'     => 'zerif_wp_page_menu')); ?>
+<!--				--><?php //wp_nav_menu( array('theme_location' => 'primary', 'container' => false, 'menu_class' => 'nav navbar-nav navbar-right responsive-nav main-nav-list', 'fallback_cb'     => 'zerif_wp_page_menu')); ?>
 
 			</nav>
 
