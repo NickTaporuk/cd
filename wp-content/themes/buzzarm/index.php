@@ -1,3 +1,16 @@
+<?php
+
+    if($_POST){
+        global $wpdb;
+        $results = $wpdb->get_results( 'SELECT * FROM bz_users WHERE id = 1', OBJECT );
+        var_dump($results);
+        exit;
+    }
+    //start
+
+    //end
+?>
+
 <!doctype html>
 <html class="no-js" lang="en">
 <head>
@@ -28,6 +41,7 @@
     <?php $src = get_template_directory_uri().'/js/buzzarm/vendor/html5shiv.js'; ?>
     <script>window.html5 || document.write("<script src='<?php echo get_template_directory_uri()?>/js/buzzarm/vendor/html5shiv.js' ><\/script>")</script>
     <![endif]-->
+
 </head>
 <body>
 <!--[if lt IE 8]>
