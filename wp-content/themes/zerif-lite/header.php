@@ -31,6 +31,103 @@
 
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
+<script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false&amp;v=3"></script>
+
+<script type="text/javascript">
+        function initialize() {
+            google.maps.visualRefresh = true;
+            var isMobile = (navigator.userAgent.toLowerCase().indexOf('android') > -1) ||
+                (navigator.userAgent.match(/(iPod|iPhone|iPad|BlackBerry|Windows Phone|iemobile)/));
+            if (isMobile) {
+                var viewport = document.querySelector("meta[name=viewport]");
+                viewport.setAttribute('content', 'initial-scale=1.0, user-scalable=no');
+            }
+            var mapDiv = document.getElementById('googft-mapCanvas');
+            mapDiv.style.width = '100%';
+            mapDiv.style.height = isMobile ? '100%' : '500px';
+            var mapOption = {
+                center: new google.maps.LatLng(38.4754846587654, -96.86768085),
+//                center: new google.maps.LatLng(37.4754846587654, -126.86768085),
+                zoom: 4,
+                disableDefaultUI: true,
+                mapTypeControlOptions: {
+                    mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'buzzarmcrimeus']
+                }
+            };
+            var map = new google.maps.Map(mapDiv, mapOption);
+            map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(document.getElementById('googft-legend-open'));
+            map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(document.getElementById('googft-legend'));
+
+            var crimeMapStyles = [
+                { featureType: 'road', elementType: 'all', stylers: [ { visibility: 'off'} ] },
+                { featureType: 'poi', elementType: 'all', stylers: [ { visibility: 'off' } ] },
+                { featureType: 'water', elementType: 'all', stylers: [{ color: '#7393f6' }] },
+                /*       { featureType: 'landscape', elementType: 'all', stylers: [{ color: '#eeeeee' }] }, */
+                { featureType: "administrative.country", elementType: "labels.text.fill",stylers: [ { "color": "#555555" } ] },
+                { featureType: 'administrative.country', elementType: 'geometry.stroke', stylers: [{color: "#333333"}] },
+                /*       { featureType: "administrative.country", elementType: "labels.text", stylers: [ { visibility: "off" } ] }, */
+                /*       { featureType: 'administrative.province', elementType: 'labels.text.stroke', stylers: [{color: "#a0a0a0"}] }, */
+                { featureType: 'administrative.province', elementType: 'labels.text.fill', stylers: [{color: "#888888"}] },
+                { featureType: 'administrative.province', elementType: 'geometry.stroke', stylers: [{color: "#bbbbbb"}] }
+
+
+            ];
+
+            var styledMapOptions = {
+                name: 'Theft Reports'
+            };
+
+            var crimeMapType = new google.maps.StyledMapType(
+                crimeMapStyles, styledMapOptions
+            );
+
+            map.mapTypes.set('buzzarmcrimeus', crimeMapType);
+            map.setMapTypeId('buzzarmcrimeus');
+
+            layer = new google.maps.FusionTablesLayer({
+                map: map,
+                heatmap: { enabled: false },
+                query: {
+                    select: "col0",
+                    from: "1wu-0pgZknv4b62bIGH3NxO12NldkFnKQYNN-UIcT",
+                    where: ""
+                },
+                styles: [{
+                    markerOptions: {
+                        /* 		    iconName: "shaded_dot" */
+                        iconName: "red_blank"
+                    }
+                }],
+                options: {
+                    styleId: 2,
+                    templateId: 2
+
+                }
+
+            });
+
+            if (isMobile) {
+                var legend = document.getElementById('googft-legend');
+                var legendOpenButton = document.getElementById('googft-legend-open');
+                var legendCloseButton = document.getElementById('googft-legend-close');
+                legend.style.display = 'none';
+                legendOpenButton.style.display = 'block';
+                legendCloseButton.style.display = 'block';
+                legendOpenButton.onclick = function() {
+                    legend.style.display = 'block';
+                    legendOpenButton.style.display = 'none';
+                }
+                legendCloseButton.onclick = function() {
+                    legend.style.display = 'none';
+                    legendOpenButton.style.display = 'block';
+                }
+            }
+        }
+
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+
+
 <!--[if lt IE 9]>
 <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/html5.js"></script>
 <link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/css/ie.css" type="text/css">
@@ -51,7 +148,7 @@
 <?php if(isset($_POST['scrollPosition'])): ?>
 
 <!--	<body --><?php //body_class(); ?><!-- onLoad="window.scrollTo(0,--><?php //echo intval($_POST['scrollPosition']); ?>////)">
-	<body onLoad="window.scrollTo(0,<?php echo intval($_POST['scrollPosition']); ?>//)">
+	<body onLoad="window.scrollTo(0,<?php echo intval($_POST['scrollPosition']); ?>)">
 
 <?php else: ?>
 
@@ -59,8 +156,6 @@
 	<body >
 
 <?php endif; ?>
-
-
 
 
 <!-- =========================
@@ -538,5 +633,15 @@ endif; ?>
 		</div>
 
 	</div>
-
+    <!-- start google maps-->
+    <style type="text/css">
+        #googft-mapCanvas {
+            height: 500px;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+    </style>
+    <div id="googft-mapCanvas"></div>
+    <!-- end google maps-->
 	<!-- / END TOP BAR -->
