@@ -44,11 +44,12 @@
             }
             var mapDiv = document.getElementById('googft-mapCanvas');
             mapDiv.style.width = '100%';
-            mapDiv.style.height = isMobile ? '100%' : '500px';
+            mapDiv.style.height = isMobile ? '250px' : '500px';
+            var zoom = isMobile ? 3 : 4;
             var mapOption = {
                 center: new google.maps.LatLng(40.4754846587654, -96.86768085),
 //                center: new google.maps.LatLng(37.4754846587654, -126.86768085),
-                zoom: 4,
+                zoom: zoom,
                 disableDefaultUI: true,
                 mapTypeControlOptions: {
                     mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'buzzarmcrimeus']
@@ -106,7 +107,7 @@
 
             });
 
-            if (isMobile) {
+            /*if (isMobile) {
                 var legend = document.getElementById('googft-legend');
                 var legendOpenButton = document.getElementById('googft-legend-open');
                 var legendCloseButton = document.getElementById('googft-legend-close');
@@ -121,7 +122,7 @@
                     legend.style.display = 'none';
                     legendOpenButton.style.display = 'block';
                 };
-            }
+            }*/
         }
 
         google.maps.event.addDomListener(window, 'load', initialize);
@@ -139,6 +140,12 @@
             fill: #00308F;
             width: 165px;
             height: 60px;
+        }
+        #googft-mapCanvas {
+            height: 500px;
+            margin: 0;
+            padding: 0;
+            width: 100%;
         }
     </style>
 </head>
@@ -624,24 +631,17 @@ endif; ?>
 
 			</div>
 
-			<nav class="navbar-collapse bs-navbar-collapse collapse" role="navigation"   id="site-navigation">
+			<!--<nav class="navbar-collapse bs-navbar-collapse collapse" role="navigation"   id="site-navigation">
 
-<!--				--><?php //wp_nav_menu( array('theme_location' => 'primary', 'container' => false, 'menu_class' => 'nav navbar-nav navbar-right responsive-nav main-nav-list', 'fallback_cb'     => 'zerif_wp_page_menu')); ?>
+				<?php /*wp_nav_menu( array('theme_location' => 'primary', 'container' => false, 'menu_class' => 'nav navbar-nav navbar-right responsive-nav main-nav-list', 'fallback_cb'     => 'zerif_wp_page_menu')); */?>
 
-			</nav>
+			</nav>-->
 
 		</div>
 
 	</div>
     <!-- start google maps-->
-    <style type="text/css">
-        #googft-mapCanvas {
-            height: 500px;
-            margin: 0;
-            padding: 0;
-            width: 100%;
-        }
-    </style>
+
     <div id="googft-mapCanvas"></div>
     <!-- end google maps-->
 	<!-- / END TOP BAR -->
