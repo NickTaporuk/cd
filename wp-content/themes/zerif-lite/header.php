@@ -46,7 +46,7 @@
             mapDiv.style.width = '100%';
             mapDiv.style.height = isMobile ? '100%' : '500px';
             var mapOption = {
-                center: new google.maps.LatLng(38.4754846587654, -96.86768085),
+                center: new google.maps.LatLng(40.4754846587654, -96.86768085),
 //                center: new google.maps.LatLng(37.4754846587654, -126.86768085),
                 zoom: 4,
                 disableDefaultUI: true,
@@ -116,11 +116,11 @@
                 legendOpenButton.onclick = function() {
                     legend.style.display = 'block';
                     legendOpenButton.style.display = 'none';
-                }
+                };
                 legendCloseButton.onclick = function() {
                     legend.style.display = 'none';
                     legendOpenButton.style.display = 'block';
-                }
+                };
             }
         }
 
