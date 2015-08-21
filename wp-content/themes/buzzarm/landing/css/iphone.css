@@ -1,0 +1,531 @@
+/* ----------- iPhone 4 and 4S ----------- */
+
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+
+
+/*  
+
+	main-section 
+	
+*/
+
+	#main-section {
+		padding-top: 10px;
+		height: auto !important;
+	}
+	.main-header {
+		position: relative;
+	}
+	#main-nav {
+		display: none;
+	}
+	.scroll-icon {
+		display: none;
+	}
+	.right-list {
+		position: relative;
+		top: 0;
+		right: 0;
+	}
+	.l-container {
+		font-size: 1rem;
+	}
+	.jumbo-content p.wow {
+		padding-left: 3vw;
+		padding-right: 3vw;
+		line-height: 25px;
+		margin-bottom: 25
+	}
+	.jumbo-content p.wow br {
+		clear: none;
+		display: none;
+	}
+	.main-logo {
+		margin-left: 10px;
+	}
+	.mumbo-jumbo {
+		width: 100%;
+	}
+	.mumbo-jumbo .jumbo-content {
+		margin-bottom: 30px;
+	}
+	.learn-more {
+		position: static;
+		bottom: auto;
+		left: auto;
+	}
+	.learn-more__launch {
+		bottom: auto;
+		position: static;
+		margin-left: auto;
+	}
+	.learn-more__launch span {
+		display: block;
+		clear: both;
+	}
+	.learn-more__launch i {
+		margin: 8px auto;
+	}
+	h1 {
+		font-size: 1.7rem;
+	}
+	h2, h3 {
+		font-size: 1.4rem;
+		text-align: center;
+	}
+	.section-title {
+		padding-left: 3vw;
+		padding-right: 3vw;
+	}
+	#about-section {
+		padding-top: 40px;
+	}
+	#about-section .section-title {
+		margin-bottom: 35px;
+	}
+	#about-section .section-title p {
+		line-height: 25px;
+	}
+	#about-section .section-title p br {
+		display: none;
+	}
+	#pin-wallet {
+		height: auto;
+	}
+	.key-features p.title {
+		font-size: 1.2rem;	
+	}
+	.key-features .features-icon {
+		margin-bottom: 25px;
+	}
+	.key-features .touch, .key-features .battery {
+		float: none;
+	}
+	.key-features {
+		margin-bottom: 35px;
+		width: 80vw;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.touch p br, .signal p br, .battery p br {
+		display: none;
+	}
+
+	.card-features {
+		position: static;
+		display: inline-block;
+		margin-bottom: 130px;
+	}
+	
+	.lg-card {
+		width: 170px;
+		height: 102px;
+	}
+	
+	.lg-card .card-logo {
+		margin: 10px 20px 0px 0px;
+		position: relative;
+		top: 0;
+		right: 0;
+		
+	}
+	.lg-card .card-logo img {
+		width:  43px;
+		height: 8px;
+	}	
+	.card {
+		border-radius: 5px;
+	}
+	.card, .custom-card {
+		box-shadow:0 4px 10px 0 rgba(37,37,37,.3);
+	}
+	.card-elements {
+		position: relative;
+	}
+	.indicators {
+		position: relative;
+		left: 0;
+		top: 0;
+	}
+	.feature-icons {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+	}
+	.power-wrap, .signal-wrap, .battery-wrap {
+		position: absolute;
+		margin-top: -15px;
+		margin-bottom: 5px;
+	}
+	.icon-txt {
+		font-size: 0.7rem;
+		line-height: 10px;
+	}
+	.power-wrap {
+		left: -20px;
+		top: 50%;
+	}
+	.battery-wrap {
+		right: 50%;
+		top: 100%;
+		margin-right: -30px;
+	}
+	.signal-wrap {
+		right: -25px;
+		top: 50%;
+		width: 50px;
+	}
+	.signal-wrap .icon-txt {
+		display: inline-block;
+		height: 1em;
+		overflow-y: hidden;
+	}
+	.feature-icon-bg {
+		width: 30px;
+		height: 30px;
+		box-shadow: 0 2px 5px 0 rgba(21,21,21,.3);
+		margin-bottom: 1px;
+	}
+	.feature-icon-bg svg {
+		width: 16px;
+		height: 16px;
+		margin: 7px;
+	}
+	svg.power-icon {
+		width: 12px;
+		height: 12px;
+		margin: 9px;
+	}
+	.alarm-signal {
+		height: 100%;
+		width: 100%;
+		left: 0px;
+		top: 0px;
+		position: absolute;
+	}
+	.power-light {
+		position: relative;
+		top: 50%;
+		left: 20px;
+		width: 3px;
+		height: 3px;
+	}
+	.signals {
+		position: absolute;
+		top: 5%;
+		right: 5%;
+		bottom: 5%;
+		height: 90%;
+		width: 50%;
+	}
+	.signals span {
+		top:50%;
+		border: 3px solid #fff;
+	}
+	.signals .signal-1 {
+		width: 3px;
+		height: 3px;
+		margin-top:  -1.5px;
+		margin-left: -1.5px;
+	}
+	.signals .signal-2 {
+		width: 20px;
+		height: 20px;
+		margin-top:  -10px;
+		margin-left: -10px;
+	}
+	.signals .signal-3 {
+		width: 40px;
+		height: 40px;
+		margin-top:  -20px;
+		margin-left: -20px;
+	}
+	.signals .signal-4 {
+		width: 60px;
+		height: 60px;
+		margin-top:  -30px;
+		margin-left: -30px;
+	}
+	.signals .signal-5 {
+		width: 80px;
+		height: 80px;
+		margin-top:  -40px;
+		margin-left: -40px;
+	}
+
+	.battery-wrap, .power-wrap, .signal-wrap, .battery-wrap:after, .power-wrap:after, .signal-wrap:after, .battery-wrap:before, .power-wrap:before, .signal-wrap:before,
+	 .battery-wrap::after, .power-wrap::after, .signal-wrap::after, .battery-wrap::before, .power-wrap::before, .signal-wrap::before
+	  {
+		background: none;
+	}
+	
+	
+	.md-card {
+		width: 220px;
+		height: 162px;
+		float: none;
+		margin: 0px auto -130px auto;
+		position: relative;
+	}
+	.md-card .card-logo {
+		margin: 15px 25px 0 0;
+	}
+	.md-card .card-logo img {
+		width: 75px;
+		height: 15px;
+	}
+	.wallet {
+		width: 290px;
+		height: 230px;
+		position: relative;
+		top: 0px;
+		right: auto;
+		margin: auto;
+		z-index: 2;
+		opacity: 1;
+		background-size: cover;
+	}
+	.smart-slim {
+		float: none;
+		position: relative;
+		margin: -320px 5vw 20px 5vw;
+		top: 0px;
+		right: auto;
+		
+	}
+	
+	.right-inline, .left-inline {
+		float: none;
+		text-align: center;
+	}
+	
+	.smart-slim .left-inline h3 {
+		margin-bottom: 300px;
+	}
+
+	.right-inline p br, .left-inline p br {
+		display: none;
+	}
+
+	.travellers {
+		padding-left: 5vw;
+		padding-right: 5vw;
+	}
+	.travellers-img {
+		height: 260px;
+	}	
+	.travellers-img  img {
+		width: 300px;
+		height: 292px;
+	}
+	.travellers-txt {
+		position: relative;
+		margin: -290px 0 20px 0;
+	}
+	.travellers-txt__heading {
+		margin-bottom: 300px;
+	}
+	#map-section {
+		min-height: 250px;
+	}
+	
+	
+	#how-it-works {
+		min-height: 200px;
+		position: static;
+		width: 100vw;
+	}
+	.left-relative, .right-relative {
+		float: none;
+		position: relative;
+	}
+	.first-block {
+		min-height: 100px;
+	}
+	.first-block img {
+		width: 270px;
+	}
+	.steps {
+		text-align: left;
+		width: 85%;
+	}
+	.step div {
+		display: block;
+	}
+	.step div.step-number {
+		float: left;
+	}
+	.step-txt {
+		padding-left: 65px;
+	}
+	
+	#touch-wrap {
+		position: static;
+		margin: 0px auto;
+		width: 300px;
+	}
+	#arm-animate {
+		
+	}
+	.touch-alert {
+		min-height: inherit;
+		max-width: inherit;
+	}
+	.arm {
+		width: 75%;
+		height: 133px;
+		right: 0px;
+		top: 0px;
+		position: relative;
+	}
+	.fake-arm {
+		visibility: hidden;
+		height: 0;
+		width: 0;
+	}
+	.touch-txt {
+		float: none;
+	}
+	.sm-card {
+		width: 100px;
+		height: 70px;
+	}
+	.touch-card {
+		top:auto;
+		left: auto;
+	}
+	.sm-wallet {
+		width: 100px;
+		height: 70px;
+	}
+	.touch-wallet {
+		top:auto;
+		left: auto;
+	}
+	.touch-iphone {
+		background: url(../img/iphone-gold.png);
+		background-size: cover;
+		width: 83px;
+		height: 200px;
+		display: block;
+		position: relative;
+		top: 0px;
+		left: 0px;
+	}
+	.alert-svg {
+		width: 70px;
+		height: 120px;
+		margin-left: 20px;
+		margin-top: 42px;
+	}
+	img#armImg {
+		height: 200px;
+	}
+}
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) {
+
+}
+
+/* ----------- iPhone 5 and 5S ----------- */
+
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+
+}
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) {
+
+}
+
+/* ----------- iPhone 6 ----------- */
+
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) { 
+.l-container {
+	font-size: 1.2rem;
+}
+
+h1 {
+	font-size: 2.1rem;
+}
+
+.jumbo-content p.wow {
+	padding-left: 5vw;
+	padding-right: 5vw;
+
+}
+
+}
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) { 
+
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) { 
+
+}
+
+/* ----------- iPhone 6+ ----------- */
+
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) { 
+
+}
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 414px) 
+  and (max-device-width: 736px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: portrait) { 
+
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 414px) 
+  and (max-device-width: 736px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: landscape) { 
+
+}
