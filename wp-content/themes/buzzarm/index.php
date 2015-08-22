@@ -233,9 +233,9 @@
             <div class="right-list right-pin clearfix">
                 <ul id="pin-socials" class="clearfix">
                     <ul class="right-pin-socials clearfix">
-                        <li class="right-pin-socials__item"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li class="right-pin-socials__item"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li class="right-pin-socials__item"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li class="right-pin-socials__item"><a href="https://facebook.com/buzzarmcard" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                        <li class="right-pin-socials__item"><a href="https://twitter.com/buzzarmcard" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                        <li class="right-pin-socials__item"><a href="#" target="_blank"><i class="fa fa-linkedin"></i></a></li>
                     </ul>
                     <li class="pin-opener">
                         <a id="pin-toggle" class="btn-green" href="#">
@@ -281,9 +281,9 @@
                         </a>
                     </li> -->
                     <ul class="right-list-socials">
-                        <li class="right-list-socials__item"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li class="right-list-socials__item"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li class="right-list-socials__item"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li class="right-list-socials__item"><a href="https://facebook.com/buzzarmcard" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                        <li class="right-list-socials__item"><a href="https://twitter.com/buzzarmcard" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                        <li class="right-list-socials__item"><a href="#" target="_blank"><i class="fa fa-linkedin"></i></a></li>
                     </ul>
                     <li>
                         <a href="#" id="nav-toggle" class="lines-button arrow arrow-left" type="button" role="button" aria-label="Toggle Navigation">
@@ -643,7 +643,7 @@
                         <p>
                             <b>Loss Protection</b> – Buzzarm will notify your smartphone
                             <br>
-                            Bwhen the distance between you and your device
+                            when the distance between you and your device
                             <br>
                             is greater than a specified range.
                         </p>
@@ -776,14 +776,14 @@
             <div class="right-inline apple-watch-txt wow fadeInRightSmall">
                 <h3 class="watch-txt__heading">
                     Avoid false-alarms <br>
-                    using <span class="rotate-arena watch-rotate"><span data-rotate="#watch-rotate">Apple Watch</span></span>
+                    using <span class="rotate-arena watch-rotate"><span data-rotate="#watch-rotate">smart watch</span></span>
                 </h3>
                 <ul id="watch-rotate" class="rotate" data-rotate-interval="1000" data-rotate-animate="fadeInDown,fadeOutDown">
                     <li>Apple Touch</li>
                     <li>f*ck so much</li>
                 </ul>
                 <p class="watch-txt__paragraph">
-                    Using Apple Watch, Buzzarm senses the device owner
+                    Using smart watch, Buzzarm senses the device owner
                     <br>
                     to prevent an alarm.
                 </p>
@@ -1000,9 +1000,9 @@
                     <p class="name">Pochtar Vitaly</p>
                     <p class="position">CEO</p>
                     <div class="person-socials">
-                        <div class="social-wrap"><a href="#"><i class="fa fa-facebook"></i></a></div>
-                        <div class="social-wrap"><a href="#"><i class="fa fa-twitter"></i></a></div>
-                        <div class="social-wrap"><a href="#"><i class="fa fa-linkedin"></i></a></div>
+                        <div class="social-wrap"><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></div>
+                        <div class="social-wrap"><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></div>
+                        <div class="social-wrap"><a href="#" target="_blank"><i class="fa fa-linkedin"></i></a></div>
                     </div>
                 </div>
                 <div class="person">
@@ -1012,9 +1012,9 @@
                     <p class="name">Nikolay Melnick</p>
                     <p class="position">CTO / iOS developer</p>
                     <div class="person-socials">
-                        <div class="social-wrap"><a href="#"><i class="fa fa-facebook"></i></a></div>
-                        <div class="social-wrap"><a href="#"><i class="fa fa-twitter"></i></a></div>
-                        <div class="social-wrap"><a href="#"><i class="fa fa-linkedin"></i></a></div>
+                        <div class="social-wrap"><a href="https://www.facebook.com/nick.melnick" target="_blank"><i class="fa fa-facebook"></i></a></div>
+                        <!--<div class="social-wrap"><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></div>-->
+                        <div class="social-wrap"><a href="https://ua.linkedin.com/in/nickmelnick" target="_blank"><i class="fa fa-linkedin"></i></a></div>
                     </div>
                 </div>
                 <div class="person">
@@ -1024,9 +1024,9 @@
                     <p class="name">Aleksey Smyk</p>
                     <p class="position">COO</p>
                     <div class="person-socials">
-                        <div class="social-wrap"><a href="#"><i class="fa fa-facebook"></i></a></div>
-                        <div class="social-wrap"><a href="#"><i class="fa fa-twitter"></i></a></div>
-                        <div class="social-wrap"><a href="#"><i class="fa fa-linkedin"></i></a></div>
+                        <div class="social-wrap"><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></div>
+                        <div class="social-wrap"><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></div>
+                        <div class="social-wrap"><a href="#" target="_blank"><i class="fa fa-linkedin"></i></a></div>
                     </div>
                 </div>
                 <div class="person">
@@ -1036,9 +1036,9 @@
                     <p class="name">Alexandr Pimakov</p>
                     <p class="position">Lead engineer</p>
                     <div class="person-socials">
-                        <div class="social-wrap"><a href="#"><i class="fa fa-facebook"></i></a></div>
-                        <div class="social-wrap"><a href="#"><i class="fa fa-twitter"></i></a></div>
-                        <div class="social-wrap"><a href="#"><i class="fa fa-linkedin"></i></a></div>
+                        <div class="social-wrap"><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></div>
+                        <div class="social-wrap"><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></div>
+                        <div class="social-wrap"><a href="#" target="_blank"><i class="fa fa-linkedin"></i></a></div>
                     </div>
                 </div>
                 <div class="person">
@@ -1048,9 +1048,9 @@
                     <p class="name">Maksim Konchakovskiy</p>
                     <p class="position">Android developer</p>
                     <div class="person-socials">
-                        <div class="social-wrap"><a href="#"><i class="fa fa-facebook"></i></a></div>
-                        <div class="social-wrap"><a href="#"><i class="fa fa-twitter"></i></a></div>
-                        <div class="social-wrap"><a href="#"><i class="fa fa-linkedin"></i></a></div>
+                        <div class="social-wrap"><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></div>
+                        <div class="social-wrap"><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></div>
+                        <div class="social-wrap"><a href="#" target="_blank"><i class="fa fa-linkedin"></i></a></div>
                     </div>
                 </div>
             </div><!-- end of row -->
@@ -1063,9 +1063,9 @@
                     <p class="name">Anton Parhomenko</p>
                     <p class="position">Software engineer</p>
                     <div class="person-socials">
-                        <div class="social-wrap"><a href="#"><i class="fa fa-facebook"></i></a></div>
-                        <div class="social-wrap"><a href="#"><i class="fa fa-twitter"></i></a></div>
-                        <div class="social-wrap"><a href="#"><i class="fa fa-linkedin"></i></a></div>
+                        <div class="social-wrap"><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></div>
+                        <div class="social-wrap"><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></div>
+                        <div class="social-wrap"><a href="#" target="_blank"><i class="fa fa-linkedin"></i></a></div>
                     </div>
                 </div>
                 <div class="person">
@@ -1075,9 +1075,9 @@
                     <p class="name">Artem Palamarchuk</p>
                     <p class="position">Designer</p>
                     <div class="person-socials">
-                        <div class="social-wrap"><a href="#"><i class="fa fa-facebook"></i></a></div>
-                        <div class="social-wrap"><a href="#"><i class="fa fa-twitter"></i></a></div>
-                        <div class="social-wrap"><a href="#"><i class="fa fa-linkedin"></i></a></div>
+                        <div class="social-wrap"><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></div>
+                        <div class="social-wrap"><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></div>
+                        <div class="social-wrap"><a href="#" target="_blank"><i class="fa fa-linkedin"></i></a></div>
                     </div>
                 </div>
                 <div class="person">
@@ -1087,9 +1087,9 @@
                     <p class="name">Vlad Volochay</p>
                     <p class="position">Creative Director</p>
                     <div class="person-socials">
-                        <div class="social-wrap"><a href="#"><i class="fa fa-facebook"></i></a></div>
-                        <div class="social-wrap"><a href="#"><i class="fa fa-twitter"></i></a></div>
-                        <div class="social-wrap"><a href="#"><i class="fa fa-linkedin"></i></a></div>
+                        <div class="social-wrap"><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></div>
+                        <div class="social-wrap"><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></div>
+                        <div class="social-wrap"><a href="#" target="_blank"><i class="fa fa-linkedin"></i></a></div>
                     </div>
                 </div>
                 <div class="person">
@@ -1099,9 +1099,9 @@
                     <p class="name">Vadim Sapovskiy</p>
                     <p class="position">Web Developer</p>
                     <div class="person-socials">
-                        <div class="social-wrap"><a href="#"><i class="fa fa-facebook"></i></a></div>
-                        <div class="social-wrap"><a href="#"><i class="fa fa-twitter"></i></a></div>
-                        <div class="social-wrap"><a href="#"><i class="fa fa-linkedin"></i></a></div>
+                        <div class="social-wrap"><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></div>
+                        <div class="social-wrap"><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></div>
+                        <div class="social-wrap"><a href="#" target="_blank"><i class="fa fa-linkedin"></i></a></div>
                     </div>
                 </div>
                 <div class="person">
@@ -1111,9 +1111,9 @@
                     <p class="name">Artur Mockobili</p>
                     <p class="position">Marketer</p>
                     <div class="person-socials">
-                        <div class="social-wrap"><a href="#"><i class="fa fa-facebook"></i></a></div>
-                        <div class="social-wrap"><a href="#"><i class="fa fa-twitter"></i></a></div>
-                        <div class="social-wrap"><a href="#"><i class="fa fa-linkedin"></i></a></div>
+                        <div class="social-wrap"><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></div>
+                        <div class="social-wrap"><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></div>
+                        <div class="social-wrap"><a href="#" target="_blank"><i class="fa fa-linkedin"></i></a></div>
                     </div>
                 </div>
             </div><!-- end of row -->
@@ -1206,9 +1206,9 @@
     <div class="l-container">
         <div class="foo-col foo-col__item-1">
             <div class="footer-socials">
-                <a href="#"><i class="fa fa-facebook"></i></a>
-                <a href="#"><i class="fa fa-twitter"></i></a>
-                <a href="#"><i class="fa fa-linkedin"></i></a>
+                <a href="https://facebook.com/buzzarmcard" target="_blank"><i class="fa fa-facebook"></i></a>
+                <a href="https://twitter.com/buzzarmcard" target="_blank"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-linkedin" target="_blank"></i></a>
             </div>
 
         </div>
@@ -1299,14 +1299,30 @@
                 <p class="dialog__heading left-inline">Quantity:</p>
                 <div class="right-inline">
                     <div class="count-multiply">
-                        <form id="popup-count__first">
+                        <!--<form id="popup-count__first">
                             <input type="" min="1" max="1000" class="dialog__input-text count-multiply__input">
-                        </form>
-                    </div>
+                        </form>-->
+
+                        <div class="counter btn dialog__input-group">
+                            <div class="input-group">
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn-b btn-danger btn-number btn-minus dialog__btn-minus" data-type="minus" data-field="quant[2]">
+                                        <i class="fa fa-minus"></i>
+                                    </button>
+                                </span>
+                                <input type="text" name="quant[2]" class="form-control dialog__input-number" value="1" min="1" max="100">
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn-b btn-danger btn-number btn-plus dialog__btn-plus" data-type="plus" data-field="quant[2]">
+                                        <i class="fa fa-plus"></i>
+                                    </button>
+                                </span>
+                            </div>
+                        </div><!--/.dialog__input-group-->
+                    </div> <!--/.count-multiply-->
                     <span class="count__multiplier">x</span>
 <!--                    <p class="count__price">$79</p>-->
                     <p class="count__price">$ <span id="count_price__int"></span></p>
-                </div>
+                </div><!--/.right-inline-->
             </div> <!-- /.dialog__count -->
             <hr>
             <div class="dialog__total clearfix">

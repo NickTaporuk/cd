@@ -154,21 +154,51 @@ i.dialog__color-checker {
 /* Quantity */
 .count-multiply {
 	display: inline-block;
+	vertical-align: middle;
 }
 .count-multiply__input {
 	width: 80px;
-	
 }
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
   -webkit-appearance: none; 
   margin: 0; 
 }
+.dialog__input-group {
+	width: 135px;
+	line-height: 0;
+	background-color: rgba(235, 235, 235, 0.75);
+}
+.dialog__input-group:hover {
+	box-shadow: 0 3px 10px 0 rgba(21,21,21,.4);
+	transition: all .2s ease;
+}
+.dialog__input-number {
+	font-size: 1rem;
+	font-family: Muli,sans-serif;
+	font-weight: 400;
+	color: #5e5e5e;
+	border-right: 1px solid rgba(94,94,94,0.2);
+	border-left: 1px solid rgba(94,94,94,0.2);
+	padding: 0;
+}
+.dialog__btn-minus {
+	padding-right: 10px;
+	padding-left: 9px;
+	color: #777;
+}
+.dialog__btn-plus {
+	padding-left: 10px;
+	padding-right: 9px;
+	color: #777;
+}
 .count__multiplier {
 	margin: 0 15px;
+	color: #5e5e5e;
 }
 .count__price {
 	display: inline-block;
+	color: #5e5e5e;
 }
 /* Subtotal */
 .total__heading {
