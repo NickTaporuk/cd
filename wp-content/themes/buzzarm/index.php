@@ -970,15 +970,21 @@
         </h2>
 
         <div class="social-share">
-            <button class="btn share-btn fb-btn">
-                <a href="https://facebook.com/buzzarmcard" target="_blank"><i class="fa fa-facebook"></i></a>
-            </button>
-            <button class="btn share-btn tw-btn">
-                <a href="https://twitter.com/buzzarmcard" target="_blank"><i class="fa fa-twitter"></i></a>
-            </button>
-            <button class="btn share-btn li-btn">
-                <a href=""><i class="fa fa-linkedin"></i></a>
-            </button>
+            <a href="https://facebook.com/buzzarmcard" target="_blank" class="social-share__link">
+                <button class="btn share-btn fb-btn">
+                    <i class="fa fa-facebook"></i>
+                </button>
+            </a>
+            <a href="https://twitter.com/buzzarmcard" target="_blank" class="social-share__link">
+                <button class="btn share-btn tw-btn">
+                    <i class="fa fa-twitter"></i>
+                </button>
+            </a>
+            <a href="#" target="_blank" class="social-share__link">
+                <button class="btn share-btn li-btn">
+                    <i class="fa fa-linkedin"></i>
+                </button>
+            </a>
         </div>
     </div><!-- end of container in share the news -->
 </section><!-- end of share the news -->
