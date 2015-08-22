@@ -8,3 +8,8 @@
     margin-right: 15px;
     margin-left: 15px;
 }
+
+/***** Share the News ******/
+.sign-up__btn {
+    cursor: pointer;
+}
