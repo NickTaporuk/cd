@@ -971,13 +971,13 @@
 
         <div class="social-share">
             <button class="btn share-btn fb-btn">
-                <i class="fa fa-facebook"></i>
+                <a href="https://facebook.com/buzzarmcard" target="_blank"><i class="fa fa-facebook"></i></a>
             </button>
             <button class="btn share-btn tw-btn">
-                <i class="fa fa-twitter"></i>
+                <a href="https://twitter.com/buzzarmcard" target="_blank"><i class="fa fa-twitter"></i></a>
             </button>
             <button class="btn share-btn li-btn">
-                <i class="fa fa-linkedin"></i>
+                <a href=""><i class="fa fa-linkedin"></i></a>
             </button>
         </div>
     </div><!-- end of container in share the news -->
@@ -1174,7 +1174,7 @@
             </div>
             <div class="contacts-item phone-number left-inline">
                 <i class="contacts-item__icon fa fa-phone"></i>
-                <p>+125 76 377 201</p>
+                <p>+1 (574) 208-1934</p>
             </div>
         </div>
     </div><!-- end of container in contacts -->
