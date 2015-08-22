@@ -54,6 +54,7 @@
     <!-- CUSTOM STYLES -->
     <!-- <link rel="stylesheet" href="css/normalize.min.css"> -->
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.min.css">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/add-style.css">
     <!-- DIALOG WINDOW -->
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/dialog.css" />
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/dialog-sally.css" />

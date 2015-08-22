@@ -109,6 +109,21 @@ a.action:hover {
 .dialog__bewel-item:last-child {
 	margin-right: 0;
 }
+.dialog__bewel-item.selected {
+	box-shadow: none;
+}
+.dialog__bewel-item.selected .dialog__color-item {
+	width: 30px;
+	height: 30px;
+	margin-top: -5px;
+	margin-left: -5px;
+}
+.dialog__bewel-item.selected i.dialog__color-checker {
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	display: block;
+}
 .dialog__color-item {
 	width: 21px;
 	height: 21px;
@@ -116,11 +131,11 @@ a.action:hover {
     cursor: pointer;
     position: relative;
 }
-.dialog__bewel-item.selected i.color-checker {
+/*.dialog__bewel-item.selected i.color-checker {
 	width: 36px;
 	height: 36px;
 	line-height: 36px;
-}
+}*/
 input[name="dialog__color-checker"] {
 	width: 21px;
 	height: 21px;
