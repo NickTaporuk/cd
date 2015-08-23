@@ -357,17 +357,28 @@ $('body').flowtype({
     };
 
     /** **/
-    pre_order.openPopupEvent = function(popupNameButton){
+    pre_order.openPopupEvent = function(popupNameButton,formColor,parentEl,count){
         $(popupNameButton).on('click',function(){
-
+            //select color
+            //console.log('pre_order.color.default:');
+            $(parentEl).removeClass('selected');
+            console.log($(formColor+' .'+pre_order.color.default).closest(parentEl).addClass('selected'));
         });
     };
-
+    /** **/
+    pre_order.selectColorPopupEvent = function(popupNameButton,formColor,parentEl,count){
+        $(popupNameButton).on('click',function(){
+            //select color
+            //console.log('pre_order.color.default:');
+            $(parentEl).removeClass('selected');
+            console.log($(formColor+' .'+pre_order.color.default).closest(parentEl).addClass('selected'));
+        });
+    };
     //debug
-    console.debug(pre_order.openPopupEvent('.btn-pre-order'));
     console.debug(pre_order.setColor('[name="color-checker"]'));
     console.debug(pre_order.setMinusCount('.btn-minus','.input-number'));
     console.debug(pre_order.setPlusCount('.btn-plus','.input-number'));
+    console.debug(pre_order.openPopupEvent('.btn-pre-order','#color-checkers__form','.dialog__bewel-item',pre_order.count));
     //==================================================================================
     //      Pre_order form END
     //==================================================================================

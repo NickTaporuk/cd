@@ -1267,7 +1267,7 @@
                     Colour for <span class="heading-uppercase">Buzzarm</span> card
                 </p>
                 <div class="dialog__color-checkers">
-                    <form action="">
+                    <form action="" id="color-checkers__form">
                         <div class="dialog__bewel-item">
                             <div class="silver dialog__color-item">
                                 <input name="dialog__color-checker" value="silver" type="radio">
