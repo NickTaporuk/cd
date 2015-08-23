@@ -1,11 +1,13 @@
 <?php
 
-    /*if($_POST){
-        global $wpdb;
-        $results = $wpdb->get_results( 'SELECT * FROM bz_users WHERE id = 1', OBJECT );
-        var_dump($results);
-        exit;
-    }*/
+//    if($_GET){
+//        global $wpdb;
+//        $results = $wpdb->get_results( 'SELECT * FROM bz_users WHERE id = 1', OBJECT );
+//        var_dump($results);
+//        exit;
+//        var_dump($_POST);exit;
+//        echo json_encode('success');exit;
+//    }
     //start
 //    var_dump($_SERVER);exit;
     //end
@@ -1336,7 +1338,7 @@
                 </p>
             </div> <!-- /.dialog__total -->
             <div class="dialog__form">
-                <form action="<?php echo $_SERVER['HTTP_HOST']?>" >
+                <form action="/wp-admin/admin-ajax.php" method="post" id="pre-order__data">
                     <input type="text" class="dialog__input dialog__input-text holder-text" placeholder="Your Name" id="pre-order__name">
                     <input type="text" class="dialog__input dialog__input-text holder-text" placeholder="Your Email" id="pre-order__email">
                     <input type="submit" class="dialog__input dialog__submit btn btn-green" value="Confirm pre-order">

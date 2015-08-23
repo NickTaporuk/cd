@@ -410,10 +410,6 @@ $('body').flowtype({
     /** **/
     pre_order.selectColorPopupEvent = function(color,formColor,parentEl,formColorBind,parentElBind,customCard){
         // set click color popup
-        //console.log('formColorBind:',formColorBind);
-        //console.log('parentElBind:',parentElBind);
-        //console.log('parentEl:',parentEl);
-        //console.log('formColor+ +parentEl:',(formColor+' '+parentEl));
         this.setColor(color);
         $(formColor+' '+parentEl).on('click',function() {
 
@@ -426,22 +422,14 @@ $('body').flowtype({
              **/
             if(!!formColorBind && !!parentElBind && !!customCard) {
                 pre_order.initColor(pre_order.color.default,formColorBind,parentElBind,customCard);
-                //console.log('formColorBind1:',formColorBind);
-                //console.log('parentElBind11:',parentElBind);
-                //console.log('color:',pre_order.color.default);
-            }
-
-            else if(!!customCard){
+            } else if(!!customCard) {
                 pre_order.initColor(pre_order.color.default,false,false,customCard);
             }
         });
-
-
-
     };
 
     /** **/
-    pre_order.initColor = function(color,formColor,parentEl,customCard){
+    pre_order.initColor = function(color,formColor,parentEl,customCard) {
 
         if(!!formColor && !!parentEl && !!customCard) {
             $(parentEl).removeClass('selected');
@@ -456,29 +444,88 @@ $('body').flowtype({
     };
 
     /** **/
-    pre_order.submitPreOrder = function(name,formName,formEmail){
+    pre_order.submitPreOrder = function(name,formName,formEmail,formId){
         $(name).on('click',function(e){
             e.preventDefault();
             var nameFrm = $(formName),
-                emailFrm = $(formEmail);
-            console.log('emailFrm:',validate.rgxEmail(emailFrm.val()));
+                emailFrm = $(formEmail),
+                formUrl = $(formId).prop('action'),
+                formMethod = $(formId).prop('method');
+
+            //console.log('emailFrm:',validate.rgxEmail(emailFrm.val()));
             if(validate.rgxEmail(emailFrm.val())){
                 validate.errorNotVisible(emailFrm);
-
             } else {
                 validate.errorVisible(emailFrm);
             }
+
             //validate email
-            console.log('nameFrm:',validate.rgxText(nameFrm.val()));
+            //console.log('nameFrm:',validate.rgxText(nameFrm.val()));
             if(validate.rgxText(nameFrm.val())){
                 validate.errorNotVisible(nameFrm);
-
             } else {
                 validate.errorVisible(nameFrm);
             }
 
+            if(validate.rgxText(nameFrm.val()) && validate.rgxEmail(emailFrm.val())){
+                var formData = {
+                    "color": pre_order.color.default,
+                    "count": pre_order.count,
+                    "name" : nameFrm.val(),
+                    "email": emailFrm.val(),
+                    "action": 'getPrices'
+                };
+                //console.log('formUrl:',formUrl,' || formMethod:',formMethod,' || formData:',formData);
+                //Отправляем данные на сервер для проверки
+                $.ajax({
+                    url: formUrl,
+                    type: formMethod,
+                    data: formData,
+                    success:function(data){
+                        console.log("data", (data));
+                        //Устанавливаем переменные
+                        /*var responseData = jQuery.parseJSON(data),
+                            klass = '';*/
+
+                        //Состояния ответа
+                        /*switch(responseData.status){
+                            case 'error':
+                                klass = 'response-error';
+                                break;
+                            case 'success':
+                                klass = 'response-success';
+                                break;
+                        }*/
+
+                        //Показываем сообщение ответа
+                        /*responseMsg.fadeOut(200,function(){
+                            $(this).removeClass('response-waiting')
+                                .addClass(klass)
+                                .text(responseData.message)
+                                .fadeIn(200,function(){
+                                    //Устанавливаем таймаут для скрытия сообщения ответа
+                                    setTimeout(function(){
+                                        responseMsg.fadeOut(200,function(){
+                                            $(this).removeClass(klass);
+                                            form.data('formstatus','idle');
+                                        });
+                                    },3000)
+                                });
+                        });*/
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        //alert(xhr.status);
+                        //alert(thrownError);
+                        //alert("Error");
+                        //console.log("Error");
+                        //console.log(xhr);
+                    }
+
+                });
+            }
         });
     };
+
     //debug
     //pre_order.quantity = 12214;
     //pre_order.price = 12214;
@@ -491,7 +538,7 @@ $('body').flowtype({
     console.debug(pre_order.openPopupEvent('.btn-pre-order','#color-checkers__form','.dialog__bewel-item','.count-multiply__input','#count_price__int','#dialog__total-sum'));
     console.debug(pre_order.selectColorPopupEvent('[name="dialog__color-checker"]','#color-checkers__form','.dialog__bewel-item','#pre_order__color','.bewel-item','.custom-card'));
     console.debug(pre_order.selectColorPopupEvent('[name="color-checker"]','#pre_order__color','.bewel-item',false,false,'.custom-card'));
-    console.debug(pre_order.submitPreOrder('.dialog__submit','#pre-order__name','#pre-order__email'));
+    console.debug(pre_order.submitPreOrder('.dialog__submit','#pre-order__name','#pre-order__email','#pre-order__data'));
     //==================================================================================
     //      Pre_order form END
     //==================================================================================
@@ -505,15 +552,18 @@ $('body').flowtype({
     validate.regularEmail   = /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i;
     //
     validate.rgxText = function(str) {
-        return validate.regularText.test(str);
+        return (str.length>0) ? validate.regularText.test(str) : false;
     };
     //
     validate.rgxEmail = function(str) {
-        return validate.regularEmail.test(str);
+        console.log('str.length:',str.length,'--:validate.regularEmail.test(str)',validate.regularEmail.test(str));
+        return (str.length > 0) ? validate.regularEmail.test(str) : false;
     };
+
     validate.errorVisible = function (cls) {
         cls.addClass('error');
     };
+
     validate.errorNotVisible = function (cls) {
         cls.removeClass('error');
     };
