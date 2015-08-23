@@ -362,6 +362,9 @@ $('body').flowtype({
 
         });
     };
+
+    //debug
+    console.debug(pre_order.openPopupEvent('.btn-pre-order'));
     console.debug(pre_order.setColor('[name="color-checker"]'));
     console.debug(pre_order.setMinusCount('.btn-minus','.input-number'));
     console.debug(pre_order.setPlusCount('.btn-plus','.input-number'));
@@ -369,11 +372,31 @@ $('body').flowtype({
     //      Pre_order form END
     //==================================================================================
 
+
+    //==================================================================================
+    //      Validator form START
+    //==================================================================================
+
     //==================================================================================
     //      Validator form END
     //==================================================================================
 
     //==================================================================================
-    //      Validator form END
+    //      Notefy Me form START
+    //==================================================================================
+        var notify_form = notify_form || {};
+        notify_form.email = '';
+        notify_form.emailClass = '#soon_input';
+        notify_form.subminBtnName = '.sign-up__btn';
+        notify_form.setEmail = function(clk,email){
+            $(clk).on('click',function(e) {
+                console.log('$(email).val():', $(email).val());
+            });
+            return false;
+        };
+    //debug Notefy Me
+    console.debug(notify_form.setEmail(notify_form.subminBtnName,notify_form.emailClass));
+    //==================================================================================
+    //      Notefy Me form END
     //==================================================================================
 
