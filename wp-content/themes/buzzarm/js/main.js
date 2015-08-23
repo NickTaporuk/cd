@@ -125,7 +125,7 @@ $('body').flowtype({
     }); // end of Scrolling Page 
 
 // Choose color
-	var checkerInput = $('input[name="color-checker"]');
+/*	var checkerInput = $('input[name="color-checker"]');
 	var bewelItem = $('.bewel-item');
 	var colorItem = $('.color-item');
 	var blueItem = $('#blue-checked');
@@ -153,7 +153,7 @@ $('body').flowtype({
 				customCard.css('backgroundImage', '').css('backgroundColor', '');
 			}
 		} 
-	});
+	});*/
 // End Choose color	
 
 // Placeholder
@@ -325,11 +325,20 @@ $('body').flowtype({
     //
     pre_order.cardColor = {
         "blue"  :   {
-
+            "background-image": "linear-gradient(0deg,#00308f 0,#5d89e1 100%)"
         },
-        "silver":   {},
-        "brown" :   {},
-        "black" :   {}
+        "silver":   {
+            "background-image": "none",
+            "background-color": "rgb(209, 209, 209)"
+        },
+        "brown" :   {
+            "background-image": "none",
+            "background-color": "rgb(79, 45, 18)"
+        },
+        "black" :   {
+            "background-image": "none",
+            "background-color": "rgb(15, 15, 15)"
+        }
     };
     // name
     pre_order.name = '';
@@ -399,7 +408,7 @@ $('body').flowtype({
     };
 
     /** **/
-    pre_order.selectColorPopupEvent = function(color,formColor,parentEl,formColorBind,parentElBind){
+    pre_order.selectColorPopupEvent = function(color,formColor,parentEl,formColorBind,parentElBind,customCard){
         // set click color popup
         //console.log('formColorBind:',formColorBind);
         //console.log('parentElBind:',parentElBind);
@@ -415,11 +424,15 @@ $('body').flowtype({
             /**
              * sorry guru javascript :)
              **/
-            if(!!formColorBind && !!parentElBind) {
-                pre_order.initColor(pre_order.color.default,formColorBind,parentElBind);
+            if(!!formColorBind && !!parentElBind && !!customCard) {
+                pre_order.initColor(pre_order.color.default,formColorBind,parentElBind,customCard);
                 //console.log('formColorBind1:',formColorBind);
                 //console.log('parentElBind11:',parentElBind);
-                console.log('color:',pre_order.color.default);
+                //console.log('color:',pre_order.color.default);
+            }
+
+            else if(!!customCard){
+                pre_order.initColor(pre_order.color.default,false,false,customCard);
             }
         });
 
@@ -428,9 +441,18 @@ $('body').flowtype({
     };
 
     /** **/
-    pre_order.initColor = function(color,formColor,parentEl){
-        $(parentEl).removeClass('selected');
-        $(formColor).find('.'+color).closest(parentEl).addClass('selected');
+    pre_order.initColor = function(color,formColor,parentEl,customCard){
+
+        if(!!formColor && !!parentEl && !!customCard) {
+            $(parentEl).removeClass('selected');
+            $(formColor).find('.' + color).closest(parentEl).addClass('selected');
+            $(customCard).css(pre_order.cardColor[color]);
+            console.log(pre_order.cardColor[color]);
+        } else if(!!customCard) {
+            $(customCard).css(pre_order.cardColor[color]);
+        } else {
+            $(formColor).find('.' + color).closest(parentEl).addClass('selected');
+        }
     };
     //debug
     //pre_order.quantity = 12214;
@@ -442,8 +464,8 @@ $('body').flowtype({
     console.debug(pre_order.setMinusCount('.btn-minus','.input-number'));
     console.debug(pre_order.setPlusCount('.btn-plus','.input-number'));
     console.debug(pre_order.openPopupEvent('.btn-pre-order','#color-checkers__form','.dialog__bewel-item','.count-multiply__input','#count_price__int','#dialog__total-sum'));
-    console.debug(pre_order.selectColorPopupEvent('[name="dialog__color-checker"]','#color-checkers__form','.dialog__bewel-item','#pre_order__color','.bewel-item'));
-    console.debug(pre_order.selectColorPopupEvent('[name="color-checker"]','#pre_order__color','.bewel-item'));
+    console.debug(pre_order.selectColorPopupEvent('[name="dialog__color-checker"]','#color-checkers__form','.dialog__bewel-item','#pre_order__color','.bewel-item','.custom-card'));
+    console.debug(pre_order.selectColorPopupEvent('[name="color-checker"]','#pre_order__color','.bewel-item',false,false,'.custom-card'));
     //==================================================================================
     //      Pre_order form END
     //==================================================================================
