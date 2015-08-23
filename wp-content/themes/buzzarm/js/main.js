@@ -459,11 +459,24 @@ $('body').flowtype({
     pre_order.submitPreOrder = function(name,formName,formEmail){
         $(name).on('click',function(e){
             e.preventDefault();
-            var nameFrm = $(formName).val(),
-                emailFrm = $(formEmail).val();
-            console.log('emailFrm:',validate.rgxEmail(emailFrm));
-            console.log('nameFrm:',validate.rgxText(nameFrm));
+            var nameFrm = $(formName),
+                emailFrm = $(formEmail);
+            console.log('emailFrm:',validate.rgxEmail(emailFrm.val()));
+            if(validate.rgxEmail(emailFrm.val())){
+                validate.errorNotVisible(emailFrm);
+
+            } else {
+                validate.errorVisible(emailFrm);
+            }
             //validate email
+            console.log('nameFrm:',validate.rgxText(nameFrm.val()));
+            if(validate.rgxText(nameFrm.val())){
+                validate.errorNotVisible(nameFrm);
+
+            } else {
+                validate.errorVisible(nameFrm);
+            }
+
         });
     };
     //debug
@@ -491,12 +504,18 @@ $('body').flowtype({
     validate.regularText    = /^[a-zA-Z]+$/;
     validate.regularEmail   = /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i;
     //
-    validate.rgxText = function(str){
+    validate.rgxText = function(str) {
         return validate.regularText.test(str);
     };
     //
-    validate.rgxEmail = function(str){
+    validate.rgxEmail = function(str) {
         return validate.regularEmail.test(str);
+    };
+    validate.errorVisible = function (cls) {
+        cls.addClass('error');
+    };
+    validate.errorNotVisible = function (cls) {
+        cls.removeClass('error');
     };
     //==================================================================================
     //      Validator form END
