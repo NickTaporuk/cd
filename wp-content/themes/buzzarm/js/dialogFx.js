@@ -40,13 +40,13 @@
 		return a;
 	}
 
-	function DialogFx( el, options ) {
+	function DialogFx( el, options ,flag) {
 		this.el = el;
 		this.options = extend( {}, this.options );
 		extend( this.options, options );
 		this.ctrlClose = this.el.querySelector( '[data-dialog-close]' );
 		this.isOpen = false;
-		this._initEvents();
+		this._initEvents(flag);
 	}
 
 	DialogFx.prototype.options = {
@@ -55,11 +55,15 @@
 		onCloseDialog : function() { return false; }
 	}
 
-	DialogFx.prototype._initEvents = function() {
+	DialogFx.prototype._initEvents = function(flag) {
 		var self = this;
 
 		// close action
-		this.ctrlClose.addEventListener( 'click', this.toggle.bind(this) );
+		if(!!flag){
+			this.ctrlClose.addEventListener( 'click', this.close.bind(this) );
+		} else {
+			this.ctrlClose.addEventListener( 'click', this.toggle.bind(this) );
+		}
 
 		// esc key closes dialog
 		document.addEventListener( 'keydown', function( ev ) {
@@ -68,9 +72,13 @@
 				self.toggle();
 			}
 		} );
-
-		this.el.querySelector( '.dialog__overlay' ).addEventListener( 'click', this.toggle.bind(this) );
-	}
+		if(!!flag){
+			this.el.querySelector( '.dialog__overlay' ).addEventListener( 'click', this.close.bind(this) );
+		}
+		else {
+			this.el.querySelector( '.dialog__overlay' ).addEventListener( 'click', this.toggle.bind(this) );
+		}
+	};
 
 	DialogFx.prototype.toggle = function() {
 		var self = this;
@@ -94,6 +102,26 @@
 		this.isOpen = !this.isOpen;
 	};
 
+	DialogFx.prototype.close = function() {
+		classie.remove( this.el, 'dialog--open' );
+		classie.add( self.el, 'dialog--close' );
+
+		onEndAnimation( this.el.querySelector( '.dialog__content' ), function() {
+			classie.remove( self.el, 'dialog--close' );
+		} );
+
+		// callback on close
+		this.options.onCloseDialog( this );
+		this.isOpen = !this.isOpen;
+	};
+
+	DialogFx.prototype.open = function() {
+		classie.add( this.el, 'dialog--open' );
+
+		// callback on open
+		this.options.onOpenDialog( this );
+		this.isOpen = !this.isOpen;
+	};
 	// add to global namespace
 	window.DialogFx = DialogFx;
 

@@ -19,9 +19,10 @@ $('body').flowtype({
 	var dlgtrigger = document.querySelector( '[data-dialog]' ),
 		somedialog = document.getElementById( dlgtrigger.getAttribute( 'data-dialog' ) ),
 
-        dlg  = new DialogFx( somedialog );
+        dlg  = new DialogFx( somedialog ,{},true);
 
-	dlgtrigger.addEventListener( 'click', dlg.toggle.bind(dlg) );
+	dlgtrigger.addEventListener( 'click', dlg.open.bind(dlg) );
+	//dlgtrigger.addEventListener( 'click', dlg.close.bind(dlg) );
 // end Dialog
 
 // Dialog Video
@@ -198,7 +199,7 @@ $('body').flowtype({
     }
 
     // Form submit
-    $( "#contactForm" ).submit(function(event) {
+/*    $( "#contactForm" ).submit(function(event) {
     	event.preventDefault();
 		// Name 
 		var nameField = $("#contactName");
@@ -313,7 +314,7 @@ $('body').flowtype({
 		// Conditional trigger for submit
 	    if(sizeEmpty > 0) { return false } 
 	    return true;
-	}); // end submit
+	});*/ // end submit
 
 }); // end doc.ready
 
@@ -353,8 +354,10 @@ $('body').flowtype({
     pre_order.total ;
     // количество карточек
     pre_order.quantity = pre_order.quantity || pre_order.price;
+	//
+	pre_order.successPopup = ['#orderSuccess','.success-message__overlay','.success-message__contenet'];
 
-    pre_order.init = function(){
+    pre_order.init = function() {
 
     };
     /** **/
@@ -407,7 +410,7 @@ $('body').flowtype({
 
     /** **/
     pre_order.getQuantity = function(a,b) {
-        return a*b
+        return a*b ;
     };
 
     /** **/
@@ -446,10 +449,17 @@ $('body').flowtype({
         }
     };
 
+    /**
+     *
+     * **/
+    pre_order.resetData = function(){
+
+    };
     /** **/
     pre_order.submitPreOrder = function(name,formName,formEmail,formId){
         $(name).on('click',function(e){
             e.preventDefault();
+			e.stopPropagation();
             var nameFrm = $(formName),
                 emailFrm = $(formEmail),
                 formUrl = $(formId).prop('action'),
@@ -476,14 +486,9 @@ $('body').flowtype({
                     "count": pre_order.count,
                     "name" : nameFrm.val(),
                     "email": emailFrm.val(),
-                    "action": 'getPrices'
+                    "action": 'addNewPreOrder' // wp ajax variable
                 };
-                /*var dlgtrigger = document.querySelector( '[data-dialog]' ),
-                    somedialog = document.getElementById( dlgtrigger.getAttribute( 'data-dialog' ) ),
-                    dlg = new DialogFx( somedialog );*/
 
-                //dlg.isOpen = true;
-                //dlg.toggle.bind(dlg);
                 //$('[data-dialog--close]').trigger('click');
                 //console.log('formUrl:',formUrl,' || formMethod:',formMethod,' || formData:',formData);
                 //Отправляем данные на сервер для проверки
@@ -493,46 +498,24 @@ $('body').flowtype({
                     data: formData,
                     success:function(data){
                         var data = JSON.parse(data);
-                        document.dlg.toggle.bind(document.dlg);
-                        //console.log('dlg:',document.dlg.toggle.bind(document.dlg));
 
                         if(data.response == '1') {
                             console.log('data2',data);
 
-                            //$('.dialog__close .action').click();
+							succesPopup.open('#orderSuccess','.success-message__overlay','.success-message__contenet');
 
-                            //$('#dialog__pre-order').removeClass('dialog--open');
+							// init popup object add close event listener
+							var dlgtrigger = document.querySelector( '[data-dialog]' ),
+								somedialog = document.getElementById( dlgtrigger.getAttribute( 'data-dialog' ) ),
+								dlg = new DialogFx( somedialog,{},true );
+
+							dlg.close(dlg);
+
+							//
+							//succesPopup.open.apply(null,pre_order.successPopup);
 
                         }
-                        //Устанавливаем переменные
-                        /*var responseData = jQuery.parseJSON(data),
-                            klass = '';*/
 
-                        //Состояния ответа
-                        /*switch(responseData.status){
-                            case 'error':
-                                klass = 'response-error';
-                                break;
-                            case 'success':
-                                klass = 'response-success';
-                                break;
-                        }*/
-
-                        //Показываем сообщение ответа
-                        /*responseMsg.fadeOut(200,function(){
-                            $(this).removeClass('response-waiting')
-                                .addClass(klass)
-                                .text(responseData.message)
-                                .fadeIn(200,function(){
-                                    //Устанавливаем таймаут для скрытия сообщения ответа
-                                    setTimeout(function(){
-                                        responseMsg.fadeOut(200,function(){
-                                            $(this).removeClass(klass);
-                                            form.data('formstatus','idle');
-                                        });
-                                    },3000)
-                                });
-                        });*/
                     },
                     error: function (xhr, ajaxOptions, thrownError) {
                         //alert(xhr.status);
@@ -576,39 +559,253 @@ $('body').flowtype({
         return (str.length>0) ? validate.regularText.test(str) : false;
     };
     //
+    validate.rgxTextNotEmpty = function(str) {
+        return (str.length > 0) ? true : false;
+    };
+    //
     validate.rgxEmail = function(str) {
-        console.log('str.length:',str.length,'--:validate.regularEmail.test(str)',validate.regularEmail.test(str));
+        //console.log('str.length:',str.length,'--:validate.regularEmail.test(str)',validate.regularEmail.test(str));
         return (str.length > 0) ? validate.regularEmail.test(str) : false;
     };
 
-    validate.errorVisible = function (cls) {
+    validate.errorVisible = function (cls,textErrorClass,cssErrorClass) {
         cls.addClass('error');
+        if(!!textErrorClass){
+            $(textErrorClass).css(cssErrorClass);
+        }
     };
 
-    validate.errorNotVisible = function (cls) {
+    validate.errorNotVisible = function (cls,textErrorClass,cssErrorClass) {
         cls.removeClass('error');
+        if(!!textErrorClass){
+            $(textErrorClass).css(cssErrorClass);
+        }
     };
     //==================================================================================
     //      Validator form END
     //==================================================================================
 
     //==================================================================================
-    //      Notefy Me form START
+    //      Notify Me form START
     //==================================================================================
         var notify_form = notify_form || {};
-        notify_form.email = '';
-        notify_form.emailClass = '#soon_input';
-        notify_form.subminBtnName = '.sign-up__btn';
-        notify_form.setEmail = function(clk,email){
+        notify_form.email           = '';
+        notify_form.emailId      = '#soon_input';
+        notify_form.subminBtnName   = '.sign-up__btn';
+        notify_form.formId          = '#notify-me__form';
+        notify_form.errorInputId    = '#sign-up__messageExist';
+        notify_form.errorCssVisible    = {"display":"block"};
+        notify_form.errorCssNotVisible = {"display":"none"};
+        notify_form.checkEmailDb    = false ;
+        notify_form.notifySuccessIdPopup = "#notifySuccess";
+        notify_form.notifySuccessOverlayPopup    = ".success-message__overlay";
+        notify_form.notifySuccessContentPopup    = ".success-message__contenet";
+        /**
+         * init functional
+         * **/
+        notify_form.init = function(){
+            notify_form.setEmail(notify_form.subminBtnName,notify_form.emailId,notify_form.formId);
+        };
+
+        /** **/
+        notify_form.setEmail = function(clk,email,formId){
+
+            var formUrl = $(formId).prop('action'),
+                formMethod = $(formId).prop('method');
+
             $(clk).on('click',function(e) {
-                //console.log('$(email).val():', $(email).val());
+                e.preventDefault();
+                e.stopPropagation();
+                var mail = $(email);
+                //validation
+                if(validate.rgxEmail(mail.val())) {
+                    validate.errorNotVisible(mail);
+                    var formData = {
+                        "email" : mail.val(),
+                        "action": 'chackEmail'
+                    };
+                    //check whether there is a letter in the database
+                    //Отправляем данные на сервер для проверки
+                    $.ajax({
+                        url:    formUrl,
+                        type:   formMethod,
+                        data:   formData,
+                        //async: false,
+                        success:function(data){
+                            var data = JSON.parse(data);
+                            if(!!data.response) {
+                                notify_form.checkEmailDb = data.response;
+                                validate.errorVisible($(notify_form.emailId),notify_form.errorInputId,notify_form.errorCssVisible)
+                            } else {
+                                notify_form.checkEmailDb = false ;
+                                validate.errorNotVisible($(notify_form.emailId),notify_form.errorInputId,notify_form.errorCssNotVisible);
+                                succesPopup.open(notify_form.notifySuccessIdPopup,notify_form.notifySuccessOverlayPopup,notify_form.notifySuccessContentPopup);
+                                $(notify_form.emailId).val('');
+                            }
+
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+                            console.log("Error notify ajax request");
+                            console.log(xhr);
+                        }
+
+                    });
+
+                } else {
+                    validate.errorVisible(mail);
+                }
+                //if ok ajax
+                //else error
             });
 
             return false;
         };
+
+        /** **/
+        notify_form.init();
+
     //debug Notefy Me
-    console.debug(notify_form.setEmail(notify_form.subminBtnName,notify_form.emailClass));
+    //console.debug(notify_form.setEmail(notify_form.subminBtnName,notify_form.emailId));
     //==================================================================================
-    //      Notefy Me form END
+    //      Notify Me form END
     //==================================================================================
 
+	//==================================================================================
+	//      Success Popup form START
+	//==================================================================================
+		var succesPopup = succesPopup || {};
+		succesPopup.opacityVisible	= {"opacity":1 , "display": "block"};
+		succesPopup.opacityHidden	= {"opacity":0};
+		/**
+		 * open
+		 *
+		 * @name 			-
+		 * @overlayVisible	-
+		 * @contentVisible	-
+		 * **/
+		succesPopup.open = function(name,overlayVisible,contentVisible,timeout){
+			//console.log('name:',name);
+			//console.log('overlayVisible:',overlayVisible);
+			//console.log('contentVisible:',contentVisible);
+
+			if(!timeout) {
+				timeout = 2000 ;
+			}
+			//console.log('timeout:',timeout);
+			//console.log('succesPopup.opacityVisible:',succesPopup.opacityVisible);
+			//console.log('$(name overlayVisible):',$(name +' '+ overlayVisible));
+			$(name +' '+ overlayVisible).css(succesPopup.opacityVisible);
+			$(name +' '+ contentVisible).css(succesPopup.opacityVisible);
+
+			setTimeout(function(){
+                succesPopup.close(name,overlayVisible,contentVisible)
+            },timeout);
+		};
+
+		/**
+		 * close
+		 *
+		 * @name 			-
+		 * @overlayHidden	-
+		 * @contentHidden	-
+		 * **/
+		succesPopup.close = function(name,overlayHidden,contentHidden){
+			//$(name +' '+ overlayHidden).css(succesPopup.opacityHidden);
+			//$(name +' '+ contentHidden).css(succesPopup.opacityHidden);
+
+            $(name +' '+ overlayHidden).fadeOut("slow");
+			$(name +' '+ contentHidden).fadeOut("slow");
+		};
+	//==================================================================================
+	//      Success Popup form END
+	//==================================================================================
+
+    //==================================================================================
+    //      Callback form START
+    //==================================================================================
+    var callbackForm = callbackForm || {};
+
+    callbackForm.nameId     = '#contactName';
+    callbackForm.emailId    = '#contactEmail';
+    callbackForm.messageId  = '#contactMessage';
+    callbackForm.submitId   = '.btn-callback';
+    callbackForm.formId     = '#contactForm';
+    callbackForm.contactUsSuccessIdPopup     = '#contactUsSuccess';
+    callbackForm.contactUsSuccessOverley     = '.success-message__overlay';
+    callbackForm.contactUsSuccessContent     = '.success-message__contenet';
+    //init
+    callbackForm.init = function(){
+        callbackForm.submitted(callbackForm.submitId,callbackForm.nameId ,callbackForm.emailId, callbackForm.messageId,callbackForm.formId);
+    };
+
+    callbackForm.submitted = function(submitButtonId,nameId,emailId,messageId,formId){
+        $(submitButtonId).on('click',function(e){
+            e.preventDefault();
+            e.stopPropagation();
+            //validate
+            var name    = $(nameId),
+                email   = $(emailId),
+                message = $(messageId),
+                form    = $(formId);
+
+            if(validate.rgxText(name.val())){
+                validate.errorNotVisible(name);
+            } else {
+                validate.errorVisible(name);
+            }
+
+            if(validate.rgxTextNotEmpty(message.val())){
+                validate.errorNotVisible(message);
+            } else {
+                validate.errorVisible(message);
+            }
+
+            if(validate.rgxEmail(email.val())){
+                validate.errorNotVisible(email);
+            } else {
+                validate.errorVisible(email);
+            }
+
+            if(!!validate.rgxEmail(email.val()) && !!validate.rgxTextNotEmpty(message.val()) && !!validate.rgxEmail(email.val())){
+
+                var formData = {
+                    "action"    : "addNewCallbackMessage",
+                    "email"     : email.val(),
+                    "message"   : message.val(),
+                    "name"      : name.val()
+                    },
+                    formUrl = form.prop('action'),
+                    formMethod = form.prop('method');
+
+                    console.log('formUrl:',formUrl);
+                    console.log('formMethod:',formMethod);
+
+                $.ajax({
+                    url: formUrl,
+                    type: formMethod,
+                    data: formData,
+                    success:function(data){
+                        var data = JSON.parse(data);
+
+                        if(data.response == '1') {
+                            succesPopup.open(callbackForm.contactUsSuccessIdPopup,callbackForm.contactUsSuccessOverley,callbackForm.contactUsSuccessContentg);
+                        }
+
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        //alert(xhr.status);
+                        //alert(thrownError);
+                        //alert("Error");
+                        //console.log("Error");
+                        //console.log(xhr);
+                    }
+
+                });
+            }
+        });
+    };
+
+    callbackForm.init();
+    //==================================================================================
+    //      Callback form END
+    //==================================================================================

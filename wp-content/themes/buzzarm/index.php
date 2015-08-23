@@ -746,8 +746,8 @@
                     using <span class="rotate-arena watch-rotate"><span data-rotate="#watch-rotate">smart watch</span></span>
                 </h3>
                 <ul id="watch-rotate" class="rotate" data-rotate-interval="1000" data-rotate-animate="fadeInDown,fadeOutDown">
-                    <li>Apple Touch</li>
-                    <li>f*ck so much</li>
+                    <li></li>
+                    <li></li>
                 </ul>
                 <p class="watch-txt__paragraph">
                     Using smart watch, Buzzarm senses the device owner
@@ -1106,7 +1106,8 @@
                 to help make lost wallets a thing of the past
             </p>
             <div class="sign-up">
-                <form action="" id="notify-me__form">
+                <form action="/wp-admin/admin-ajax.php" id="notify-me__form" method="post" >
+                    <p id="sign-up__messageExist" class="sign-up__messageExist">Email already exist</p>
                     <input type="text" class="btn holder-text" placeholder="Enter your email address" id="soon_input">
                     <input type="button" class="btn btn-tomato sign-up__btn" value="Notify me">
                 </form>
@@ -1125,12 +1126,11 @@
             </p>
         </div>
         <div class="contact-form right-inline wow fadeInRightSmall">
-            <form id="contactForm" action="">
+            <form id="contactForm" action="/wp-admin/admin-ajax.php" method="post">
                 <input id="contactName" type="text" class="left-inline holder-text fname" placeholder="Your Name">
                 <input id="contactEmail" type="text" class="left-inline holder-text femail" placeholder="Your Email">
                 <textarea name="" id="contactMessage" class="left-inline holder-text fmessage" cols="30" rows="10" placeholder="Your Message..."></textarea>
-                <button type="submit" class="btn btn-green left-inline"><i class="fa fa-paper-plane"></i></button>
-                <p id="signup-response"></p>
+                <button type="submit" class="btn btn-green left-inline btn-callback"><i class="fa fa-paper-plane"></i></button>
             </form>
         </div>
         <div class="contacts left-inline wow fadeInLeftSmall">
@@ -1332,7 +1332,7 @@
 </div>
 <!-- End pre-order received -->
 
-<!-- Start contact-us received -->
+<!-- Start notify-us received -->
 <div id="notifySuccess" class="success-message">
     <div class="success-message__overlay"></div>
     <div class="success-message__contenet">
@@ -1341,7 +1341,7 @@
         <p class="success-message__text">Keep you informed</p>
     </div>
 </div>
-<!-- End contact-us received -->
+<!-- End notify-us received -->
 
 <!-- Start contact-us received -->
 <div id="contactUsSuccess" class="success-message">
@@ -1427,31 +1427,44 @@
         mapDiv.style.width = '100%';
         mapDiv.style.height = isMobile ? '250px' : '500px';
         var zoom = isMobile ? 3 : 4;
-        var mapOption = {
-            //center: new google.maps.LatLng(40.4754846587654, -96.86768085),
-            center: new google.maps.LatLng(37.4754846587654, -126.86768085),
-            scrollwheel: false,
-            zoom: zoom,
-            disableDefaultUI: true,
-            mapTypeControlOptions: {
-                mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'buzzarmcrimeus']
-            }
-        };
+        if (isMobile) {
+            var mapOption = {
+                center: new google.maps.LatLng(40.4754846587654, -96.86768085),
+                scrollwheel: false,
+                zoom: zoom,
+                disableDefaultUI: true,
+                mapTypeControlOptions: {
+                    mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'buzzarmcrimeus']
+                }
+            };
+        } else {
+            var mapOption = {
+                center: new google.maps.LatLng(37.4754846587654, -126.86768085),
+                scrollwheel: false,
+                zoom: zoom,
+                disableDefaultUI: true,
+                mapTypeControlOptions: {
+                    mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'buzzarmcrimeus']
+                }
+            };
+        }
         var map = new google.maps.Map(mapDiv, mapOption);
+
+
         map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(document.getElementById('googft-legend-open'));
         map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(document.getElementById('googft-legend'));
 
         var crimeMapStyles = [
             { featureType: 'road', elementType: 'all', stylers: [ { visibility: 'off'} ] },
             { featureType: 'poi', elementType: 'all', stylers: [ { visibility: 'off' } ] },
-            { featureType: 'water', elementType: 'all', stylers: [{ color: '#7393f6' }] },
-            /*       { featureType: 'landscape', elementType: 'all', stylers: [{ color: '#eeeeee' }] }, */
-            { featureType: "administrative.country", elementType: "labels.text.fill",stylers: [ { "color": "#555555" } ] },
-            { featureType: 'administrative.country', elementType: 'geometry.stroke', stylers: [{color: "#333333"}] },
+            { featureType: 'water', elementType: 'all', stylers: [{ color: '#7393f6 ' }] },
+            /*       { featureType: 'landscape', elementType: 'all', stylers: [{ color: '#eeeeee ' }] }, */
+            { featureType: "administrative.country", elementType: "labels.text.fill",stylers: [ { "color": "#555555 " } ] },
+            { featureType: 'administrative.country', elementType: 'geometry.stroke', stylers: [{color: "#333333 "}] },
             /*       { featureType: "administrative.country", elementType: "labels.text", stylers: [ { visibility: "off" } ] }, */
-            /*       { featureType: 'administrative.province', elementType: 'labels.text.stroke', stylers: [{color: "#a0a0a0"}] }, */
-            { featureType: 'administrative.province', elementType: 'labels.text.fill', stylers: [{color: "#888888"}] },
-            { featureType: 'administrative.province', elementType: 'geometry.stroke', stylers: [{color: "#bbbbbb"}] }
+            /*       { featureType: 'administrative.province', elementType: 'labels.text.stroke', stylers: [{color: "#a0a0a0 "}] }, */
+            { featureType: 'administrative.province', elementType: 'labels.text.fill', stylers: [{color: "#888888 "}] },
+            { featureType: 'administrative.province', elementType: 'geometry.stroke', stylers: [{color: "#bbbbbb "}] }
 
 
         ];
