@@ -13,3 +13,29 @@
 .sign-up__btn {
     cursor: pointer;
 }
+
+/***** Share the News ******/
+.sign-up {
+    position: relative;
+    display: inline-block;
+}
+.sign-up__messageExist {
+    display: none;
+    width: 435px;
+    height: 50px;
+    line-height: 50px;
+    position: absolute;
+    /* top: 0; */
+    bottom: -55px;
+    left: 0;
+    background-color: #fff;
+    border-radius: 50px;
+    padding-left: 30px;
+    margin: 0 auto;
+    /* overflow: auto; */
+    /* vertical-align: middle; */
+    color: red;
+    text-align: left;
+    transition: all .2s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+    box-shadow: 0 3px 10px 0 rgba(21,21,21,.4);
+}

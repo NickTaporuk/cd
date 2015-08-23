@@ -1107,6 +1107,7 @@
             </p>
             <div class="sign-up">
                 <form action="" id="notify-me__form">
+                    <p id="sign-up__messageExist" class="sign-up__messageExist">Email already exist</p>
                     <input type="text" class="btn holder-text" placeholder="Enter your email address" id="soon_input">
                     <input type="button" class="btn btn-tomato sign-up__btn" value="Notify me">
                 </form>
