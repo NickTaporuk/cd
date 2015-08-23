@@ -20,7 +20,7 @@ function getPrices(){
 
 	$results = $wpdb->insert( "{$wpdb->prefix}pre_order",$data);
 //	echo json_encode(["status"=>1,'response' => $results]);
-	echo json_encode(["status"=>1,'response' => $data,'db'=>"{$wpdb->prefix}pre_order"]);
+	echo json_encode(["status"=>1,'response' => 1]);
 	exit;
 }
 add_action('wp_ajax_getPrices', 'getPrices');

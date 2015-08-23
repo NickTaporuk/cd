@@ -1,38 +1,3 @@
-<?php
-
-//    if($_GET){
-//        global $wpdb;
-//        $results = $wpdb->get_results( 'SELECT * FROM bz_users WHERE id = 1', OBJECT );
-//        var_dump($results);
-//        exit;
-//        var_dump($_POST);exit;
-//        echo json_encode('success');exit;
-//    }
-    //start
-//    var_dump($_SERVER);exit;
-    //end
-?>
-
-
-<!--    <!-- FONTS -->
-<!--    <link href='http://fonts.googleapis.com/css?family=Raleway:700,300' rel='stylesheet' type='text/css'>-->
-<!--    <link href='http://fonts.googleapis.com/css?family=Muli:300' rel='stylesheet' type='text/css'>-->
-<!--    <link href='http://fonts.googleapis.com/css?family=Ubuntu:300,700' rel='stylesheet' type='text/css'>-->
-<!--    <!-- FONT-AWESOME -->
-<!--    <link href="--><?php //echo get_template_directory_uri(); ?><!--/css/font-awesome.min.css" rel="stylesheet">-->
-<!--    <!-- CSS-LIBRARIES -->
-<!--    <link href="--><?php //echo get_template_directory_uri(); ?><!--/css/animate.css" rel="stylesheet">-->
-<!--    <link href="--><?php //echo get_template_directory_uri(); ?><!--/css/rotator.css" rel="stylesheet">-->
-<!--    <!-- CUSTOM STYLES -->
-<!--    <!-- <link rel="stylesheet" href="--><?php //echo get_template_directory_uri(); ?><!--css/buzzarm/normalize.min.css"> -->
-<!--    <link rel="stylesheet" href="--><?php //echo get_template_directory_uri(); ?><!--/css/style.min.css">-->
-<!--    <!-- DIALOG WINDOW -->
-<!--    <link rel="stylesheet" href="--><?php //echo get_template_directory_uri(); ?><!--/css/dialog.css" />-->
-<!--    <link rel="stylesheet" href="--><?php //echo get_template_directory_uri(); ?><!--/css/dialog-sally.css" />-->
-<!--    <!-- Mobile -->
-<!--    <link rel="stylesheet" href="--><?php //echo get_template_directory_uri(); ?><!--/css/iphone.css">-->
-
-
 <!doctype html>
 <html class="no-js" lang="en">
 <head>
@@ -1266,7 +1231,7 @@
 
     <div class="dialog__content">
         <div class="dialog__close right-relative clearfix">
-            <a class="action" data-dialog-close></a>
+            <a class="action" id="masa-facka" data-dialog-close></a>
         </div> <!-- /.dialog__close -->
         <div class="dialog__container">
             <h2 class="dialog__heading">Your pre-order</h2>
@@ -1347,6 +1312,7 @@
                 <form action="/wp-admin/admin-ajax.php" method="post" id="pre-order__data">
                     <input type="text" class="dialog__input dialog__input-text holder-text" placeholder="Your Name" id="pre-order__name">
                     <input type="text" class="dialog__input dialog__input-text holder-text" placeholder="Your Email" id="pre-order__email">
+
                     <input type="submit" class="dialog__input dialog__submit btn btn-green" value="Confirm pre-order">
                 </form>
             </div> <!-- /.dialog__form -->

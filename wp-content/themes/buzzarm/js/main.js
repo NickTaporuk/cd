@@ -18,7 +18,8 @@ $('body').flowtype({
 // Dialog
 	var dlgtrigger = document.querySelector( '[data-dialog]' ),
 		somedialog = document.getElementById( dlgtrigger.getAttribute( 'data-dialog' ) ),
-		dlg = new DialogFx( somedialog );
+
+        dlg  = new DialogFx( somedialog );
 
 	dlgtrigger.addEventListener( 'click', dlg.toggle.bind(dlg) );
 // end Dialog
@@ -365,23 +366,25 @@ $('body').flowtype({
     };
 
     /** **/
-    pre_order.setMinusCount = function(name,insert){
+    pre_order.setMinusCount = function(name,insert,dialog__total_sum){
         $(name).on('click',function(){
             if(pre_order.count > 1){
                 pre_order.count-=1;
                 $(insert).val(pre_order.count);
                 //console.log('pre_order.count Minus:',pre_order.count);
+                $(dialog__total_sum).html(pre_order.getQuantity(pre_order.price,pre_order.count));
 
             } else {/** events**/}
         });
     };
 
     /** **/
-    pre_order.setPlusCount = function(name,insert) {
+    pre_order.setPlusCount = function(name,insert,dialog__total_sum) {
         $(name).on('click',function(){
             pre_order.count+=1;
             $(insert).val(pre_order.count);
             //console.log('pre_order.count Plus:',pre_order.count);
+            $(dialog__total_sum).html(pre_order.getQuantity(pre_order.price,pre_order.count));
         });
     };
 
@@ -475,6 +478,13 @@ $('body').flowtype({
                     "email": emailFrm.val(),
                     "action": 'getPrices'
                 };
+                /*var dlgtrigger = document.querySelector( '[data-dialog]' ),
+                    somedialog = document.getElementById( dlgtrigger.getAttribute( 'data-dialog' ) ),
+                    dlg = new DialogFx( somedialog );*/
+
+                //dlg.isOpen = true;
+                //dlg.toggle.bind(dlg);
+                //$('[data-dialog--close]').trigger('click');
                 //console.log('formUrl:',formUrl,' || formMethod:',formMethod,' || formData:',formData);
                 //Отправляем данные на сервер для проверки
                 $.ajax({
@@ -482,7 +492,18 @@ $('body').flowtype({
                     type: formMethod,
                     data: formData,
                     success:function(data){
-                        console.log("data", (data));
+                        var data = JSON.parse(data);
+                        document.dlg.toggle.bind(document.dlg);
+                        //console.log('dlg:',document.dlg.toggle.bind(document.dlg));
+
+                        if(data.response == '1') {
+                            console.log('data2',data);
+
+                            //$('.dialog__close .action').click();
+
+                            //$('#dialog__pre-order').removeClass('dialog--open');
+
+                        }
                         //Устанавливаем переменные
                         /*var responseData = jQuery.parseJSON(data),
                             klass = '';*/
@@ -533,8 +554,8 @@ $('body').flowtype({
     //console.debug('pre_order.total:',pre_order.total);
     console.debug(pre_order.setColor('[name="color-checker"]'));
     console.debug(pre_order.initColor(pre_order.color.default,'#pre_order__color','.bewel-item'));
-    console.debug(pre_order.setMinusCount('.btn-minus','.input-number'));
-    console.debug(pre_order.setPlusCount('.btn-plus','.input-number'));
+    console.debug(pre_order.setMinusCount('.btn-minus','.input-number','#dialog__total-sum'));
+    console.debug(pre_order.setPlusCount('.btn-plus','.input-number','#dialog__total-sum'));
     console.debug(pre_order.openPopupEvent('.btn-pre-order','#color-checkers__form','.dialog__bewel-item','.count-multiply__input','#count_price__int','#dialog__total-sum'));
     console.debug(pre_order.selectColorPopupEvent('[name="dialog__color-checker"]','#color-checkers__form','.dialog__bewel-item','#pre_order__color','.bewel-item','.custom-card'));
     console.debug(pre_order.selectColorPopupEvent('[name="color-checker"]','#pre_order__color','.bewel-item',false,false,'.custom-card'));
