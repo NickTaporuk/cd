@@ -328,6 +328,11 @@ $('body').flowtype({
     pre_order.email = '';
     // количество карточек
     pre_order.count = 1;
+    // количество карточек
+    pre_order.price = 79;
+    pre_order.total = this.getQuantity(this.price,this.count);
+    // количество карточек
+    pre_order.quantity = pre_order.quantity || pre_order.price;
     /** **/
     pre_order.setColor = function(name){
         $(name).on('click',function(){
@@ -357,28 +362,48 @@ $('body').flowtype({
     };
 
     /** **/
-    pre_order.openPopupEvent = function(popupNameButton,formColor,parentEl,count){
+    pre_order.openPopupEvent = function(popupNameButton,formColor,parentEl,countEl,count_price__int){
         $(popupNameButton).on('click',function(){
             //select color
             //console.log('pre_order.color.default:');
+            // init color
             $(parentEl).removeClass('selected');
-            console.log($(formColor+' .'+pre_order.color.default).closest(parentEl).addClass('selected'));
+            $(formColor+' .'+pre_order.color.default).closest(parentEl).addClass('selected');
+            //init count
+            $(countEl).val(pre_order.count);
+            //init price
+            $(count_price__int).html(pre_order.price);
+
         });
     };
     /** **/
-    pre_order.selectColorPopupEvent = function(popupNameButton,formColor,parentEl,count){
+    pre_order.getQuantity = function(a,b){
+        return a*b
+    }
+    /** **/
+    pre_order.selectColorPopupEvent = function(popupNameButton,formColor,parentEl,countEl){
         $(popupNameButton).on('click',function(){
             //select color
             //console.log('pre_order.color.default:');
+            //
             $(parentEl).removeClass('selected');
-            console.log($(formColor+' .'+pre_order.color.default).closest(parentEl).addClass('selected'));
+
+            $(formColor+' .'+pre_order.color.default).closest(parentEl).addClass('selected');
+            //init count
+
+
+            console.log();
         });
     };
     //debug
+    //pre_order.quantity = 12214;
+    //pre_order.price = 12214;
+    console.debug('pre_order.quantity:',pre_order.quantity);
     console.debug(pre_order.setColor('[name="color-checker"]'));
     console.debug(pre_order.setMinusCount('.btn-minus','.input-number'));
     console.debug(pre_order.setPlusCount('.btn-plus','.input-number'));
-    console.debug(pre_order.openPopupEvent('.btn-pre-order','#color-checkers__form','.dialog__bewel-item',pre_order.count));
+    console.debug(pre_order.openPopupEvent('.btn-pre-order','#color-checkers__form','.dialog__bewel-item','.count-multiply__input','#count_price__int'));
+    //console.debug(pre_order.openPopupEvent('.btn-pre-order','#color-checkers__form','.dialog__bewel-item',pre_order.count));
     //==================================================================================
     //      Pre_order form END
     //==================================================================================

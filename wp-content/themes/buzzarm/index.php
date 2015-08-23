@@ -1299,12 +1299,13 @@
                 <p class="dialog__heading left-inline">Quantity:</p>
                 <div class="right-inline">
                     <div class="count-multiply">
-                        <form>
-                            <input type="number" min="1" max="1000" class="dialog__input-text count-multiply__input">
+                        <form id="popup-count__first">
+                            <input type="" min="1" max="1000" class="dialog__input-text count-multiply__input">
                         </form>
                     </div>
                     <span class="count__multiplier">x</span>
-                    <p class="count__price">$79</p>
+<!--                    <p class="count__price">$79</p>-->
+                    <p class="count__price">$ <span id="count_price__int"></span></p>
                 </div>
             </div> <!-- /.dialog__count -->
             <hr>
