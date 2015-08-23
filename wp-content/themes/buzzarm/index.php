@@ -972,15 +972,21 @@
         </h2>
 
         <div class="social-share">
-            <button class="btn share-btn fb-btn">
-                <i class="fa fa-facebook"></i>
-            </button>
-            <button class="btn share-btn tw-btn">
-                <i class="fa fa-twitter"></i>
-            </button>
-            <button class="btn share-btn li-btn">
-                <i class="fa fa-linkedin"></i>
-            </button>
+            <a href="https://facebook.com/buzzarmcard" target="_blank" class="social-share__link">
+                <button class="btn share-btn fb-btn">
+                    <i class="fa fa-facebook"></i>
+                </button>
+            </a>
+            <a href="https://twitter.com/buzzarmcard" target="_blank" class="social-share__link">
+                <button class="btn share-btn tw-btn">
+                    <i class="fa fa-twitter"></i>
+                </button>
+            </a>
+            <a href="#" target="_blank" class="social-share__link">
+                <button class="btn share-btn li-btn">
+                    <i class="fa fa-linkedin"></i>
+                </button>
+            </a>
         </div>
     </div><!-- end of container in share the news -->
 </section><!-- end of share the news -->
@@ -1176,7 +1182,7 @@
             </div>
             <div class="contacts-item phone-number left-inline">
                 <i class="contacts-item__icon fa fa-phone"></i>
-                <p>+125 76 377 201</p>
+                <p>+1 (574) 208-1934</p>
             </div>
         </div>
     </div><!-- end of container in contacts -->

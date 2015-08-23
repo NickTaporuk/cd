@@ -1,0 +1,15 @@
+/***** Share the News ******/
+.social-share__link {
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 30px;
+}
+.social-share__link:nth-child(even) {
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+/***** Share the News ******/
+.sign-up__btn {
+    cursor: pointer;
+}
