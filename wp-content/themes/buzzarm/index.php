@@ -746,8 +746,8 @@
                     using <span class="rotate-arena watch-rotate"><span data-rotate="#watch-rotate">smart watch</span></span>
                 </h3>
                 <ul id="watch-rotate" class="rotate" data-rotate-interval="1000" data-rotate-animate="fadeInDown,fadeOutDown">
-                    <li>Apple Touch</li>
-                    <li>f*ck so much</li>
+                    <li></li>
+                    <li></li>
                 </ul>
                 <p class="watch-txt__paragraph">
                     Using smart watch, Buzzarm senses the device owner
@@ -1427,31 +1427,44 @@
         mapDiv.style.width = '100%';
         mapDiv.style.height = isMobile ? '250px' : '500px';
         var zoom = isMobile ? 3 : 4;
-        var mapOption = {
-            //center: new google.maps.LatLng(40.4754846587654, -96.86768085),
-            center: new google.maps.LatLng(37.4754846587654, -126.86768085),
-            scrollwheel: false,
-            zoom: zoom,
-            disableDefaultUI: true,
-            mapTypeControlOptions: {
-                mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'buzzarmcrimeus']
-            }
-        };
+        if (isMobile) {
+            var mapOption = {
+                center: new google.maps.LatLng(40.4754846587654, -96.86768085),
+                scrollwheel: false,
+                zoom: zoom,
+                disableDefaultUI: true,
+                mapTypeControlOptions: {
+                    mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'buzzarmcrimeus']
+                }
+            };
+        } else {
+            var mapOption = {
+                center: new google.maps.LatLng(37.4754846587654, -126.86768085),
+                scrollwheel: false,
+                zoom: zoom,
+                disableDefaultUI: true,
+                mapTypeControlOptions: {
+                    mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'buzzarmcrimeus']
+                }
+            };
+        }
         var map = new google.maps.Map(mapDiv, mapOption);
+
+
         map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(document.getElementById('googft-legend-open'));
         map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(document.getElementById('googft-legend'));
 
         var crimeMapStyles = [
             { featureType: 'road', elementType: 'all', stylers: [ { visibility: 'off'} ] },
             { featureType: 'poi', elementType: 'all', stylers: [ { visibility: 'off' } ] },
-            { featureType: 'water', elementType: 'all', stylers: [{ color: '#7393f6' }] },
-            /*       { featureType: 'landscape', elementType: 'all', stylers: [{ color: '#eeeeee' }] }, */
-            { featureType: "administrative.country", elementType: "labels.text.fill",stylers: [ { "color": "#555555" } ] },
-            { featureType: 'administrative.country', elementType: 'geometry.stroke', stylers: [{color: "#333333"}] },
+            { featureType: 'water', elementType: 'all', stylers: [{ color: '#7393f6 ' }] },
+            /*       { featureType: 'landscape', elementType: 'all', stylers: [{ color: '#eeeeee ' }] }, */
+            { featureType: "administrative.country", elementType: "labels.text.fill",stylers: [ { "color": "#555555 " } ] },
+            { featureType: 'administrative.country', elementType: 'geometry.stroke', stylers: [{color: "#333333 "}] },
             /*       { featureType: "administrative.country", elementType: "labels.text", stylers: [ { visibility: "off" } ] }, */
-            /*       { featureType: 'administrative.province', elementType: 'labels.text.stroke', stylers: [{color: "#a0a0a0"}] }, */
-            { featureType: 'administrative.province', elementType: 'labels.text.fill', stylers: [{color: "#888888"}] },
-            { featureType: 'administrative.province', elementType: 'geometry.stroke', stylers: [{color: "#bbbbbb"}] }
+            /*       { featureType: 'administrative.province', elementType: 'labels.text.stroke', stylers: [{color: "#a0a0a0 "}] }, */
+            { featureType: 'administrative.province', elementType: 'labels.text.fill', stylers: [{color: "#888888 "}] },
+            { featureType: 'administrative.province', elementType: 'geometry.stroke', stylers: [{color: "#bbbbbb "}] }
 
 
         ];
