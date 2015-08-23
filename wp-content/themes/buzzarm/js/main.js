@@ -322,7 +322,7 @@ $('body').flowtype({
     var pre_order = pre_order || {};
     //color
     pre_order = {"color":{"default":"blue"}};
-    //
+    //color css
     pre_order.cardColor = {
         "blue"  :   {
             "background-image": "linear-gradient(0deg,#00308f 0,#5d89e1 100%)"
@@ -454,11 +454,23 @@ $('body').flowtype({
             $(formColor).find('.' + color).closest(parentEl).addClass('selected');
         }
     };
+
+    /** **/
+    pre_order.submitPreOrder = function(name,formName,formEmail){
+        $(name).on('click',function(e){
+            e.preventDefault();
+            var nameFrm = $(formName).val(),
+                emailFrm = $(formEmail).val();
+            console.log('emailFrm:',validate.rgxEmail(emailFrm));
+            console.log('nameFrm:',validate.rgxText(nameFrm));
+            //validate email
+        });
+    };
     //debug
     //pre_order.quantity = 12214;
     //pre_order.price = 12214;
-    console.debug('pre_order.quantity:',pre_order.quantity);
-    console.debug('pre_order.total:',pre_order.total);
+    //console.debug('pre_order.quantity:',pre_order.quantity);
+    //console.debug('pre_order.total:',pre_order.total);
     console.debug(pre_order.setColor('[name="color-checker"]'));
     console.debug(pre_order.initColor(pre_order.color.default,'#pre_order__color','.bewel-item'));
     console.debug(pre_order.setMinusCount('.btn-minus','.input-number'));
@@ -466,6 +478,7 @@ $('body').flowtype({
     console.debug(pre_order.openPopupEvent('.btn-pre-order','#color-checkers__form','.dialog__bewel-item','.count-multiply__input','#count_price__int','#dialog__total-sum'));
     console.debug(pre_order.selectColorPopupEvent('[name="dialog__color-checker"]','#color-checkers__form','.dialog__bewel-item','#pre_order__color','.bewel-item','.custom-card'));
     console.debug(pre_order.selectColorPopupEvent('[name="color-checker"]','#pre_order__color','.bewel-item',false,false,'.custom-card'));
+    console.debug(pre_order.submitPreOrder('.dialog__submit','#pre-order__name','#pre-order__email'));
     //==================================================================================
     //      Pre_order form END
     //==================================================================================
@@ -474,7 +487,17 @@ $('body').flowtype({
     //==================================================================================
     //      Validator form START
     //==================================================================================
-
+    var validate = validate || {};
+    validate.regularText    = /^[a-zA-Z]+$/;
+    validate.regularEmail   = /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i;
+    //
+    validate.rgxText = function(str){
+        return validate.regularText.test(str);
+    };
+    //
+    validate.rgxEmail = function(str){
+        return validate.regularEmail.test(str);
+    };
     //==================================================================================
     //      Validator form END
     //==================================================================================
@@ -490,6 +513,7 @@ $('body').flowtype({
             $(clk).on('click',function(e) {
                 //console.log('$(email).val():', $(email).val());
             });
+
             return false;
         };
     //debug Notefy Me

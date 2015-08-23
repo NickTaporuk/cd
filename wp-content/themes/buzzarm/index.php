@@ -7,7 +7,7 @@
         exit;
     }*/
     //start
-
+//    var_dump($_SERVER);exit;
     //end
 ?>
 
@@ -1336,9 +1336,9 @@
                 </p>
             </div> <!-- /.dialog__total -->
             <div class="dialog__form">
-                <form action="">
-                    <input type="text" class="dialog__input dialog__input-text holder-text" placeholder="Your Name">
-                    <input type="text" class="dialog__input dialog__input-text holder-text" placeholder="Your Email">
+                <form action="<?php echo $_SERVER['HTTP_HOST']?>" >
+                    <input type="text" class="dialog__input dialog__input-text holder-text" placeholder="Your Name" id="pre-order__name">
+                    <input type="text" class="dialog__input dialog__input-text holder-text" placeholder="Your Email" id="pre-order__email">
                     <input type="submit" class="dialog__input dialog__submit btn btn-green" value="Confirm pre-order">
                 </form>
             </div> <!-- /.dialog__form -->
