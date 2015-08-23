@@ -844,7 +844,7 @@
                 <div class="color-select">
                     <p>Select your color:</p>
                     <div class="color-checkers">
-                        <form action="">
+                        <form action="" id="pre_order__color">
                             <div class="bewel-item">
                                 <div class="color-item silver">
                                     <input name="color-checker" value="silver" type="radio">

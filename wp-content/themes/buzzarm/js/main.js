@@ -316,4 +316,64 @@ $('body').flowtype({
 
 }); // end doc.ready
 
+    //==================================================================================
+    //      Pre_order form START
+    //==================================================================================
+    var pre_order = pre_order || {};
+    //color
+    pre_order = {"color":{"default":"blue"}};
+    // name
+    pre_order.name = '';
+    //email
+    pre_order.email = '';
+    // количество карточек
+    pre_order.count = 1;
+    /** **/
+    pre_order.setColor = function(name){
+        $(name).on('click',function(){
+            pre_order.color.default = $(this).attr('value');
+            console.log('pre_order.color.default:',pre_order.color.default);
+        });
+    };
+    /** **/
+    pre_order.setMinusCount = function(name,insert){
+        $(name).on('click',function(){
+            if(pre_order.count > 1){
+                pre_order.count-=1;
+                $(insert).val(pre_order.count);
+                console.log('pre_order.count Minus:',pre_order.count);
+
+            } else {/** events**/}
+        });
+    };
+
+    /** **/
+    pre_order.setPlusCount = function(name,insert) {
+        $(name).on('click',function(){
+            pre_order.count+=1;
+            $(insert).val(pre_order.count);
+            console.log('pre_order.count Plus:',pre_order.count);
+        });
+    };
+
+    /** **/
+    pre_order.openPopupEvent = function(popupNameButton){
+        $(popupNameButton).on('click',function(){
+
+        });
+    };
+    console.debug(pre_order.setColor('[name="color-checker"]'));
+    console.debug(pre_order.setMinusCount('.btn-minus','.input-number'));
+    console.debug(pre_order.setPlusCount('.btn-plus','.input-number'));
+    //==================================================================================
+    //      Pre_order form END
+    //==================================================================================
+
+    //==================================================================================
+    //      Validator form END
+    //==================================================================================
+
+    //==================================================================================
+    //      Validator form END
+    //==================================================================================
 
