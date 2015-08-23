@@ -238,10 +238,10 @@ $('body').flowtype({
 	    
 	    
 		
-		console.log($(this));
+		//console.log($(this));
 		//Проверяем, не отправляется ли уже форма в текущий момент времени
 		if($(this).data('formstatus') !== 'submitting'){
-		console.log("Error");
+		//console.log("Error");
 			//Устанавливаем переменные
 			var form = $(this),
 				formData = form.serialize(),
@@ -264,7 +264,7 @@ $('body').flowtype({
 				type: formMethod,
 				data: formData,
 				success:function(data){
-					console.log("success");
+					//console.log("success");
 					//Устанавливаем переменные
 					var responseData = jQuery.parseJSON(data), 
 						klass = '';
@@ -322,6 +322,15 @@ $('body').flowtype({
     var pre_order = pre_order || {};
     //color
     pre_order = {"color":{"default":"blue"}};
+    //
+    pre_order.cardColor = {
+        "blue"  :   {
+
+        },
+        "silver":   {},
+        "brown" :   {},
+        "black" :   {}
+    };
     // name
     pre_order.name = '';
     //email
@@ -330,23 +339,29 @@ $('body').flowtype({
     pre_order.count = 1;
     // количество карточек
     pre_order.price = 79;
-    pre_order.total = this.getQuantity(this.price,this.count);
+    // price * count
+    pre_order.total ;
     // количество карточек
     pre_order.quantity = pre_order.quantity || pre_order.price;
+
+    pre_order.init = function(){
+
+    };
     /** **/
     pre_order.setColor = function(name){
         $(name).on('click',function(){
             pre_order.color.default = $(this).attr('value');
-            console.log('pre_order.color.default:',pre_order.color.default);
+            //console.log('pre_order.color.default:',pre_order.color.default);
         });
     };
+
     /** **/
     pre_order.setMinusCount = function(name,insert){
         $(name).on('click',function(){
             if(pre_order.count > 1){
                 pre_order.count-=1;
                 $(insert).val(pre_order.count);
-                console.log('pre_order.count Minus:',pre_order.count);
+                //console.log('pre_order.count Minus:',pre_order.count);
 
             } else {/** events**/}
         });
@@ -357,12 +372,12 @@ $('body').flowtype({
         $(name).on('click',function(){
             pre_order.count+=1;
             $(insert).val(pre_order.count);
-            console.log('pre_order.count Plus:',pre_order.count);
+            //console.log('pre_order.count Plus:',pre_order.count);
         });
     };
 
     /** **/
-    pre_order.openPopupEvent = function(popupNameButton,formColor,parentEl,countEl,count_price__int){
+    pre_order.openPopupEvent = function(popupNameButton,formColor,parentEl,countEl,count_price__int,dialog__total_sum){
         $(popupNameButton).on('click',function(){
             //select color
             //console.log('pre_order.color.default:');
@@ -373,37 +388,62 @@ $('body').flowtype({
             $(countEl).val(pre_order.count);
             //init price
             $(count_price__int).html(pre_order.price);
-
+            //init quantity
+            $(dialog__total_sum).html(pre_order.getQuantity(pre_order.price,pre_order.count));
         });
     };
+
     /** **/
-    pre_order.getQuantity = function(a,b){
+    pre_order.getQuantity = function(a,b) {
         return a*b
-    }
+    };
+
     /** **/
-    pre_order.selectColorPopupEvent = function(popupNameButton,formColor,parentEl,countEl){
-        $(popupNameButton).on('click',function(){
-            //select color
-            //console.log('pre_order.color.default:');
-            //
+    pre_order.selectColorPopupEvent = function(color,formColor,parentEl,formColorBind,parentElBind){
+        // set click color popup
+        //console.log('formColorBind:',formColorBind);
+        //console.log('parentElBind:',parentElBind);
+        //console.log('parentEl:',parentEl);
+        //console.log('formColor+ +parentEl:',(formColor+' '+parentEl));
+        this.setColor(color);
+        $(formColor+' '+parentEl).on('click',function() {
+
             $(parentEl).removeClass('selected');
+            $(this).addClass('selected');
 
-            $(formColor+' .'+pre_order.color.default).closest(parentEl).addClass('selected');
-            //init count
-
-
-            console.log();
+            //binding color landing
+            /**
+             * sorry guru javascript :)
+             **/
+            if(!!formColorBind && !!parentElBind) {
+                pre_order.initColor(pre_order.color.default,formColorBind,parentElBind);
+                //console.log('formColorBind1:',formColorBind);
+                //console.log('parentElBind11:',parentElBind);
+                console.log('color:',pre_order.color.default);
+            }
         });
+
+
+
+    };
+
+    /** **/
+    pre_order.initColor = function(color,formColor,parentEl){
+        $(parentEl).removeClass('selected');
+        $(formColor).find('.'+color).closest(parentEl).addClass('selected');
     };
     //debug
     //pre_order.quantity = 12214;
     //pre_order.price = 12214;
     console.debug('pre_order.quantity:',pre_order.quantity);
+    console.debug('pre_order.total:',pre_order.total);
     console.debug(pre_order.setColor('[name="color-checker"]'));
+    console.debug(pre_order.initColor(pre_order.color.default,'#pre_order__color','.bewel-item'));
     console.debug(pre_order.setMinusCount('.btn-minus','.input-number'));
     console.debug(pre_order.setPlusCount('.btn-plus','.input-number'));
-    console.debug(pre_order.openPopupEvent('.btn-pre-order','#color-checkers__form','.dialog__bewel-item','.count-multiply__input','#count_price__int'));
-    //console.debug(pre_order.openPopupEvent('.btn-pre-order','#color-checkers__form','.dialog__bewel-item',pre_order.count));
+    console.debug(pre_order.openPopupEvent('.btn-pre-order','#color-checkers__form','.dialog__bewel-item','.count-multiply__input','#count_price__int','#dialog__total-sum'));
+    console.debug(pre_order.selectColorPopupEvent('[name="dialog__color-checker"]','#color-checkers__form','.dialog__bewel-item','#pre_order__color','.bewel-item'));
+    console.debug(pre_order.selectColorPopupEvent('[name="color-checker"]','#pre_order__color','.bewel-item'));
     //==================================================================================
     //      Pre_order form END
     //==================================================================================
@@ -426,7 +466,7 @@ $('body').flowtype({
         notify_form.subminBtnName = '.sign-up__btn';
         notify_form.setEmail = function(clk,email){
             $(clk).on('click',function(e) {
-                console.log('$(email).val():', $(email).val());
+                //console.log('$(email).val():', $(email).val());
             });
             return false;
         };

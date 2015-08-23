@@ -1312,7 +1312,7 @@
             <div class="dialog__total clearfix">
                 <p class="dialog__heading total__heading clearfix">
                     <span class="left-inline">Subtotal:</span>
-                    <span class="right-inline dialog__total-sum">$7450.00</span>
+                    <span class="right-inline">$ <span id="dialog__total-sum"></span></span>
                 </p>
                 <p class="dialog__tip clearfix">
                     <span class="dialog-tip__item item-left left-inline">Shippings start in March 2016</span>
