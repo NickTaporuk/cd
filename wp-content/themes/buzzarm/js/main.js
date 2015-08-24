@@ -564,12 +564,18 @@ $('body').flowtype({
         return (str.length > 0) ? validate.regularEmail.test(str) : false;
     };
 
-    validate.errorVisible = function (cls) {
+    validate.errorVisible = function (cls,textErrorClass,cssErrorClass) {
         cls.addClass('error');
+        if(!!textErrorClass){
+            $(textErrorClass).css(cssErrorClass);
+        }
     };
 
-    validate.errorNotVisible = function (cls) {
+    validate.errorNotVisible = function (cls,textErrorClass,cssErrorClass) {
         cls.removeClass('error');
+        if(!!textErrorClass){
+            $(textErrorClass).css(cssErrorClass);
+        }
     };
     //==================================================================================
     //      Validator form END
@@ -580,15 +586,21 @@ $('body').flowtype({
     //==================================================================================
         var notify_form = notify_form || {};
         notify_form.email           = '';
-        notify_form.emailClass      = '#soon_input';
+        notify_form.emailId      = '#soon_input';
         notify_form.subminBtnName   = '.sign-up__btn';
         notify_form.formId          = '#notify-me__form';
+        notify_form.errorInputId    = '#sign-up__messageExist';
+        notify_form.errorCssVisible    = {"display":"block"};
+        notify_form.errorCssNotVisible = {"display":"none"};
         notify_form.checkEmailDb    = false ;
+        notify_form.notifySuccessIdPopup = "#notifySuccess";
+        notify_form.notifySuccessOverlayPopup    = ".success-message__overlay";
+        notify_form.notifySuccessContentPopup    = ".success-message__contenet";
         /**
          * init functional
          * **/
         notify_form.init = function(){
-            notify_form.setEmail(notify_form.subminBtnName,notify_form.emailClass,notify_form.formId);
+            notify_form.setEmail(notify_form.subminBtnName,notify_form.emailId,notify_form.formId);
         };
 
         /** **/
@@ -600,7 +612,6 @@ $('body').flowtype({
             $(clk).on('click',function(e) {
                 e.preventDefault();
                 e.stopPropagation();
-                //console.log('$(email).val():', $(email).val());
                 var mail = $(email);
                 //validation
                 if(validate.rgxEmail(mail.val())) {
@@ -619,24 +630,23 @@ $('body').flowtype({
                         success:function(data){
                             var data = JSON.parse(data);
                             if(!!data.response) {
-                                //succesPopup.open('#orderSuccess','.success-message__overlay','.success-message__contenet');
                                 notify_form.checkEmailDb = data.response;
+                                validate.errorVisible($(notify_form.emailId),notify_form.errorInputId,notify_form.errorCssVisible)
+                            } else {
+                                notify_form.checkEmailDb = false ;
+                                validate.errorNotVisible($(notify_form.emailId),notify_form.errorInputId,notify_form.errorCssNotVisible);
+                                succesPopup.open(notify_form.notifySuccessIdPopup,notify_form.notifySuccessOverlayPopup,notify_form.notifySuccessContentPopup);
+                                $(notify_form.emailId).val('');
                             }
 
                         },
                         error: function (xhr, ajaxOptions, thrownError) {
-                            //alert(xhr.status);
-                            //alert(thrownError);
-                            //alert("Error");
-                            //console.log("Error");
-                            //console.log(xhr);
+                            console.log("Error notify ajax request");
+                            console.log(xhr);
                         }
 
                     });
-                    // this is pain :]]
-                    if(!notify_form.checkEmailDb) {
 
-                    }
                 } else {
                     validate.errorVisible(mail);
                 }
@@ -651,7 +661,7 @@ $('body').flowtype({
         notify_form.init();
 
     //debug Notefy Me
-    //console.debug(notify_form.setEmail(notify_form.subminBtnName,notify_form.emailClass));
+    //console.debug(notify_form.setEmail(notify_form.subminBtnName,notify_form.emailId));
     //==================================================================================
     //      Notefy Me form END
     //==================================================================================
@@ -674,7 +684,7 @@ $('body').flowtype({
 			//console.log('overlayVisible:',overlayVisible);
 			//console.log('contentVisible:',contentVisible);
 
-			if(!timeout){
+			if(!timeout) {
 				timeout = 2000 ;
 			}
 			//console.log('timeout:',timeout);
@@ -697,7 +707,6 @@ $('body').flowtype({
 		 * @contentHidden	-
 		 * **/
 		succesPopup.close = function(name,overlayHidden,contentHidden){
-			//$(name).css(succesPopup.opacityHidden);
 			//$(name +' '+ overlayHidden).css(succesPopup.opacityHidden);
 			//$(name +' '+ contentHidden).css(succesPopup.opacityHidden);
 
@@ -705,5 +714,5 @@ $('body').flowtype({
 			$(name +' '+ contentHidden).fadeOut("slow");
 		};
 	//==================================================================================
-	//      Notefy Me form END
+	//      Sucess Popup form END
 	//==================================================================================

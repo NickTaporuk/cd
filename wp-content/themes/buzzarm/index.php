@@ -1107,6 +1107,7 @@
             </p>
             <div class="sign-up">
                 <form action="/wp-admin/admin-ajax.php" id="notify-me__form" method="post" >
+                    <p id="sign-up__messageExist" class="sign-up__messageExist">Email already exist</p>
                     <input type="text" class="btn holder-text" placeholder="Enter your email address" id="soon_input">
                     <input type="button" class="btn btn-tomato sign-up__btn" value="Notify me">
                 </form>
@@ -1332,7 +1333,7 @@
 </div>
 <!-- End pre-order received -->
 
-<!-- Start contact-us received -->
+<!-- Start notify-us received -->
 <div id="notifySuccess" class="success-message">
     <div class="success-message__overlay"></div>
     <div class="success-message__contenet">
@@ -1341,7 +1342,7 @@
         <p class="success-message__text">Keep you informed</p>
     </div>
 </div>
-<!-- End contact-us received -->
+<!-- End notify-us received -->
 
 <!-- Start contact-us received -->
 <div id="contactUsSuccess" class="success-message">
