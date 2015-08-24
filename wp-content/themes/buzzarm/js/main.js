@@ -354,8 +354,10 @@ $('body').flowtype({
     pre_order.total ;
     // количество карточек
     pre_order.quantity = pre_order.quantity || pre_order.price;
+	//
+	pre_order.successPopup = ['#orderSuccess','.success-message__overlay','.success-message__contenet'];
 
-    pre_order.init = function(){
+    pre_order.init = function() {
 
     };
     /** **/
@@ -408,7 +410,7 @@ $('body').flowtype({
 
     /** **/
     pre_order.getQuantity = function(a,b) {
-        return a*b
+        return a*b ;
     };
 
     /** **/
@@ -447,6 +449,12 @@ $('body').flowtype({
         }
     };
 
+    /**
+     *
+     * **/
+    pre_order.resetData = function(){
+
+    };
     /** **/
     pre_order.submitPreOrder = function(name,formName,formEmail,formId){
         $(name).on('click',function(e){
@@ -478,13 +486,9 @@ $('body').flowtype({
                     "count": pre_order.count,
                     "name" : nameFrm.val(),
                     "email": emailFrm.val(),
-                    "action": 'getPrices'
+                    "action": 'getPrices' // wp ajax variable
                 };
-                var dlgtrigger = document.querySelector( '[data-dialog]' ),
-                    somedialog = document.getElementById( dlgtrigger.getAttribute( 'data-dialog' ) ),
-                    dlg = new DialogFx( somedialog,{},true );
 
-                dlg.close(dlg);
                 //$('[data-dialog--close]').trigger('click');
                 //console.log('formUrl:',formUrl,' || formMethod:',formMethod,' || formData:',formData);
                 //Отправляем данные на сервер для проверки
@@ -494,46 +498,24 @@ $('body').flowtype({
                     data: formData,
                     success:function(data){
                         var data = JSON.parse(data);
-                        //document.dlg.toggle.bind(document.dlg);
-                        //console.log('dlg:',document.dlg.toggle.bind(document.dlg));
 
                         if(data.response == '1') {
                             console.log('data2',data);
 
-                            //$('.dialog__close .action').click();
+							succesPopup.open('#orderSuccess','.success-message__overlay','.success-message__contenet');
 
-                            //$('#dialog__pre-order').removeClass('dialog--open');
+							// init popup object add close event listener
+							var dlgtrigger = document.querySelector( '[data-dialog]' ),
+								somedialog = document.getElementById( dlgtrigger.getAttribute( 'data-dialog' ) ),
+								dlg = new DialogFx( somedialog,{},true );
+
+							dlg.close(dlg);
+
+							//
+							//succesPopup.open.apply(null,pre_order.successPopup);
 
                         }
-                        //Устанавливаем переменные
-                        /*var responseData = jQuery.parseJSON(data),
-                            klass = '';*/
 
-                        //Состояния ответа
-                        /*switch(responseData.status){
-                            case 'error':
-                                klass = 'response-error';
-                                break;
-                            case 'success':
-                                klass = 'response-success';
-                                break;
-                        }*/
-
-                        //Показываем сообщение ответа
-                        /*responseMsg.fadeOut(200,function(){
-                            $(this).removeClass('response-waiting')
-                                .addClass(klass)
-                                .text(responseData.message)
-                                .fadeIn(200,function(){
-                                    //Устанавливаем таймаут для скрытия сообщения ответа
-                                    setTimeout(function(){
-                                        responseMsg.fadeOut(200,function(){
-                                            $(this).removeClass(klass);
-                                            form.data('formstatus','idle');
-                                        });
-                                    },3000)
-                                });
-                        });*/
                     },
                     error: function (xhr, ajaxOptions, thrownError) {
                         //alert(xhr.status);
@@ -578,7 +560,7 @@ $('body').flowtype({
     };
     //
     validate.rgxEmail = function(str) {
-        console.log('str.length:',str.length,'--:validate.regularEmail.test(str)',validate.regularEmail.test(str));
+        //console.log('str.length:',str.length,'--:validate.regularEmail.test(str)',validate.regularEmail.test(str));
         return (str.length > 0) ? validate.regularEmail.test(str) : false;
     };
 
@@ -600,16 +582,92 @@ $('body').flowtype({
         notify_form.email = '';
         notify_form.emailClass = '#soon_input';
         notify_form.subminBtnName = '.sign-up__btn';
+
+        /**
+         * init functional
+         * **/
+        notify_form.init = function(){
+            notify_form.setEmail(notify_form.subminBtnName,notify_form.emailClass);
+        };
+
+        /** **/
         notify_form.setEmail = function(clk,email){
             $(clk).on('click',function(e) {
                 //console.log('$(email).val():', $(email).val());
+                var mail = $(email);
+                //validation
+                if(validate.rgxEmail(mail.val())) {
+                    validate.errorNotVisible(mail);
+
+                    //check whether there is a letter in the database
+
+                } else {
+                    validate.errorVisible(mail);
+                }
+                //if ok ajax
+                //else error
             });
 
             return false;
         };
+
+        /** **/
+        notify_form.init();
+
     //debug Notefy Me
-    console.debug(notify_form.setEmail(notify_form.subminBtnName,notify_form.emailClass));
+    //console.debug(notify_form.setEmail(notify_form.subminBtnName,notify_form.emailClass));
     //==================================================================================
     //      Notefy Me form END
     //==================================================================================
 
+	//==================================================================================
+	//      Sucess Popup form START
+	//==================================================================================
+		var succesPopup = succesPopup || {};
+		succesPopup.opacityVisible	= {"opacity":1 , "display": "block"};
+		succesPopup.opacityHidden	= {"opacity":0};
+		/**
+		 * open
+		 *
+		 * @name 			-
+		 * @overlayVisible	-
+		 * @contentVisible	-
+		 * **/
+		succesPopup.open = function(name,overlayVisible,contentVisible,timeout){
+			//console.log('name:',name);
+			//console.log('overlayVisible:',overlayVisible);
+			//console.log('contentVisible:',contentVisible);
+
+			if(!timeout){
+				timeout = 2000 ;
+			}
+			//console.log('timeout:',timeout);
+			//console.log('succesPopup.opacityVisible:',succesPopup.opacityVisible);
+			//console.log('$(name overlayVisible):',$(name +' '+ overlayVisible));
+			$(name +' '+ overlayVisible).css(succesPopup.opacityVisible);
+			$(name +' '+ contentVisible).css(succesPopup.opacityVisible);
+
+			setTimeout(function(){
+                succesPopup.close(name,overlayVisible,contentVisible)
+            },timeout);
+			//setTimeout("alert('Привет')",timeout);
+		};
+
+		/**
+		 * close
+		 *
+		 * @name 			-
+		 * @overlayHidden	-
+		 * @contentHidden	-
+		 * **/
+		succesPopup.close = function(name,overlayHidden,contentHidden){
+			//$(name).css(succesPopup.opacityHidden);
+			//$(name +' '+ overlayHidden).css(succesPopup.opacityHidden);
+			//$(name +' '+ contentHidden).css(succesPopup.opacityHidden);
+
+            $(name +' '+ overlayHidden).fadeOut("slow");
+			$(name +' '+ contentHidden).fadeOut("slow");
+		};
+	//==================================================================================
+	//      Notefy Me form END
+	//==================================================================================
