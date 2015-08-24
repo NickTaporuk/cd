@@ -54,3 +54,76 @@ function addNewCallbackMessage() {
 }
 add_action('wp_ajax_addNewCallbackMessage', 'addNewCallbackMessage');
 add_action('wp_ajax_nopriv_addNewCallbackMessage', 'addNewCallbackMessage');
+
+
+/*---------------------------------------------------
+
+register settings
+
+----------------------------------------------------*/
+
+function theme_settings_init(){
+
+register_setting( 'theme_settings', 'theme_settings' );
+
+}
+
+/*---------------------------------------------------
+
+add settings page to menu
+
+----------------------------------------------------*/
+
+function add_settings_page() {
+
+add_menu_page( __( 'Your theme name' .' Theme Panel' ), __( 'Your theme name' .' Theme Panel' ), 'manage_options', 'settings', 'theme_settings_page');
+
+}
+
+/*---------------------------------------------------
+
+add actions
+
+----------------------------------------------------*/
+
+add_action( 'admin_init', 'theme_settings_init' );
+
+add_action( 'admin_menu', 'add_settings_page' );
+
+
+
+/*---------------------------------------------------
+
+Theme Panel Output
+
+----------------------------------------------------*/
+
+/* ----------------------------------------------------------
+Declare vars
+------------------------------------------------------------- */
+$themename = "Theme Name";
+$shortname = "shortname";
+$categories = get_categories('hide_empty=0&orderby=name');
+$all_cats = array();
+foreach ($categories as $category_item ) {
+$all_cats[$category_item->cat_ID] = $category_item->cat_name;
+}
+array_unshift($all_cats, "Select a category");
+
+function theme_settings_page() {
+
+	?>
+	<div class="wrap">
+		<div id="icon-options-general"></div>
+		<h2><?php _e( ' Theme Options' ) //your admin panel title ?></h2>
+		<ul>
+			<li>View Documentation |</li>
+			<li>Visit Support </li>
+		</ul>
+		<p><span>Theme version</span></p>
+		<div class="footer-credit">
+			<p>This theme was made by <a title="Anang pratika" href="http://anangpratika.wordpress.com" target="_blank" >Anang Pratika</a>.</p>
+		</div>
+	</div>
+<?php
+}
