@@ -18,7 +18,6 @@
 		onEndAnimation = function( el, callback ) {
 			var onEndCallbackFn = function( ev ) {
 				if( support.animations ) {
-                    console.log('this :',this,'<-->animEndEventName:',animEndEventName);
 					if( ev.target != this ) return;
 					this.removeEventListener( animEndEventName, onEndCallbackFn );
 				}

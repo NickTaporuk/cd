@@ -1126,12 +1126,11 @@
             </p>
         </div>
         <div class="contact-form right-inline wow fadeInRightSmall">
-            <form id="contactForm" action="">
+            <form id="contactForm" action="/wp-admin/admin-ajax.php" method="post">
                 <input id="contactName" type="text" class="left-inline holder-text fname" placeholder="Your Name">
                 <input id="contactEmail" type="text" class="left-inline holder-text femail" placeholder="Your Email">
                 <textarea name="" id="contactMessage" class="left-inline holder-text fmessage" cols="30" rows="10" placeholder="Your Message..."></textarea>
-                <button type="submit" class="btn btn-green left-inline"><i class="fa fa-paper-plane"></i></button>
-                <p id="signup-response"></p>
+                <button type="submit" class="btn btn-green left-inline btn-callback"><i class="fa fa-paper-plane"></i></button>
             </form>
         </div>
         <div class="contacts left-inline wow fadeInLeftSmall">

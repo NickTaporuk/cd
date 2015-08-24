@@ -41,14 +41,16 @@ add_action('wp_ajax_nopriv_chackEmail', 'chackEmail');
 
 
 /***/
-function addNewNotify() {
+function addNewCallbackMessage() {
 	global $wpdb;
 
-	$email		= trim($_POST['email']);
-//	$results = $wpdb->insert( "{$wpdb->prefix}pre_order",$data);
-	echo json_encode(["status"=>1,'response' => (!empty($results)?true:false)]);
-//	echo json_encode(["status"=>1,'response' => 1]);
+	$data['email']		= trim($_POST['email']);
+	$data['name']		= trim($_POST['name']);
+	$data['message']	= htmlspecialchars($_POST['message']);
+
+	$wpdb->insert( "{$wpdb->prefix}callback_admin",$data);
+	echo json_encode(["status"=>1,'response' => 1]);
 	exit;
 }
-add_action('wp_ajax_chackEmail', 'chackEmail');
-add_action('wp_ajax_nopriv_chackEmail', 'chackEmail');
+add_action('wp_ajax_addNewCallbackMessage', 'addNewCallbackMessage');
+add_action('wp_ajax_nopriv_addNewCallbackMessage', 'addNewCallbackMessage');

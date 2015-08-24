@@ -199,7 +199,7 @@ $('body').flowtype({
     }
 
     // Form submit
-    $( "#contactForm" ).submit(function(event) {
+/*    $( "#contactForm" ).submit(function(event) {
     	event.preventDefault();
 		// Name 
 		var nameField = $("#contactName");
@@ -314,7 +314,7 @@ $('body').flowtype({
 		// Conditional trigger for submit
 	    if(sizeEmpty > 0) { return false } 
 	    return true;
-	}); // end submit
+	});*/ // end submit
 
 }); // end doc.ready
 
@@ -559,6 +559,10 @@ $('body').flowtype({
         return (str.length>0) ? validate.regularText.test(str) : false;
     };
     //
+    validate.rgxTextNotEmpty = function(str) {
+        return (str.length > 0) ? true : false;
+    };
+    //
     validate.rgxEmail = function(str) {
         //console.log('str.length:',str.length,'--:validate.regularEmail.test(str)',validate.regularEmail.test(str));
         return (str.length > 0) ? validate.regularEmail.test(str) : false;
@@ -582,7 +586,7 @@ $('body').flowtype({
     //==================================================================================
 
     //==================================================================================
-    //      Notefy Me form START
+    //      Notify Me form START
     //==================================================================================
         var notify_form = notify_form || {};
         notify_form.email           = '';
@@ -626,7 +630,7 @@ $('body').flowtype({
                         url:    formUrl,
                         type:   formMethod,
                         data:   formData,
-                        async: false,
+                        //async: false,
                         success:function(data){
                             var data = JSON.parse(data);
                             if(!!data.response) {
@@ -663,11 +667,11 @@ $('body').flowtype({
     //debug Notefy Me
     //console.debug(notify_form.setEmail(notify_form.subminBtnName,notify_form.emailId));
     //==================================================================================
-    //      Notefy Me form END
+    //      Notify Me form END
     //==================================================================================
 
 	//==================================================================================
-	//      Sucess Popup form START
+	//      Success Popup form START
 	//==================================================================================
 		var succesPopup = succesPopup || {};
 		succesPopup.opacityVisible	= {"opacity":1 , "display": "block"};
@@ -696,7 +700,6 @@ $('body').flowtype({
 			setTimeout(function(){
                 succesPopup.close(name,overlayVisible,contentVisible)
             },timeout);
-			//setTimeout("alert('Привет')",timeout);
 		};
 
 		/**
@@ -714,5 +717,95 @@ $('body').flowtype({
 			$(name +' '+ contentHidden).fadeOut("slow");
 		};
 	//==================================================================================
-	//      Sucess Popup form END
+	//      Success Popup form END
 	//==================================================================================
+
+    //==================================================================================
+    //      Callback form START
+    //==================================================================================
+    var callbackForm = callbackForm || {};
+
+    callbackForm.nameId     = '#contactName';
+    callbackForm.emailId    = '#contactEmail';
+    callbackForm.messageId  = '#contactMessage';
+    callbackForm.submitId   = '.btn-callback';
+    callbackForm.formId     = '#contactForm';
+    callbackForm.contactUsSuccessIdPopup     = '#contactUsSuccess';
+    callbackForm.contactUsSuccessOverley     = '.success-message__overlay';
+    callbackForm.contactUsSuccessContent     = '.success-message__contenet';
+    //init
+    callbackForm.init = function(){
+        callbackForm.submitted(callbackForm.submitId,callbackForm.nameId ,callbackForm.emailId, callbackForm.messageId,callbackForm.formId);
+    };
+
+    callbackForm.submitted = function(submitButtonId,nameId,emailId,messageId,formId){
+        $(submitButtonId).on('click',function(e){
+            e.preventDefault();
+            e.stopPropagation();
+            //validate
+            var name    = $(nameId),
+                email   = $(emailId),
+                message = $(messageId),
+                form    = $(formId);
+
+            if(validate.rgxText(name.val())){
+                validate.errorNotVisible(name);
+            } else {
+                validate.errorVisible(name);
+            }
+
+            if(validate.rgxTextNotEmpty(message.val())){
+                validate.errorNotVisible(message);
+            } else {
+                validate.errorVisible(message);
+            }
+
+            if(validate.rgxEmail(email.val())){
+                validate.errorNotVisible(email);
+            } else {
+                validate.errorVisible(email);
+            }
+
+            if(!!validate.rgxEmail(email.val()) && !!validate.rgxTextNotEmpty(message.val()) && !!validate.rgxEmail(email.val())){
+
+                var formData = {
+                    "action"    : "addNewCallbackMessage",
+                    "email"     : email.val(),
+                    "message"   : message.val(),
+                    "name"      : name.val()
+                    },
+                    formUrl = form.prop('action'),
+                    formMethod = form.prop('method');
+
+                    console.log('formUrl:',formUrl);
+                    console.log('formMethod:',formMethod);
+
+                $.ajax({
+                    url: formUrl,
+                    type: formMethod,
+                    data: formData,
+                    success:function(data){
+                        var data = JSON.parse(data);
+
+                        if(data.response == '1') {
+                            succesPopup.open(callbackForm.contactUsSuccessIdPopup,callbackForm.contactUsSuccessOverley,callbackForm.contactUsSuccessContentg);
+                        }
+
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        //alert(xhr.status);
+                        //alert(thrownError);
+                        //alert("Error");
+                        //console.log("Error");
+                        //console.log(xhr);
+                    }
+
+                });
+            }
+        });
+    };
+
+    callbackForm.init();
+    //==================================================================================
+    //      Callback form END
+    //==================================================================================
