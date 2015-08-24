@@ -486,7 +486,7 @@ $('body').flowtype({
                     "count": pre_order.count,
                     "name" : nameFrm.val(),
                     "email": emailFrm.val(),
-                    "action": 'getPrices' // wp ajax variable
+                    "action": 'addNewPreOrder' // wp ajax variable
                 };
 
                 //$('[data-dialog--close]').trigger('click');
@@ -579,28 +579,64 @@ $('body').flowtype({
     //      Notefy Me form START
     //==================================================================================
         var notify_form = notify_form || {};
-        notify_form.email = '';
-        notify_form.emailClass = '#soon_input';
-        notify_form.subminBtnName = '.sign-up__btn';
-
+        notify_form.email           = '';
+        notify_form.emailClass      = '#soon_input';
+        notify_form.subminBtnName   = '.sign-up__btn';
+        notify_form.formId          = '#notify-me__form';
+        notify_form.checkEmailDb    = false ;
         /**
          * init functional
          * **/
         notify_form.init = function(){
-            notify_form.setEmail(notify_form.subminBtnName,notify_form.emailClass);
+            notify_form.setEmail(notify_form.subminBtnName,notify_form.emailClass,notify_form.formId);
         };
 
         /** **/
-        notify_form.setEmail = function(clk,email){
+        notify_form.setEmail = function(clk,email,formId){
+
+            var formUrl = $(formId).prop('action'),
+                formMethod = $(formId).prop('method');
+
             $(clk).on('click',function(e) {
+                e.preventDefault();
+                e.stopPropagation();
                 //console.log('$(email).val():', $(email).val());
                 var mail = $(email);
                 //validation
                 if(validate.rgxEmail(mail.val())) {
                     validate.errorNotVisible(mail);
-
+                    var formData = {
+                        "email" : mail.val(),
+                        "action": 'chackEmail'
+                    };
                     //check whether there is a letter in the database
+                    //Отправляем данные на сервер для проверки
+                    $.ajax({
+                        url:    formUrl,
+                        type:   formMethod,
+                        data:   formData,
+                        async: false,
+                        success:function(data){
+                            var data = JSON.parse(data);
+                            if(!!data.response) {
+                                //succesPopup.open('#orderSuccess','.success-message__overlay','.success-message__contenet');
+                                notify_form.checkEmailDb = data.response;
+                            }
 
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+                            //alert(xhr.status);
+                            //alert(thrownError);
+                            //alert("Error");
+                            //console.log("Error");
+                            //console.log(xhr);
+                        }
+
+                    });
+                    // this is pain :]]
+                    if(!notify_form.checkEmailDb) {
+
+                    }
                 } else {
                     validate.errorVisible(mail);
                 }

@@ -1106,7 +1106,7 @@
                 to help make lost wallets a thing of the past
             </p>
             <div class="sign-up">
-                <form action="" id="notify-me__form">
+                <form action="/wp-admin/admin-ajax.php" id="notify-me__form" method="post" >
                     <input type="text" class="btn holder-text" placeholder="Enter your email address" id="soon_input">
                     <input type="button" class="btn btn-tomato sign-up__btn" value="Notify me">
                 </form>
