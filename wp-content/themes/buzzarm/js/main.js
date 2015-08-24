@@ -21,7 +21,8 @@ $('body').flowtype({
 
         dlg  = new DialogFx( somedialog );
 
-	dlgtrigger.addEventListener( 'click', dlg.toggle.bind(dlg) );
+	dlgtrigger.addEventListener( 'click', dlg.open.bind(dlg) );
+	//dlgtrigger.addEventListener( 'click', dlg.close.bind(dlg) );
 // end Dialog
 
 // Dialog Video
@@ -450,6 +451,7 @@ $('body').flowtype({
     pre_order.submitPreOrder = function(name,formName,formEmail,formId){
         $(name).on('click',function(e){
             e.preventDefault();
+			e.stopPropagation();
             var nameFrm = $(formName),
                 emailFrm = $(formEmail),
                 formUrl = $(formId).prop('action'),
@@ -478,12 +480,11 @@ $('body').flowtype({
                     "email": emailFrm.val(),
                     "action": 'getPrices'
                 };
-                /*var dlgtrigger = document.querySelector( '[data-dialog]' ),
+                var dlgtrigger = document.querySelector( '[data-dialog]' ),
                     somedialog = document.getElementById( dlgtrigger.getAttribute( 'data-dialog' ) ),
-                    dlg = new DialogFx( somedialog );*/
+                    dlg = new DialogFx( somedialog );
 
-                //dlg.isOpen = true;
-                //dlg.toggle.bind(dlg);
+                dlg.close(dlg);
                 //$('[data-dialog--close]').trigger('click');
                 //console.log('formUrl:',formUrl,' || formMethod:',formMethod,' || formData:',formData);
                 //Отправляем данные на сервер для проверки
@@ -493,7 +494,7 @@ $('body').flowtype({
                     data: formData,
                     success:function(data){
                         var data = JSON.parse(data);
-                        document.dlg.toggle.bind(document.dlg);
+                        //document.dlg.toggle.bind(document.dlg);
                         //console.log('dlg:',document.dlg.toggle.bind(document.dlg));
 
                         if(data.response == '1') {
