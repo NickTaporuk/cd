@@ -41,13 +41,13 @@
 		return a;
 	}
 
-	function DialogFx( el, options ) {
+	function DialogFx( el, options ,flag) {
 		this.el = el;
 		this.options = extend( {}, this.options );
 		extend( this.options, options );
 		this.ctrlClose = this.el.querySelector( '[data-dialog-close]' );
 		this.isOpen = false;
-		this._initEvents();
+		this._initEvents(flag);
 	}
 
 	DialogFx.prototype.options = {
@@ -56,11 +56,15 @@
 		onCloseDialog : function() { return false; }
 	}
 
-	DialogFx.prototype._initEvents = function() {
+	DialogFx.prototype._initEvents = function(flag) {
 		var self = this;
 
 		// close action
-		this.ctrlClose.addEventListener( 'click', this.close.bind(this) );
+		if(!!flag){
+			this.ctrlClose.addEventListener( 'click', this.close.bind(this) );
+		} else {
+			this.ctrlClose.addEventListener( 'click', this.toggle.bind(this) );
+		}
 
 		// esc key closes dialog
 		document.addEventListener( 'keydown', function( ev ) {
@@ -69,8 +73,12 @@
 				self.toggle();
 			}
 		} );
-
-		this.el.querySelector( '.dialog__overlay' ).addEventListener( 'click', this.close.bind(this) );
+		if(!!flag){
+			this.el.querySelector( '.dialog__overlay' ).addEventListener( 'click', this.close.bind(this) );
+		}
+		else {
+			this.el.querySelector( '.dialog__overlay' ).addEventListener( 'click', this.toggle.bind(this) );
+		}
 	};
 
 	DialogFx.prototype.toggle = function() {

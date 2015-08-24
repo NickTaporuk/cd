@@ -19,7 +19,7 @@ $('body').flowtype({
 	var dlgtrigger = document.querySelector( '[data-dialog]' ),
 		somedialog = document.getElementById( dlgtrigger.getAttribute( 'data-dialog' ) ),
 
-        dlg  = new DialogFx( somedialog );
+        dlg  = new DialogFx( somedialog ,{},true);
 
 	dlgtrigger.addEventListener( 'click', dlg.open.bind(dlg) );
 	//dlgtrigger.addEventListener( 'click', dlg.close.bind(dlg) );
@@ -482,7 +482,7 @@ $('body').flowtype({
                 };
                 var dlgtrigger = document.querySelector( '[data-dialog]' ),
                     somedialog = document.getElementById( dlgtrigger.getAttribute( 'data-dialog' ) ),
-                    dlg = new DialogFx( somedialog );
+                    dlg = new DialogFx( somedialog,{},true );
 
                 dlg.close(dlg);
                 //$('[data-dialog--close]').trigger('click');
