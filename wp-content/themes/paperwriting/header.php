@@ -134,8 +134,9 @@ wp_head();
 			}
 		});
 
-		jQuery(window).scroll(function () {
-			if (windowWidth >= 1025) {
+		jQuery(window).resize(function () {
+			if (windowWidth >= 1000) {
+				var navHeight = jQuery('.header').height();
 				if (jQuery(window).scrollTop() > navHeight) {
 					jQuery('.header').addClass("fixed");
 				} else {
