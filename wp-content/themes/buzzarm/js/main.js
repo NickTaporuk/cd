@@ -1,19 +1,6 @@
 ;$(document).ready(function() {
-// Initialize the text rotator
-	// $(".rotate").rotator();
-
-// Init wow 
+// Init wow
 	new WOW().init();
-
-	//$('html').niceScroll();
-/*$('body').flowtype();
-$('body').flowtype({
-    minimum   : 500,
-    maximum   : 1200,
-    minFont   : 12,
-    maxFont   : 40,
-    fontRatio : 30
-});	*/
 
 // Dialog
 	var dlgtrigger = document.querySelector( '[data-dialog]' ),
@@ -22,7 +9,6 @@ $('body').flowtype({
         dlg  = new DialogFx( somedialog ,{},true);
 
 	dlgtrigger.addEventListener( 'click', dlg.open.bind(dlg) );
-	//dlgtrigger.addEventListener( 'click', dlg.close.bind(dlg) );
 // end Dialog
 
 // Dialog Video
@@ -32,9 +18,6 @@ $('body').flowtype({
 
 	videoTrigger.addEventListener( 'click', dlgvd.toggle.bind(dlgvd) );
 // end Dialog Video
-
-
-
 
 // Toggle Menu
 	var $menu = $('#nav-toggle');
@@ -126,41 +109,9 @@ $('body').flowtype({
         });
     }); // end of Scrolling Page 
 
-// Choose color
-/*	var checkerInput = $('input[name="color-checker"]');
-	var bewelItem = $('.bewel-item');
-	var colorItem = $('.color-item');
-	var blueItem = $('#blue-checked');
-	var customCard = $('.custom-card');
-
-	if (checkerInput.is(':checked') === false) {
-		checkerInput.filter('[value="blue"]')
-			.attr('checked', true)
-			.parents().eq(1)
-			.addClass('selected');
-	}
-
-	checkerInput.on('click', function() {
-		if (checkerInput.is(':checked')) {
-			bewelItem.removeClass('selected');
-
-			var that = $(this);
-			var currentColor = that.parent(colorItem).css('backgroundColor');
-			
-			that.parents().eq(1).addClass('selected');
-
-			if (!blueItem.is(':checked')) {
-				customCard.css('backgroundImage', 'none').css('backgroundColor', currentColor);
-			} else {
-				customCard.css('backgroundImage', '').css('backgroundColor', '');
-			}
-		} 
-	});*/
-// End Choose color	
-
 // Placeholder
 	(function() {
-		'use strict'
+		'use strict';
 		
 		var iputItems = document.querySelectorAll('.holder-text');
 
@@ -179,143 +130,6 @@ $('body').flowtype({
 
 	})(); 
 // end Placeholder
-
-// Launching Soon Validation
-	
-
-// Contact Us Validation
-
-	// Light empty fields
-    function lightEmpty() {
-	  setTimeout(function() {
-
-        $( "#contactForm" ).find('.error').each(function() {
-
-		$(this).removeClass('error');
-
-		})
-
-      }, 1500);
-    }
-
-    // Form submit
-/*    $( "#contactForm" ).submit(function(event) {
-    	event.preventDefault();
-		// Name 
-		var nameField = $("#contactName");
-		var nameVal = nameField.val();
-		var rv_name = /^[a-zA-Z]+$/; // /^[а-яЄіїєІЇА-Я]+$/ - rus/ukr
-
-		if(nameVal.length > 2 &&  nameVal != '' && rv_name.test(nameVal) && nameVal.length < 15 ) {
-
-		} else { 
-			$(".fname").addClass('error'); 
-		}	
-
-		// email
-		var emailField = $("#contactEmail");
-		var emailVal = emailField.val();
-		var rv_name = /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i; 
-
-		if(emailVal.length > 2 && emailVal != '' && rv_name.test(emailVal) ) {
-
-		} else { 
-			$(".femail").addClass('error'); 
-		}
-
-		// Message
-		var messageArea = $("#contactMessage");
-		var messageVal = messageArea.val();
-
-		if( messageVal != '' ) {
-
-		} else { 
-			$(".fmessage").addClass('error'); 
-		}	
-
-		lightEmpty();
-
-	    var sizeEmpty = $( "#contactForm" ).find('.error').length;
-
-	    
-	    
-		
-		//console.log($(this));
-		//Проверяем, не отправляется ли уже форма в текущий момент времени
-		if($(this).data('formstatus') !== 'submitting'){
-		//console.log("Error");
-			//Устанавливаем переменные
-			var form = $(this),
-				formData = form.serialize(),
-				formUrl = form.attr('action'),
-				formMethod = form.attr('method'), 
-				responseMsg = $('#signup-response');
-			
-			//Добавляем дату к форме
-			form.data('formstatus','submitting');
-			
-			//Показываем соообщение с просьбой подождать
-			responseMsg.hide()
-					   .addClass('response-waiting')
-					   //.text('Пожалуйста, подождите...')
-					   .fadeIn(200);
-			
-			//Отправляем данные на сервер для проверки
-			$.ajax({
-				url: formUrl,
-				type: formMethod,
-				data: formData,
-				success:function(data){
-					//console.log("success");
-					//Устанавливаем переменные
-					var responseData = jQuery.parseJSON(data), 
-						klass = '';
-					
-					//Состояния ответа
-					switch(responseData.status){
-						case 'error':
-							klass = 'response-error';
-						break;
-						case 'success':
-							klass = 'response-success';
-						break;	
-					}
-					
-					//Показываем сообщение ответа
-					responseMsg.fadeOut(200,function(){
-						$(this).removeClass('response-waiting')
-							   .addClass(klass)
-							   .text(responseData.message)
-							   .fadeIn(200,function(){
-								   //Устанавливаем таймаут для скрытия сообщения ответа
-								   setTimeout(function(){
-									   responseMsg.fadeOut(200,function(){
-									       $(this).removeClass(klass);
-										   form.data('formstatus','idle');
-									   });
-								   },3000)
-								});
-					});
-				},
-				error: function (xhr, ajaxOptions, thrownError) {
-			        //alert(xhr.status);
-			        //alert(thrownError);
-			        alert("Error");
-			        console.log("Error");
-			        console.log(xhr);
-      			}
-
-			});
-		}
-		
-		//Предотвращаем отправку формы
-		// return false;
-		
-		// Conditional trigger for submit
-	    if(sizeEmpty > 0) { return false } 
-	    return true;
-	});*/ // end submit
-
 }); // end doc.ready
 
     //==================================================================================
@@ -355,9 +169,36 @@ $('body').flowtype({
     // количество карточек
     pre_order.quantity = pre_order.quantity || pre_order.price;
 	//
+	pre_order.color ='[name="color-checker"]';
+	pre_order.colorPopup ='[name="dialog__color-checker"]';
+	pre_order.colorIdForm = '#pre_order__color';
+	pre_order.colorParent = '.bewel-item';
+	pre_order.colorParentPopup = '.dialog__bewel-item';
+	pre_order.minus = '.btn-minus';
+	pre_order.plus = '.btn-plus';
+	pre_order.priceTotal = '.input-number';
+	pre_order.sumTotal = '#dialog__total-sum';
+	pre_order.btnOpenPopup = '.btn-pre-order';
+	pre_order.colorCheckerFormId = '#color-checkers__form';
+	pre_order.countMultiplyInput = '.count-multiply__input';
+	pre_order.countPricent = '#count_price__int';
+	pre_order.customCard = '.custom-card';
+	pre_order.dialogSubmit = '.dialog__submit';
+	pre_order.preOrderName = '#pre-order__name';
+	pre_order.preOrderEmail = '#pre-order__email';
+	pre_order.preOrderData = '#pre-order__data';
+
 	pre_order.successPopup = ['#orderSuccess','.success-message__overlay','.success-message__contenet'];
 
     pre_order.init = function() {
+		pre_order.setColor(pre_order.color);
+		pre_order.initColor(pre_order.color.default,pre_order.colorIdForm,pre_order.colorParent);
+		pre_order.setMinusCount(pre_order.minus,pre_order.priceTotal,pre_order.sumTotal);
+		pre_order.setPlusCount(pre_order.plus,pre_order.priceTotal,pre_order.sumTotal);
+		pre_order.openPopupEvent(pre_order.btnOpenPopup,pre_order.colorCheckerFormId,pre_order.colorParentPopup,pre_order.countMultiplyInput,pre_order.countPriceInt,pre_order.sumTotal);
+		pre_order.selectColorPopupEvent(pre_order.colorPopup,pre_order.colorCheckerFormId,pre_order.colorParentPopup,pre_order.colorIdForm,pre_order.colorParent,pre_order.customCard);
+		pre_order.selectColorPopupEvent(pre_order.color,pre_order.colorIdForm,pre_order.colorParent,false,false,pre_order.customCard);
+		pre_order.submitPreOrder(pre_order.dialogSubmit,pre_order.preOrderName,pre_order.preOrderEmail,pre_order.preOrderData);
 
     };
     /** **/
@@ -489,8 +330,6 @@ $('body').flowtype({
                     "action": 'addNewPreOrder' // wp ajax variable
                 };
 
-                //$('[data-dialog--close]').trigger('click');
-                //console.log('formUrl:',formUrl,' || formMethod:',formMethod,' || formData:',formData);
                 //Отправляем данные на сервер для проверки
                 $.ajax({
                     url: formUrl,
@@ -511,18 +350,12 @@ $('body').flowtype({
 
 							dlg.close(dlg);
 
-							//
-							//succesPopup.open.apply(null,pre_order.successPopup);
-
                         }
 
                     },
                     error: function (xhr, ajaxOptions, thrownError) {
-                        //alert(xhr.status);
-                        //alert(thrownError);
-                        //alert("Error");
-                        //console.log("Error");
-                        //console.log(xhr);
+                        console.log("Error ajax pre-order");
+                        console.log(xhr);
                     }
 
                 });
@@ -535,14 +368,16 @@ $('body').flowtype({
     //pre_order.price = 12214;
     //console.debug('pre_order.quantity:',pre_order.quantity);
     //console.debug('pre_order.total:',pre_order.total);
-    console.debug(pre_order.setColor('[name="color-checker"]'));
-    console.debug(pre_order.initColor(pre_order.color.default,'#pre_order__color','.bewel-item'));
-    console.debug(pre_order.setMinusCount('.btn-minus','.input-number','#dialog__total-sum'));
-    console.debug(pre_order.setPlusCount('.btn-plus','.input-number','#dialog__total-sum'));
-    console.debug(pre_order.openPopupEvent('.btn-pre-order','#color-checkers__form','.dialog__bewel-item','.count-multiply__input','#count_price__int','#dialog__total-sum'));
-    console.debug(pre_order.selectColorPopupEvent('[name="dialog__color-checker"]','#color-checkers__form','.dialog__bewel-item','#pre_order__color','.bewel-item','.custom-card'));
-    console.debug(pre_order.selectColorPopupEvent('[name="color-checker"]','#pre_order__color','.bewel-item',false,false,'.custom-card'));
-    console.debug(pre_order.submitPreOrder('.dialog__submit','#pre-order__name','#pre-order__email','#pre-order__data'));
+/*
+    console.debug(pre_order.setColor(pre_order.color));
+    console.debug(pre_order.initColor(pre_order.color.default,pre_order.colorIdForm,pre_order.colorParent));
+    console.debug(pre_order.setMinusCount(pre_order.minus,pre_order.priceTotal,pre_order.sumTotal));
+    console.debug(pre_order.setPlusCount(pre_order.plus,pre_order.priceTotal,pre_order.sumTotal));
+    console.debug(pre_order.openPopupEvent(pre_order.btnOpenPopup,pre_order.colorCheckerFormId,pre_order.colorParentPopup,pre_order.countMultiplyInput,pre_order.countPriceInt,pre_order.sumTotal));
+    console.debug(pre_order.selectColorPopupEvent(pre_order.colorPopup,pre_order.colorCheckerFormId,pre_order.colorParentPopup,pre_order.colorIdForm,pre_order.colorParent,pre_order.customCard));
+    console.debug(pre_order.selectColorPopupEvent(pre_order.color,pre_order.colorIdForm,pre_order.colorParent,false,false,pre_order.customCard));
+    console.debug(pre_order.submitPreOrder(pre_order.dialogSubmit,pre_order.preOrderName,pre_order.preOrderEmail,pre_order.preOrderData));
+*/
     //==================================================================================
     //      Pre_order form END
     //==================================================================================
