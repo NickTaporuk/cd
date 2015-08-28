@@ -47,8 +47,8 @@
             mapDiv.style.height = isMobile ? '250px' : '500px';
             var zoom = isMobile ? 3 : 4;
             var mapOption = {
-                center: new google.maps.LatLng(40.4754846587654, -96.86768085),
-//                center: new google.maps.LatLng(37.4754846587654, -126.86768085),
+//                center: new google.maps.LatLng(40.4754846587654, -96.86768085),
+                center: new google.maps.LatLng(37.4754846587654, -126.86768085),
                 zoom: zoom,
                 disableDefaultUI: true,
                 mapTypeControlOptions: {
@@ -233,6 +233,7 @@ endif; ?>
                                 c-0.119-1.973-0.301-3.838-0.468-5.559c-0.318-3.443-0.702-6.312-0.997-8.319c-0.133-1.004-0.294-1.792-0.379-2.33
                                 c-0.093-0.538-0.142-0.825-0.142-0.825l-0.334,0.002c0,0,0.04,45.832,0,46.939c-0.062,1.119-0.012,2.191-0.233,3.23
                                 c-0.768,4.191-2.633,7.877-4.869,10.428c-1.128,1.307-2.38,2.248-3.409,3.197C70.349,68.333,69.47,69.174,68.648,69.758z"/>
+
                     <path  d="M88.069,56.034c-0.455,1.643-1.067,3.145-1.777,4.45c-0.695,1.308-1.542,2.404-2.285,3.36
                                 c-0.734,0.97-1.444,1.763-2.013,2.426c-1.163,1.305-1.868,2.021-1.868,2.021l0.217,0.207c0,0,0.228-0.129,0.654-0.371
                                 c0.439-0.228,1.027-0.625,1.792-1.142c0.389-0.25,0.762-0.582,1.204-0.917c0.435-0.34,0.916-0.705,1.364-1.156
@@ -640,8 +641,28 @@ endif; ?>
 		</div>
 
 	</div>
-    <!-- start google maps-->
+    <section id="map-section">
+        <div class="l-container map__container clearfix">
+            <div class="map-jumbo">
+                <i class="map__hand-icon"></i>
+                <h2 class="map-jumbo__heading">USA theft rates</h2>
+            </div>
+        </div><!-- /.l-container -->
+        <!-- start google maps-->
+        <div id="googft-mapCanvas"></div>
+        <!-- end google maps-->
+        <div class="l-container map__container map__container-2 clearfix">
+            <div class="map-jumbo">
+                <p class="map-jumbo__paragraph">
+                    Crime is a constant part of life in many tourist <br>
+                    meccas, including New York and Los Angeles. <br>
+                    Even more unregistered thefts happen in the USA, <br>
+                    but you can travel with confidence using Buzzarm.
+                </p>
+                <button class="btn btn-tomato">Go to buzzarm society</button>
+            </div>
+        </div><!-- /.l-container -->
 
-    <div id="googft-mapCanvas"></div>
-    <!-- end google maps-->
+    </section>
+
 	<!-- / END TOP BAR -->

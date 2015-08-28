@@ -684,16 +684,9 @@ succesPopup.opacityHidden	= {"opacity":0};
  * @contentVisible	-
  * **/
 succesPopup.open = function(name,overlayVisible,contentVisible,timeout){
-    //console.log('name:',name);
-    //console.log('overlayVisible:',overlayVisible);
-    //console.log('contentVisible:',contentVisible);
-
     if(!timeout) {
         timeout = 2000 ;
     }
-    //console.log('timeout:',timeout);
-    //console.log('succesPopup.opacityVisible:',succesPopup.opacityVisible);
-    //console.log('$(name overlayVisible):',$(name +' '+ overlayVisible));
     $(name +' '+ overlayVisible).css(succesPopup.opacityVisible);
     $(name +' '+ contentVisible).css(succesPopup.opacityVisible);
 
@@ -710,8 +703,6 @@ succesPopup.open = function(name,overlayVisible,contentVisible,timeout){
  * @contentHidden	-
  * **/
 succesPopup.close = function(name,overlayHidden,contentHidden){
-    //$(name +' '+ overlayHidden).css(succesPopup.opacityHidden);
-    //$(name +' '+ contentHidden).css(succesPopup.opacityHidden);
 
     $(name +' '+ overlayHidden).fadeOut("slow");
     $(name +' '+ contentHidden).fadeOut("slow");
@@ -777,9 +768,6 @@ callbackForm.submitted = function(submitButtonId,nameId,emailId,messageId,formId
                 formUrl = form.prop('action'),
                 formMethod = form.prop('method');
 
-            console.log('formUrl:',formUrl);
-            console.log('formMethod:',formMethod);
-
             $.ajax({
                 url: formUrl,
                 type: formMethod,
@@ -790,16 +778,11 @@ callbackForm.submitted = function(submitButtonId,nameId,emailId,messageId,formId
                     if(data.response == '1') {
                         succesPopup.open(callbackForm.contactUsSuccessIdPopup,callbackForm.contactUsSuccessOverley,callbackForm.contactUsSuccessContentg);
                     }
-
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
-                    //alert(xhr.status);
-                    //alert(thrownError);
-                    //alert("Error");
-                    //console.log("Error");
-                    //console.log(xhr);
+                    console.log("Error in ajax method callback form");
+                    console.log(xhr);
                 }
-
             });
         }
     });

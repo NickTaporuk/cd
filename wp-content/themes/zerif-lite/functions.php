@@ -305,6 +305,7 @@ function zerif_scripts()
     wp_style_add_data( 'zerif_bootstrap_style', 'rtl', 'replace' );
 
     wp_enqueue_style('zerif_fontawesome', get_template_directory_uri() . '/css/font-awesome.min.css', array(), 'v1');
+    wp_enqueue_style('zerif_style_main', get_template_directory_uri() . '/css/style.min.css', array(), 'v1');
 
     wp_enqueue_style('zerif_pixeden_style', get_template_directory_uri() . '/css/pixeden-icons.css', array('zerif_fontawesome'), 'v1');
 
