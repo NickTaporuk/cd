@@ -1083,7 +1083,8 @@ a, a:active, a:focus, button, input, textarea {
         position: absolute;
         top: 0;
         left: 24.5%;
-        z-index: 1
+        z-index: 1;
+        padding-top: 2%;
     }
 
     .map__container-2 {
@@ -1119,6 +1120,8 @@ a, a:active, a:focus, button, input, textarea {
         line-height: 1.9rem;
         margin-bottom: 2.7rem;
         text-align: left;
+        font-family: Muli,sans-serif;
+        font-weight: 400;
     }
 
     #launching-soon {
@@ -1817,7 +1820,8 @@ a, a:active, a:focus, button, input, textarea {
         border: none;
         border-radius: 30px;
         text-transform: uppercase;
-        padding: 0 30px
+        padding: 0 30px;
+        margin: 0;
     }
 
     .main-buttons__btn, .share-btn {

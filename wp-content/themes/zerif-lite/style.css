@@ -964,6 +964,11 @@ a:active {
     margin-right: 0;
     margin-left: 0;
 }
+
+.container>.navbar-header{
+	margin-left: 46%;
+}
+
 .site-content {
 	background: #FFF;
 }
