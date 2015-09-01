@@ -102,27 +102,9 @@
                 options: {
                     styleId: 2,
                     templateId: 2
-
                 }
 
             });
-
-            /*if (isMobile) {
-                var legend = document.getElementById('googft-legend');
-                var legendOpenButton = document.getElementById('googft-legend-open');
-                var legendCloseButton = document.getElementById('googft-legend-close');
-                legend.style.display = 'none';
-                legendOpenButton.style.display = 'block';
-                legendCloseButton.style.display = 'block';
-                legendOpenButton.onclick = function() {
-                    legend.style.display = 'block';
-                    legendOpenButton.style.display = 'none';
-                };
-                legendCloseButton.onclick = function() {
-                    legend.style.display = 'none';
-                    legendOpenButton.style.display = 'block';
-                };
-            }*/
         }
 
         google.maps.event.addDomListener(window, 'load', initialize);
@@ -132,16 +114,11 @@
         google.maps.event.addDomListener(window, 'click', function(e){
             if( e.target.parentNode.classList[0] ==="googft-info-window"){
                 e.preventDefault();
-//                console.log(e.target);
-                console.log(e.target.parentNode.classList[0]);
                 var mapDiv = document.getElementById('content');
                 var coordBlog = getCoords(mapDiv);
-//                console.log('coordBlog:',coordBlog);
-//                window.scrollTo(coordBlog.left,coordBlog.top);
                 jQuery('html, body').animate({
                     scrollTop: coordBlog.top
                 }, 500);
-//                jQuery('#content').scrollTop()
             }
 
         });
@@ -165,7 +142,7 @@
             var clientLeft = docEl.clientLeft || body.clientLeft || 0;
 
             // (4)
-            var top = box.top + scrollTop - clientTop - delta;
+            var top = box.top + scrollTop - clientTop + (delta);
             var left = box.left + scrollLeft - clientLeft;
 
             return {
@@ -173,16 +150,6 @@
                 top: top
             };
         }
-//        var mapDiv = document.getElementById('googft-mapCanvas');
-//        google.maps.event.trigger(mapDiv,'click', function(){
-
-//            console.log(1111);
-            /*var popupLink = document.querySelectorAll('.googft-info-window>a');
-            popupLink.addEventListener('click',function(e){
-                e.preventDefault();
-                console.log(1111);
-            });*/
-//        });
     </script>
 
 
