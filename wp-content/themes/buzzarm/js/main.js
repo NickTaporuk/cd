@@ -263,8 +263,7 @@ pre_order.setMinusCount = function (name, insert, dialog__total_sum) {
             $(insert).val(pre_order.count);
             $(dialog__total_sum).html(pre_order.getQuantity(pre_order.price, pre_order.count));
 
-        } else {/** events**/
-        }
+        } else {/** events**/}
     });
 };
 
