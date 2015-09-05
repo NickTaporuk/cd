@@ -121,17 +121,21 @@ add_action('wp_ajax_getNameDatabase', 'getNameDatabase');
 add_action('wp_ajax_nopriv_getNameDatabase', 'getNameDatabase');
 
 /*
- * get metadata selected db
+ * get metadata selected table
  * **/
 function getMetaDataTable() {
 	global $wpdb;
 	try{
 		if(empty($_GET)) throw new Exception('[ERROR] :: no data to get params method:'.__METHOD__.':: line ::'.__LINE__);
 		else {
+			$res = [];
 			$getAllNameTAbles = "DESCRIBE {$_GET['table']};";
 			$results = $wpdb->get_results( $getAllNameTAbles );
-			echo json_encode(["status"=>1,'response' => $results]);exit;
-			exit;
+
+			for($i=0,$count = count($results);$i<$count;$i++){
+				$res[] = $results[$i]->Field;
+			}
+			echo json_encode(["status"=>1,'response' => $res]);exit;
 		}
 	}
 	catch(Exception $e){
@@ -139,24 +143,35 @@ function getMetaDataTable() {
 		echo json_encode(["status"=>1,'response' => false]);exit;
 	}
 
-
-/*	if(!empty($results)){
-		$res = [] ;
-		$c = 0;
-		foreach($results as $val){
-			foreach($val as $k=>$v) {
-				$res[] = $v;
-			}
-		}
-		echo json_encode(["status"=>1,'response' => $res]);exit;
-	} else {
-		echo json_encode(["status"=>1,'response' => false]);exit;
-	}*/
-
 }
 add_action('wp_ajax_getMetaDataTable', 'getMetaDataTable');
 add_action('wp_ajax_nopriv_getMetaDataTable', 'getMetaDataTable');
 
+
+/*
+ * get data selected table
+ * **/
+function getDataTable() {
+	global $wpdb;
+	try{
+		if(empty($_GET)) throw new Exception('[ERROR] :: no data to get params method:'.__METHOD__.':: line ::'.__LINE__);
+		else {
+			$getAllNameTAbles = "SELECT * FROM {$_GET['table']} LIMIT {$_GET['limit']};";
+//			$getAllNameTAbles = "SELECT * FROM {$_GET['table']} ;";
+			$results = $wpdb->get_results( $getAllNameTAbles );
+
+			echo json_encode(["status"=>1,'response' => $results]);exit;
+			echo json_encode(["status"=>1,'response' => $_GET]);exit;
+		}
+	}
+	catch(Exception $e){
+		error_log($e->getMessage());
+		echo json_encode(["status"=>1,'response' => false]);exit;
+	}
+
+}
+add_action('wp_ajax_getDataTable', 'getDataTable');
+add_action('wp_ajax_nopriv_getDataTable', 'getDataTable');
 
 function theme_settings_page() {
 	global $themename,$theme_options,$wpdb;
@@ -182,54 +197,17 @@ function theme_settings_page() {
 	<table id="example1" class="table table-bordered table-striped">
 		<thead>
 		<tr>
-			<th>Rendering engine</th>
-			<th>Browser</th>
-			<th>Platform(s)</th>
-			<th>Engine version</th>
-			<th>CSS grade</th>
+			<th ng-repeat="header in headerData">{{header}}</th>
 		</tr>
 		</thead>
 		<tbody>
-		<tr>
-			<td>Trident</td>
-			<td>Internet
-				Explorer 4.0</td>
-			<td>Win 95+</td>
-			<td> 4</td>
-			<td>X</td>
-		</tr>
-		<tr>
-			<td>Trident</td>
-			<td>Internet
-				Explorer 5.0</td>
-			<td>Win 95+</td>
-			<td>5</td>
-			<td>C</td>
-		</tr>
-		<tr>
-			<td>Trident</td>
-			<td>Internet
-				Explorer 5.5</td>
-			<td>Win 95+</td>
-			<td>5.5</td>
-			<td>A</td>
-		</tr>
-		<tr>
-			<td>Trident</td>
-			<td>Internet
-				Explorer 6</td>
-			<td>Win 98+</td>
-			<td>6</td>
-			<td>A</td>
+		<tr ng-repeat="tabData in dataTable">
+			<td ng-repeat="(key, value) in tabData">{{value}}</td>
 		</tr>
 		</tbody>
 		<tfoot>
 		<tr>
-			<th>Rendering engine</th>
-			<th>Browser</th>
-			<th>Platform(s)</th>
-			<th>Engine version</th>
-			<th>CSS grade</th>
+			<th ng-repeat="header in headerData">{{header}}</th>
 		</tr>
 		</tfoot>
 	</table>
