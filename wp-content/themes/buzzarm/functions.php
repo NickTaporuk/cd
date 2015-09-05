@@ -94,7 +94,8 @@ function getNameTables() {
 
 
 	if(!empty($results)){
-		$res = [];
+		$res = [] ;
+		$c = 0;
 		foreach($results as $val){
 			foreach($val as $k=>$v) {
 				$res[] = $v;
@@ -119,6 +120,42 @@ function getNameDatabase() {
 add_action('wp_ajax_getNameDatabase', 'getNameDatabase');
 add_action('wp_ajax_nopriv_getNameDatabase', 'getNameDatabase');
 
+/*
+ * get metadata selected db
+ * **/
+function getMetaDataTable() {
+	global $wpdb;
+	try{
+		if(empty($_GET)) throw new Exception('[ERROR] :: no data to get params method:'.__METHOD__.':: line ::'.__LINE__);
+		else {
+			$getAllNameTAbles = "DESCRIBE {$_GET['table']};";
+			$results = $wpdb->get_results( $getAllNameTAbles );
+			echo json_encode(["status"=>1,'response' => $results]);exit;
+			exit;
+		}
+	}
+	catch(Exception $e){
+		error_log($e->getMessage());
+		echo json_encode(["status"=>1,'response' => false]);exit;
+	}
+
+
+/*	if(!empty($results)){
+		$res = [] ;
+		$c = 0;
+		foreach($results as $val){
+			foreach($val as $k=>$v) {
+				$res[] = $v;
+			}
+		}
+		echo json_encode(["status"=>1,'response' => $res]);exit;
+	} else {
+		echo json_encode(["status"=>1,'response' => false]);exit;
+	}*/
+
+}
+add_action('wp_ajax_getMetaDataTable', 'getMetaDataTable');
+add_action('wp_ajax_nopriv_getMetaDataTable', 'getMetaDataTable');
 
 
 function theme_settings_page() {
@@ -136,6 +173,12 @@ function theme_settings_page() {
 
 	<div class="content_options" ng-controller="adminCtrl">
 	<h3>Selected database name: {{ nameDb }}</h3>
+		<select name="singleSelect" ng-model="selectedTable" ng-change="renderTable()">
+			<option value="">---Please select---</option> <!-- not selected / blank option -->
+			<option ng-repeat="table in nameTables" value="{{table}}" >{{table}}</option>
+		</select>
+		<br>
+		<br>
 	<table id="example1" class="table table-bordered table-striped">
 		<thead>
 		<tr>
