@@ -35,6 +35,8 @@ app.controller('adminCtrl',['$scope','$http','tablesData','ngDialog',function($s
     $scope.dataTable       = '';
     $scope.tableLimit      = 50;
     $scope.tableCount      = '';
+    $scope.formData = {};
+
     //POPUP START
     $scope.clickToOpen = function () {
         ngDialog.open({
@@ -42,10 +44,17 @@ app.controller('adminCtrl',['$scope','$http','tablesData','ngDialog',function($s
             scope:$scope
         });
     };
+    //get form data from popup
+    $scope.submit = function() {
+        var formElements=document.getElementById("add-items-data");
+        for (var i=0; i<formElements.length; i++){
+            if (formElements[i].type!="submit") $scope.formData[formElements[i].name]=formElements[i].value;
+        }
+    };
 
     $scope.closeSecond = function () {
         ngDialog.close();
-    }
+    };
     //POPUP END
     tablesData.getNameDB(function(response) {
      $scope.nameDb = response.response;
