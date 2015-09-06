@@ -232,16 +232,28 @@ function theme_settings_page()
 
 //	var_dump(DB_NAME);
     ?>
-    <link rel="stylesheet"
-          href="<?php echo get_template_directory_uri() ?>/js/bower_components/bootstrap/dist/css/bootstrap.css"/>
+
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/js/bower_components/bootstrap/dist/css/bootstrap.css"/>
+<!--    <link rel="stylesheet" href="--><?php //echo get_template_directory_uri() ?><!--/js/bower_components/ngDialog/css/ngDialog.css"/>-->
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/js/bower_components/ngDialog/css/ngDialog.min.css"/>
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/js/bower_components/ngDialog/css/ngDialog-custom-width.css"/>
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/js/bower_components/ngDialog/css/ngDialog-theme-default.css"/>
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/js/bower_components/ngDialog/css/ngDialog-theme-plain.css"/>
+
     <script src="<?php echo get_template_directory_uri() ?>/js/bower_components/angular/angular.js"></script>
     <script src="<?php echo get_template_directory_uri() ?>/js/admin/app.js"></script>
+    <script src="<?php echo get_template_directory_uri() ?>/js/bower_components/ngDialog/js/ngDialog.js"></script>
 
     <div class="wrap options_wrap" ng-app="App">
     <div id="icon-options-general"></div>
     <h2><?php _e(' Buzzarm Options') ?></h2>
 
     <div class="content_options" ng-controller="adminCtrl">
+
+        <script type="text/ng-template" id="templateId">
+            <h1>Template heading</h1>
+            <p>Content goes here</p>
+        </script>
 
         <div class="box">
             <div class="box-header">
@@ -285,7 +297,7 @@ function theme_settings_page()
                         </div>
                         <div class="col-sm-3">
                             <!-- Indicates a successful or positive action -->
-                            <button type="button" class="btn btn-success pull-right" ng-show="selectedTable">Add</button>
+                            <button type="button" class="btn btn-success pull-right" ng-show="selectedTable" ng-click="clickToOpen()">Add</button>
                         </div>
                     </div>
                     <div class="row">

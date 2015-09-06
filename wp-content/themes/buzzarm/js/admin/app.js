@@ -1,4 +1,4 @@
- var app = angular.module("App",[]);
+ var app = angular.module("App",['ngDialog']);
 
  app.factory('tablesData',['$http',function($http){
      var link = "/wp-admin/admin-ajax.php",
@@ -27,7 +27,7 @@
      }
  }]);
 
-app.controller('adminCtrl',['$scope','$http','tablesData',function($scope,$http,tablesData){
+app.controller('adminCtrl',['$scope','$http','tablesData','ngDialog',function($scope,$http,tablesData,ngDialog){
      $scope.nameTables      = '';
      $scope.nameDb          = '';
      $scope.headerData      = '';
@@ -35,6 +35,10 @@ app.controller('adminCtrl',['$scope','$http','tablesData',function($scope,$http,
      $scope.dataTable       = '';
      $scope.tableLimit      = 50;
      $scope.tableCount      = '';
+
+    $scope.clickToOpen = function () {
+        ngDialog.open({ template: 'templateId' });
+    };
 
      tablesData.getNameDB(function(response) {
          $scope.nameDb = response.response;
