@@ -251,8 +251,19 @@ function theme_settings_page()
     <div class="content_options" ng-controller="adminCtrl">
 
         <script type="text/ng-template" id="templateId">
-            <h1>Template heading</h1>
-            <p>Content goes here</p>
+
+<!--            <div class="modal-content">-->
+                <div class="modal-header">
+                    <h4 class="modal-title">Table name : {{ selectedTable }}</h4>
+                </div>
+                <div class="modal-body">
+                    <p>One fine body…</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal" ng-click="closeThisDialog(0)">Close</button>
+                    <button type="button" class="btn btn-primary" ng-click="closeSecond()">Save changes</button>
+                </div>
+<!--            </div>-->
         </script>
 
         <div class="box">
