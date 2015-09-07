@@ -53,7 +53,7 @@ app.controller('adminCtrl',['$scope','$http','tablesData','ngDialog',function($s
 
         //add validate form
         ngDialog.close();
-        //console.debug($scope.formData);
+        console.debug($scope.formData);
     };
 
     $scope.closeSecond = function () {
