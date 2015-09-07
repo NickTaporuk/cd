@@ -50,6 +50,10 @@ app.controller('adminCtrl',['$scope','$http','tablesData','ngDialog',function($s
         for (var i=0; i<formElements.length; i++){
             if (formElements[i].type!="submit") $scope.formData[formElements[i].name]=formElements[i].value;
         }
+
+        //add validate form
+        ngDialog.close();
+        //console.debug($scope.formData);
     };
 
     $scope.closeSecond = function () {

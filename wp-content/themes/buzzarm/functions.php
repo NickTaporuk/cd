@@ -257,17 +257,16 @@ function theme_settings_page()
                 </div>
                 <div class="modal-body">
 
-                    <form id="add-items-data" ng-submit="submit()">
+                    <form id="add-items-data">
                         <div class="form-group" ng-repeat="headItem in headerData">
                             <label for="{{headItem}}">{{headItem}}</label>
                             <input type="text" name="{{headItem}}" class="form-control" id="{{headItem}}" placeholder="{{headItem}}">
                         </div>
-                        <input type="submit" value="Submit Form">
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default pull-left" data-dismiss="modal" ng-click="closeThisDialog(0)">Close</button>
-                    <button type="button" class="btn btn-primary" ng-click="closeSecond()">Save changes</button>
+                    <button type="button" class="btn btn-primary" ng-click="submit()">Save changes</button>
                 </div>
         </script>
 
