@@ -1,0 +1,53 @@
+<svg width="1440" height="340">
+  
+  <circle cx="440" cy="250" r="2" fill="none" stroke="#4069BB" stroke-width="4">
+    <animate
+      attributeName="r"
+      dur="4"
+      begin="0.2"
+      repeatCount="indefinite"
+      values="2; 75"
+    />
+  </circle>
+  
+  <circle cx="440" cy="250" r="2" fill="none" stroke="#4069BB" stroke-width="4">
+    <animate
+      attributeName="r"
+      dur="4"
+      begin="0.7"
+      repeatCount="indefinite"
+      values="2; 75"
+    />
+  </circle>
+  
+  <circle cx="440" cy="250" r="2" fill="none" stroke="#4069BB" stroke-width="4">
+    <animate
+      attributeName="r"
+      dur="4"
+      begin="1.2"
+      repeatCount="indefinite"
+      values="2; 75"
+    />
+  </circle>
+  
+  <circle cx="440" cy="250" r="2" fill="none" stroke="#4069BB" stroke-width="4">
+    <animate
+      attributeName="r"
+      dur="4"
+      begin="1.7"
+      repeatCount="indefinite"
+      values="2; 75"
+    />
+  </circle>
+  
+  <circle cx="440" cy="250" r="2" fill="none" stroke="#4069BB" stroke-width="4">
+    <animate
+      attributeName="r"
+      dur="4"
+      begin="2.2"
+      repeatCount="indefinite"
+      values="2; 75"
+    />
+  </circle>
+  
+</svg>
