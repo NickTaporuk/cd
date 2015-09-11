@@ -4,7 +4,25 @@
 h1,h2 {
     font-family: "NeoSansPro-Bold", sans-serif !important;
 }
-
+/*---------------------------------------
+ **   9.0 Widgets                   -----
+-----------------------------------------*/
+/* Search widget */
+.widget_search input {
+    width: 80% !important;
+    padding: 6px 15% 6px 2% !important;
+    border-radius: 30px !important;
+}
+.widget_search .search-submit {
+    width: 46px !important;
+    height: 38px !important;
+}
+.search-field ::-webkit-input-placeholder{
+    text-align: left;
+}
+.search-field ::-webkit-input-placeholder{
+    text-align: left;
+}
 /*---------------------------------------
  **   10.0 Content                   -----
 -----------------------------------------*/
