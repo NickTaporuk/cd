@@ -300,12 +300,22 @@ function zerif_scripts()
     wp_enqueue_style('zerif_font', zerif_slug_fonts_url(), array(), null );
 
     wp_enqueue_style( 'zerif_font_all', '//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600italic,600,700,700italic,800,800italic');
+
+    //custom fonts
+    wp_enqueue_style('zerif_font_custom_neo_eot', get_template_directory_uri() . '/fonts/NeoSansPro-Bold.eot', array(), 'v1');
+    wp_enqueue_style('zerif_font_custom_neo_svg', get_template_directory_uri() . '/fonts/NeoSansPro-Bold.svg', array(), 'v1');
+    wp_enqueue_style('zerif_font_custom_neo_ttf', get_template_directory_uri() . '/fonts/NeoSansPro-Bold.ttf', array(), 'v1');
+    wp_enqueue_style('zerif_font_custom_neo_woff', get_template_directory_uri() . '/fonts/NeoSansPro-Bold.woff', array(), 'v1');
     
     wp_enqueue_style('zerif_bootstrap_style', get_template_directory_uri() . '/css/bootstrap.css');
     wp_style_add_data( 'zerif_bootstrap_style', 'rtl', 'replace' );
 
     wp_enqueue_style('zerif_fontawesome', get_template_directory_uri() . '/css/font-awesome.min.css', array(), 'v1');
+
     wp_enqueue_style('zerif_style_main', get_template_directory_uri() . '/css/style.min.css', array(), 'v1');
+
+    //additional css
+    wp_enqueue_style('zerif_style_additional', get_template_directory_uri() . '/css/add-style.css', array(), 'v1');
 
     wp_enqueue_style('zerif_pixeden_style', get_template_directory_uri() . '/css/pixeden-icons.css', array('zerif_fontawesome'), 'v1');
 
