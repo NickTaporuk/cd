@@ -55,6 +55,7 @@
 		<?php if ( 'post' == get_post_type() ) : ?>
 		<!-- comments in post count -->
 		<span id="coment-count">
+			<i class="fa fa-comment"></i>
 			<?php comments_number(0,1,'%'); ?>
 		</span>
 		<div class="entry-meta">
