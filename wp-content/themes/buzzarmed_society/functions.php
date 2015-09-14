@@ -300,6 +300,7 @@ function zerif_scripts()
     wp_enqueue_style('zerif_font', zerif_slug_fonts_url(), array(), null );
 
     wp_enqueue_style( 'zerif_font_all', '//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600italic,600,700,700italic,800,800italic');
+    wp_enqueue_style( 'zerif_font_add', '//fonts.googleapis.com/css?family=Muli:400,300,300italic');
 
     //custom fonts
     wp_enqueue_style('zerif_font_custom_neo_eot', get_template_directory_uri() . '/fonts/NeoSansPro-Bold.eot', array(), 'v1');
