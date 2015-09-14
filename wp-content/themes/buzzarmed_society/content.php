@@ -48,7 +48,7 @@
 
 		<span id="view-post">
 			<!-- post views -->
-			<?php if(function_exists('the_views')) { the_views(); } ?>
+			<?php if(function_exists('the_views')) { the_views(true, '', '', false, true); } ?>
 		</span>
 
 		<?php if ( 'post' == get_post_type() ) : ?>

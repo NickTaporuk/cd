@@ -199,11 +199,16 @@ function should_views_be_displayed($views_options = null) {
 
 
 ### Function: Display The Post Views
-function the_views($display = true, $prefix = '', $postfix = '', $always = false) {
+function the_views($display = true, $prefix = '', $postfix = '', $always = false, $visible_template = false) {
 	$post_views = intval( get_post_meta( get_the_ID(), 'views', true ) );
 	$views_options = get_option('views_options');
+	if($visible_template){
+		$views_options['template'] = '%VIEW_COUNT%';
+	}
 	if ($always || should_views_be_displayed($views_options)) {
 		$output = $prefix.str_replace( array( '%VIEW_COUNT%', '%VIEW_COUNT_ROUNDED%' ), array( number_format_i18n( $post_views ), postviews_round_number( $post_views) ), stripslashes( $views_options['template'] ) ).$postfix;
+
+//		file_put_contents('test',json_encode($views_options));
 		if($display) {
 			echo apply_filters('the_views', $output);
 		} else {
