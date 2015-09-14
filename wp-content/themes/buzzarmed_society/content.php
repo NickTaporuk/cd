@@ -47,6 +47,7 @@
 		<h1 class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
 
 		<span id="view-post">
+			<i class="fa fa-eye"></i>
 			<!-- post views -->
 			<?php if(function_exists('the_views')) { the_views(); } ?>
 		</span>
