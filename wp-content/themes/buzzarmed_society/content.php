@@ -47,6 +47,7 @@
 		<h1 class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
 
 		<span id="view-post">
+			<i class="fa fa-eye"></i>
 			<!-- post views -->
 			<?php if(function_exists('the_views')) { the_views(true, '', '', false, true); } ?>
 		</span>
@@ -54,6 +55,7 @@
 		<?php if ( 'post' == get_post_type() ) : ?>
 		<!-- comments in post count -->
 		<span id="coment-count">
+			<i class="fa fa-comment"></i>
 			<?php comments_number(0,1,'%'); ?>
 		</span>
 		<div class="entry-meta">
