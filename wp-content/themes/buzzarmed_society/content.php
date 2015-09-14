@@ -47,6 +47,7 @@
 		<h1 class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
 
 
+		<?php if(function_exists('the_views')) { the_views(); } ?>
 
 		<?php if ( 'post' == get_post_type() ) : ?>
 
