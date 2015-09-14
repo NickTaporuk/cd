@@ -247,10 +247,10 @@ class es_widget_register extends WP_Widget
 			<?php } ?>
 			<div class="es_msg"><span id="es_msg"></span></div>
 			<?php if( $es_name == "YES" ) { ?>
-			<div class="es_lablebox"><?php _e('Name', ES_TDOMAIN); ?></div>
-			<div class="es_textbox">
+<!--			<div class="es_lablebox">--><?php //_e('Name', ES_TDOMAIN); ?><!--</div>-->
+			<!--<div class="es_textbox">
 				<input class="es_textbox_class" name="es_txt_name" id="es_txt_name" value="" maxlength="225" type="text">
-			</div>
+			</div>-->
 			<?php } ?>
 			<div class="es_lablebox"><?php _e('Email *', ES_TDOMAIN); ?></div>
 			<div class="es_textbox">
