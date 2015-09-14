@@ -52,7 +52,10 @@
 		</span>
 
 		<?php if ( 'post' == get_post_type() ) : ?>
-		<?php comments_number(); ?>
+		<!-- comments in post count -->
+		<span id="coment-count">
+			<?php comments_number(0,1,'%'); ?>
+		</span>
 		<div class="entry-meta">
 
 			<?php zerif_posted_on(); ?>
