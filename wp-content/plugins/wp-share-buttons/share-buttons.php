@@ -617,7 +617,7 @@ INSERT INTO `$table_name` (`name`, `title`, `social`, `ordering`, `value`) VALUE
 ('share_button_buttons_border_style', 'Buttons border style', '', '', 'ridge'),
 ('share_button_buttons_border_radius', 'Buttons border radius', '', '', '11'),
 ('share_button_buttons_border_color', 'Buttons border color', '', '', 'E6354C'),
-('share_button_title_text', 'Title Text', '', '', 'Share This:'),
+('share_button_title_text', 'Title Text', '', '', 'Share:'),
 ('share_button_title_position', 'Title position', '', '', 'top'),
 ('share_button_title_font_size', 'Title font size', '', '', '25'),
 ('share_button_title_color', 'Title Color', '', '', '666666'),

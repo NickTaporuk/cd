@@ -52,6 +52,9 @@ get_header(); ?>
 
 			<?php endwhile; ?>
 
+<?php if (function_exists("pagination")) {
+    pagination($custom_query->max_num_pages);
+} ?>
 
 
 			<?php zerif_paging_nav(); ?>
