@@ -44,7 +44,6 @@
 			) );
 		?>
 
-		<?php echo do_shortcode("[huge_it_share]"); ?>
 	</div><!-- .entry-content -->
 
 	<?php
