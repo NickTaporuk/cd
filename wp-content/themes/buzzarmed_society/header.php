@@ -49,6 +49,7 @@
             var mapOption = {
 //                center: new google.maps.LatLng(40.4754846587654, -96.86768085),
                 center: new google.maps.LatLng(37.4754846587654, -126.86768085),
+                scrollwheel: false,
                 zoom: zoom,
                 disableDefaultUI: true,
                 mapTypeControlOptions: {

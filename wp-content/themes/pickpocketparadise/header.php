@@ -673,17 +673,18 @@ endif; ?>
 		</div>
 
 	</div>
-    <section id="map-section">
+    <div class="headerslider"> <?php echo do_shortcode('[sp_responsiveslider limit="-1"]'); ?></div>
+    <!--<section id="map-section">
         <div class="l-container map__container clearfix">
             <div class="map-jumbo">
                 <i class="map__hand-icon"></i>
                 <h2 class="map-jumbo__heading">USA theft rates</h2>
             </div>
-        </div><!-- /.l-container -->
+        </div>-->
         <!-- start google maps-->
-        <div id="googft-mapCanvas"></div>
+        <!--<div id="googft-mapCanvas"></div>-->
         <!-- end google maps-->
-        <div class="l-container map__container map__container-2 clearfix">
+        <!--<div class="l-container map__container map__container-2 clearfix">
             <div class="map-jumbo">
                 <p class="map-jumbo__paragraph">
                     Crime is a constant part of life in many tourist <br>
@@ -693,8 +694,8 @@ endif; ?>
                 </p>
                 <button class="btn btn-tomato">Go to buzzarm society</button>
             </div>
-        </div><!-- /.l-container -->
+        </div>
 
-    </section>
+    </section>-->
 
 	<!-- / END TOP BAR -->
