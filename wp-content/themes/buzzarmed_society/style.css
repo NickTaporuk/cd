@@ -1049,6 +1049,13 @@ a:active {
 	bottom: -9px;
 	left: 0;
 }
+.post-info {
+	display: inline-block;
+	float: right;
+	font-family: "Muli", sans-serif;
+	font-weight: 300;
+	font-style: italic;
+}
 .entry-meta{
 	margin-top: 10px;
 }
