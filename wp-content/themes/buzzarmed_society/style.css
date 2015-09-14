@@ -856,18 +856,19 @@ a:active {
 	margin-bottom: 30px;*/
 }
 .widget .widget-title {
-	color: #404040;
+	color: #ef7074;
 	text-transform: uppercase;
-	margin-bottom: 30px;
+	margin-bottom: 0px;
 	font-weight: bold;
-	font-size: 17px;
+	/*font-size: 17px;*/
+	font-size: 13px;
 	position: relative;
 	text-align: left;
 	margin-top: 30px;
 	padding-bottom: 5px;
 	float: none;
 }
-.widget .widget-title:before{
+/*.widget .widget-title:before{
 	position: absolute;
 	margin: auto;
 	z-index: 1;
@@ -877,7 +878,7 @@ a:active {
 	background: #e96656;
 	bottom: -9px;
 	left: 0;
-}
+}*/
 
 .widget-area {
 	float: left;
@@ -948,10 +949,14 @@ a:active {
 	left: 0;
 }
 .widget li a {
-	color:#808080;
+	color:#151515;
+	font-family: "Muli", sans-serif;
+	font-size: 14px;
+	font-weight: 300;
 }
 .widget li a:hover {
-	color:#404040
+	font-weight: 400;
+	text-decoration: underline;
 }
  /*---------------------------------------
  **   10.0 Content                   -----
@@ -1046,6 +1051,12 @@ a:active {
 }
 .entry-meta{
 	margin-top: 10px;
+}
+.entry-meta .posted-on {
+	font-family: "Muli", sans-serif;
+	font-style: italic;
+	font-weight: 300;
+	font-size: 14px;
 }
  /*---------------------------------------
  **   10.2 Asides                   -----
@@ -2947,7 +2958,7 @@ article .posted-on a:hover{
 	display: none;
 	content: "";
 }
-.listpost-content-wrap .entry-title a:after {
+/*.listpost-content-wrap .entry-title a:after {
 	position: absolute;
 	margin: auto;
 	z-index: 1;
@@ -2958,7 +2969,7 @@ article .posted-on a:hover{
 	bottom: -9px;
 	left: 0;
 	width: 50px;
-}
+}*/
 .post .entry-footer {
 }
 .listpost-content-wrap h1.entry-title a {
@@ -2992,6 +3003,11 @@ article .posted-on a:hover{
 }
 .entry-content{
 	line-height: 20px;
+}
+.entry-content p {
+	font-family: "Muli", sans-serif;
+	font-weight: 300;
+	font-size: 16px;
 }
 .list-post-top{
 	min-height: 130px;

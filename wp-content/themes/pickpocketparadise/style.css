@@ -856,18 +856,19 @@ a:active {
 	margin-bottom: 30px;*/
 }
 .widget .widget-title {
-	color: #404040;
+	color: #ef7074;
 	text-transform: uppercase;
 	margin-bottom: 30px;
 	font-weight: bold;
-	font-size: 17px;
+	/*font-size: 17px;*/
+	font-size: 13px;
 	position: relative;
 	text-align: left;
 	margin-top: 30px;
 	padding-bottom: 5px;
 	float: none;
 }
-.widget .widget-title:before{
+/*.widget .widget-title:before{
 	position: absolute;
 	margin: auto;
 	z-index: 1;
@@ -877,7 +878,7 @@ a:active {
 	background: #e96656;
 	bottom: -9px;
 	left: 0;
-}
+}*/
 
 .widget-area {
 	float: left;
