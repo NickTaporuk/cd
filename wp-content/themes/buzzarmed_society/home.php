@@ -57,7 +57,7 @@ get_header(); ?>
 } ?>
 
 
-			<?php zerif_paging_nav(); ?>
+<!--			--><?php //zerif_paging_nav(); ?>
 
 
 

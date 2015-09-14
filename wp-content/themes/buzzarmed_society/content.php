@@ -50,7 +50,7 @@
 		<?php if(function_exists('the_views')) { the_views(); } ?>
 
 		<?php if ( 'post' == get_post_type() ) : ?>
-
+		<?php comments_number(); ?>
 		<div class="entry-meta">
 
 			<?php zerif_posted_on(); ?>
