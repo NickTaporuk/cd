@@ -30,129 +30,149 @@
 <link rel="profile" href="http://gmpg.org/xfn/11">
 
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+    <style>
+        .main-logo-svg {
+            fill: #00308F !important;
+            width: 165px;
+            height: 60px;
+        }
+    </style>
+    <?php
+        if($_SERVER['REQUEST_URI'] == '/' ) {
+    ?>
+            <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false&amp;v=3"></script>
 
-<script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false&amp;v=3"></script>
-
-<script type="text/javascript">
-        function initialize() {
-            google.maps.visualRefresh = true;
-            var isMobile = (navigator.userAgent.toLowerCase().indexOf('android') > -1) ||
-                (navigator.userAgent.match(/(iPod|iPhone|iPad|BlackBerry|Windows Phone|iemobile)/));
-            if (isMobile) {
-                var viewport = document.querySelector("meta[name=viewport]");
-                viewport.setAttribute('content', 'initial-scale=1.0, user-scalable=no');
-            }
-            var mapDiv = document.getElementById('googft-mapCanvas');
-            mapDiv.style.width = '100%';
-            mapDiv.style.height = isMobile ? '250px' : '500px';
-            var zoom = isMobile ? 3 : 4;
-            var mapOption = {
-//                center: new google.maps.LatLng(40.4754846587654, -96.86768085),
-                center: new google.maps.LatLng(37.4754846587654, -126.86768085),
-                scrollwheel: false,
-                zoom: zoom,
-                disableDefaultUI: true,
-                mapTypeControlOptions: {
-                    mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'buzzarmcrimeus']
-                }
-            };
-            var map = new google.maps.Map(mapDiv, mapOption);
-            map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(document.getElementById('googft-legend-open'));
-            map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(document.getElementById('googft-legend'));
-
-            var crimeMapStyles = [
-                { featureType: 'road', elementType: 'all', stylers: [ { visibility: 'off'} ] },
-                { featureType: 'poi', elementType: 'all', stylers: [ { visibility: 'off' } ] },
-                { featureType: 'water', elementType: 'all', stylers: [{ color: '#7393f6' }] },
-                /*       { featureType: 'landscape', elementType: 'all', stylers: [{ color: '#eeeeee' }] }, */
-                { featureType: "administrative.country", elementType: "labels.text.fill",stylers: [ { "color": "#555555" } ] },
-                { featureType: 'administrative.country', elementType: 'geometry.stroke', stylers: [{color: "#333333"}] },
-                /*       { featureType: "administrative.country", elementType: "labels.text", stylers: [ { visibility: "off" } ] }, */
-                /*       { featureType: 'administrative.province', elementType: 'labels.text.stroke', stylers: [{color: "#a0a0a0"}] }, */
-                { featureType: 'administrative.province', elementType: 'labels.text.fill', stylers: [{color: "#888888"}] },
-                { featureType: 'administrative.province', elementType: 'geometry.stroke', stylers: [{color: "#bbbbbb"}] }
-
-
-            ];
-
-            var styledMapOptions = {
-                name: 'Theft Reports'
-            };
-
-            var crimeMapType = new google.maps.StyledMapType(
-                crimeMapStyles, styledMapOptions
-            );
-
-            map.mapTypes.set('buzzarmcrimeus', crimeMapType);
-            map.setMapTypeId('buzzarmcrimeus');
-
-            layer = new google.maps.FusionTablesLayer({
-                map: map,
-                heatmap: { enabled: false },
-                query: {
-                    select: "col0",
-                    from: "1wu-0pgZknv4b62bIGH3NxO12NldkFnKQYNN-UIcT",
-                    where: ""
-                },
-                styles: [{
-                    markerOptions: {
-                        /* 		    iconName: "shaded_dot" */
-                        iconName: "red_blank"
+            <script type="text/javascript">
+                function initialize() {
+                    google.maps.visualRefresh = true;
+                    var isMobile = (navigator.userAgent.toLowerCase().indexOf('android') > -1) ||
+                        (navigator.userAgent.match(/(iPod|iPhone|iPad|BlackBerry|Windows Phone|iemobile)/));
+                    if (isMobile) {
+                        var viewport = document.querySelector("meta[name=viewport]");
+                        viewport.setAttribute('content', 'initial-scale=1.0, user-scalable=no');
                     }
-                }],
-                options: {
-                    styleId: 2,
-                    templateId: 2
+                    var mapDiv = document.getElementById('googft-mapCanvas');
+                    mapDiv.style.width = '100%';
+                    mapDiv.style.height = isMobile ? '250px' : '500px';
+                    var zoom = isMobile ? 3 : 4;
+                    var mapOption = {
+//                center: new google.maps.LatLng(40.4754846587654, -96.86768085),
+                        center: new google.maps.LatLng(37.4754846587654, -126.86768085),
+                        scrollwheel: false,
+                        zoom: zoom,
+                        disableDefaultUI: true,
+                        mapTypeControlOptions: {
+                            mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'buzzarmcrimeus']
+                        }
+                    };
+                    var map = new google.maps.Map(mapDiv, mapOption);
+                    map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(document.getElementById('googft-legend-open'));
+                    map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(document.getElementById('googft-legend'));
+
+                    var crimeMapStyles = [
+                        { featureType: 'road', elementType: 'all', stylers: [ { visibility: 'off'} ] },
+                        { featureType: 'poi', elementType: 'all', stylers: [ { visibility: 'off' } ] },
+                        { featureType: 'water', elementType: 'all', stylers: [{ color: '#7393f6' }] },
+                        /*       { featureType: 'landscape', elementType: 'all', stylers: [{ color: '#eeeeee' }] }, */
+                        { featureType: "administrative.country", elementType: "labels.text.fill",stylers: [ { "color": "#555555" } ] },
+                        { featureType: 'administrative.country', elementType: 'geometry.stroke', stylers: [{color: "#333333"}] },
+                        /*       { featureType: "administrative.country", elementType: "labels.text", stylers: [ { visibility: "off" } ] }, */
+                        /*       { featureType: 'administrative.province', elementType: 'labels.text.stroke', stylers: [{color: "#a0a0a0"}] }, */
+                        { featureType: 'administrative.province', elementType: 'labels.text.fill', stylers: [{color: "#888888"}] },
+                        { featureType: 'administrative.province', elementType: 'geometry.stroke', stylers: [{color: "#bbbbbb"}] }
+
+
+                    ];
+
+                    var styledMapOptions = {
+                        name: 'Theft Reports'
+                    };
+
+                    var crimeMapType = new google.maps.StyledMapType(
+                        crimeMapStyles, styledMapOptions
+                    );
+
+                    map.mapTypes.set('buzzarmcrimeus', crimeMapType);
+                    map.setMapTypeId('buzzarmcrimeus');
+
+                    layer = new google.maps.FusionTablesLayer({
+                        map: map,
+                        heatmap: { enabled: false },
+                        query: {
+                            select: "col0",
+                            from: "1wu-0pgZknv4b62bIGH3NxO12NldkFnKQYNN-UIcT",
+                            where: ""
+                        },
+                        styles: [{
+                            markerOptions: {
+                                /* 		    iconName: "shaded_dot" */
+                                iconName: "red_blank"
+                            }
+                        }],
+                        options: {
+                            styleId: 2,
+                            templateId: 2
+                        }
+
+                    });
                 }
 
-            });
-        }
+                google.maps.event.addDomListener(window, 'load', initialize);
 
-        google.maps.event.addDomListener(window, 'load', initialize);
+                var mapDiv = document.getElementById('googft-mapCanvas');
 
-        var mapDiv = document.getElementById('googft-mapCanvas');
+                google.maps.event.addDomListener(window, 'click', function(e){
+                    if( e.target.parentNode.classList[0] ==="googft-info-window"){
+                        e.preventDefault();
+                        var mapDiv = document.getElementById('content');
+                        var coordBlog = getCoords(mapDiv);
+                        jQuery('html, body').animate({
+                            scrollTop: coordBlog.top
+                        }, 500);
+                    }
 
-        google.maps.event.addDomListener(window, 'click', function(e){
-            if( e.target.parentNode.classList[0] ==="googft-info-window"){
-                e.preventDefault();
-                var mapDiv = document.getElementById('content');
-                var coordBlog = getCoords(mapDiv);
-                jQuery('html, body').animate({
-                    scrollTop: coordBlog.top
-                }, 500);
-            }
+                });
 
-        });
+                function getCoords(elem,delta) {
+                    if(!delta){
+                        delta = 0;
+                    }
+                    // (1)
+                    var box = elem.getBoundingClientRect();
 
-        function getCoords(elem,delta) {
-            if(!delta){
-                delta = 0;
-            }
-            // (1)
-            var box = elem.getBoundingClientRect();
+                    var body = document.body;
+                    var docEl = document.documentElement;
 
-            var body = document.body;
-            var docEl = document.documentElement;
+                    // (2)
+                    var scrollTop = window.pageYOffset || docEl.scrollTop || body.scrollTop;
+                    var scrollLeft = window.pageXOffset || docEl.scrollLeft || body.scrollLeft;
 
-            // (2)
-            var scrollTop = window.pageYOffset || docEl.scrollTop || body.scrollTop;
-            var scrollLeft = window.pageXOffset || docEl.scrollLeft || body.scrollLeft;
+                    // (3)
+                    var clientTop = docEl.clientTop || body.clientTop || 0;
+                    var clientLeft = docEl.clientLeft || body.clientLeft || 0;
 
-            // (3)
-            var clientTop = docEl.clientTop || body.clientTop || 0;
-            var clientLeft = docEl.clientLeft || body.clientLeft || 0;
+                    // (4)
+                    var top = box.top + scrollTop - clientTop + (delta);
+                    var left = box.left + scrollLeft - clientLeft;
 
-            // (4)
-            var top = box.top + scrollTop - clientTop + (delta);
-            var left = box.left + scrollLeft - clientLeft;
+                    return {
+                        left: left,
+                        top: top
+                    };
+                }
+            </script>
+            <style>
+                #googft-mapCanvas {
+                    height: 500px;
+                    margin: 0;
+                    padding: 0;
+                    width: 100%;
+                }
+            </style>
 
-            return {
-                left: left,
-                top: top
-            };
-        }
-    </script>
-
+            <?php
+                }
+            ?>
 
 <!--[if lt IE 9]>
 <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/html5.js"></script>
@@ -160,19 +180,6 @@
 <![endif]-->
 
 <?php wp_head(); ?>
-    <style>
-        .main-logo-svg {
-            fill: #00308F;
-            width: 165px;
-            height: 60px;
-        }
-        #googft-mapCanvas {
-            height: 500px;
-            margin: 0;
-            padding: 0;
-            width: 100%;
-        }
-    </style>
 </head>
 
 
@@ -675,6 +682,9 @@ endif; ?>
 		</div>
 
 	</div>
+    <?php
+        if($_SERVER['REQUEST_URI'] == '/' ) {
+    ?>
     <section id="map-section">
         <div class="l-container map__container clearfix">
             <div class="map-jumbo">
@@ -698,7 +708,7 @@ endif; ?>
         </div><!-- /.l-container -->
 
     </section>
-
+<?php } ?>
 	<!-- / END TOP BAR -->
     <div class="breadcrumbs" xmlns:v="http://rdf.data-vocabulary.org/#">
         <?php if(function_exists('bcn_display'))
