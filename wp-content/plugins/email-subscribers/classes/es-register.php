@@ -254,7 +254,7 @@ class es_widget_register extends WP_Widget
 			<?php } ?>
 			<!--<div class="es_lablebox"><?php /*_e('Email *', ES_TDOMAIN); */?></div>-->
 			<div class="es_textbox es_textbox_email">
-				<input class="es_textbox_class es_txt_email" name="es_txt_email" id="es_txt_email" onkeypress="if(event.keyCode==13) es_submit_page('<?php echo $url; ?>')" value="" maxlength="225" type="text">
+				<input class="es_textbox_class es_txt_email" name="es_txt_email" id="es_txt_email" onkeypress="if(event.keyCode==13) es_submit_page('<?php echo $url; ?>')" value="" maxlength="225" type="text" placeholder="Enter your email">
 			</div>
 			<div class="es_button">
 				<input class="es_textbox_button es_button__email" name="es_txt_button" id="es_txt_button" onClick="return es_submit_page('<?php echo $url; ?>')" value="<?php _e('Subscribe', ES_TDOMAIN); ?>" type="button">
