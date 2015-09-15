@@ -32,7 +32,7 @@
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
     <style>
         .main-logo-svg {
-            fill: #00308F !important;
+            fill: #000000 !important;
             width: 165px;
             height: 60px;
         }
