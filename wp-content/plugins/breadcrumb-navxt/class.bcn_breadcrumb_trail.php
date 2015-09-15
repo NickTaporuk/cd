@@ -970,7 +970,7 @@ class bcn_breadcrumb_trail
 		{
 			//Helps track issues, please don't remove it
 			$credits = "<!-- Breadcrumb NavXT " . $this::version . " -->\n";
-			echo strtoupper($credits . $trail_str);
+			echo ($credits . $trail_str);
 		}
 	}
 	/**
