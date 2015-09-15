@@ -14,6 +14,9 @@
 {
 	padding-bottom:10px;
 }
+.es_textbox_email {
+	padding-bottom: 0 !important;
+}
 .es_button 
 {
 	padding-top:10px;
@@ -23,9 +26,21 @@
 {
 	width:200px;
 }
+.es_txt_email {
+	height: 38px;
+	border-radius: 30px !important;
+}
 .es_textbox_button 
 {
 	width:100px;
+}
+.es_button__email {
+	width:200px;
+	height: 38px;
+	background-color: rgb(92, 188, 108) !important;
+	border-radius: 30px !important;
+	padding: 0 !important;
+	margin: 0 !important;
 }
 .es_lablebox
 {
