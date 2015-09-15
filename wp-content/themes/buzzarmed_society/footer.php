@@ -128,6 +128,16 @@
 		endif;
 	?>
 <!---->
+    <script>
+        jQuery(document).ready(function(){
+            jQuery('.cd-top').on('click',function(){
+                jQuery('html, body').animate({
+                    scrollTop: 0
+                }, 500);
+            });
+        });
+
+    </script>
 </div> <!-- / END CONTAINER -->
 
 
