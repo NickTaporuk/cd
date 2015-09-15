@@ -230,7 +230,6 @@ function theme_settings_page()
 {
     global $themename, $theme_options, $wpdb;
 
-//	var_dump(DB_NAME);
     ?>
 
     <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/js/bower_components/bootstrap/dist/css/bootstrap.css"/>
