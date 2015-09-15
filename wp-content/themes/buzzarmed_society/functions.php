@@ -71,6 +71,7 @@ function zerif_setup()
     add_image_size( 'post-thumbnail-large-table', 600, 300, true ); /* blog thumbnail for table */
     add_image_size( 'post-thumbnail-large-mobile', 400, 200, true ); /* blog thumbnail for mobile */
     add_image_size( 'post-thumbnails-bigs', 1920, 425,array( 'left', 'top' ));
+    add_image_size( 'post-thumbnails-large-buzzarm', 250, 188,true);
 
 
     // This theme uses wp_nav_menu() in one location.

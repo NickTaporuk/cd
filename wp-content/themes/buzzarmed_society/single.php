@@ -18,6 +18,9 @@ get_header(); ?>
 
             if ( has_post_thumbnail() ) {
 				 echo get_the_post_thumbnail(the_ID(), 'post-thumbnails-bigs');
+				 ?>
+				 <div id='title-single-post'><h1><?php echo the_title()?></h1></div>
+            <?php
             } else {
 //                echo '<img src="' . get_bloginfo( 'stylesheet_directory' ) . '/images/thumbnail-default.jpg" />';
             ?>
@@ -179,7 +182,13 @@ get_header(); ?>
             <?php } ?>
 
 		<?php endwhile; ?>
-
+	<!-- / END TOP BAR -->
+    <div class="breadcrumbs" xmlns:v="http://rdf.data-vocabulary.org/#">
+        <?php if(function_exists('bcn_display'))
+        {
+             bcn_display();
+        }?>
+    </div>
 <?php //} ?>
 <!---->
 </header> <!-- / END HOME SECTION  -->

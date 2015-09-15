@@ -20,8 +20,7 @@
 
 			 	<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" >
 
-				<?php the_post_thumbnail("post-thumbnail"); ?>
-
+				<?php the_post_thumbnail("post-thumbnails-large-buzzarm"); ?>
 				</a>
 
 		</div>
