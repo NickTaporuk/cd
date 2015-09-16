@@ -61,7 +61,8 @@ class bcn_widget extends WP_Widget
 		}
 		else if($instance['type'] == 'microdata')
 		{
-			echo '<div class="breadcrumbs" xmlns:v="http://rdf.data-vocabulary.org/#">' . $instance['pretext'];
+
+			echo '<div class="breadcrumbs container" xmlns:v="http://rdf.data-vocabulary.org/#">' . $instance['pretext'];
 			//Display the regular output breadcrumb
 			bcn_display(false, $instance['linked'], $instance['reverse']);
 			echo '</div>';
