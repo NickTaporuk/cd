@@ -2,6 +2,7 @@
 .map-jumbo__a {
     display: inline-block;
     cursor: pointer;
+    text-decoration: none;
 }
 /***** Share the News ******/
 .social-share__link {
