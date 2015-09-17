@@ -2927,7 +2927,7 @@ width: -webkit-calc(100% / 4);
 	margin-right: 5px;
 }
 .attachment-post-thumbnails-bigs {
-	margin-top: 14px;
+	/*margin-top: 14px;*/
 }
 #title-single-post {
 	position: absolute;
