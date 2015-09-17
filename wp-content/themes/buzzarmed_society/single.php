@@ -17,9 +17,14 @@ get_header(); ?>
             // Must be inside a loop.
 
             if ( has_post_thumbnail() ) {
-				 echo get_the_post_thumbnail(the_ID(), 'post-thumbnails-bigs');
+                echo '<div id="post-thumbnails-bigs">'; ?>
+
+				<div id='title-single-post'>
+				<div class="container"><h1><?php the_title()?></h1></div></div>
+				<?php
+				 echo get_the_post_thumbnail(get_the_ID(), 'post-thumbnails-bigs');
+				echo '</div>';
 				 ?>
-				 <div id='title-single-post'><div class="container"><h1><?php echo the_title()?></h1></div></div>
             <?php
             } else {
 //                echo '<img src="' . get_bloginfo( 'stylesheet_directory' ) . '/images/thumbnail-default.jpg" />';
