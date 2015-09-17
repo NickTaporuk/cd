@@ -1467,14 +1467,14 @@
         var crimeMapStyles = [
             { featureType: 'road', elementType: 'all', stylers: [ { visibility: 'off'} ] },
             { featureType: 'poi', elementType: 'all', stylers: [ { visibility: 'off' } ] },
-            { featureType: 'water', elementType: 'all', stylers: [{ color: '#7393f6 ' }] },
+            { featureType: 'water', elementType: 'all', stylers: [{ color: '#7393f6' }] },
             /*       { featureType: 'landscape', elementType: 'all', stylers: [{ color: '#eeeeee ' }] }, */
-            { featureType: "administrative.country", elementType: "labels.text.fill",stylers: [ { "color": "#555555 " } ] },
-            { featureType: 'administrative.country', elementType: 'geometry.stroke', stylers: [{color: "#333333 "}] },
+            { featureType: "administrative.country", elementType: "labels.text.fill",stylers: [ { "color": "#555555" } ] },
+            { featureType: 'administrative.country', elementType: 'geometry.stroke', stylers: [{color: "#333333"}] },
             /*       { featureType: "administrative.country", elementType: "labels.text", stylers: [ { visibility: "off" } ] }, */
             /*       { featureType: 'administrative.province', elementType: 'labels.text.stroke', stylers: [{color: "#a0a0a0 "}] }, */
-            { featureType: 'administrative.province', elementType: 'labels.text.fill', stylers: [{color: "#888888 "}] },
-            { featureType: 'administrative.province', elementType: 'geometry.stroke', stylers: [{color: "#bbbbbb "}] }
+            { featureType: 'administrative.province', elementType: 'labels.text.fill', stylers: [{color: "#888888"}] },
+            { featureType: 'administrative.province', elementType: 'geometry.stroke', stylers: [{color: "#bbbbbb"}] }
 
 
         ];
