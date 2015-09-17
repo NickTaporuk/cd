@@ -204,7 +204,7 @@
                     <li><a href="#technical-specs">Specs</a></li>
                     <li><a href="#team">Team</a></li>
                     <li><a href="#contact-us">Contact</a></li>
-                    <li><a href="#">Blog</a></li>
+                    <li><a href="http://blog.buzzarm.com/">Blog</a></li>
                 </ul>
             </nav>
             <div class="right-list right-pin clearfix">
@@ -248,7 +248,7 @@
                     <li><a href="#technical-specs" id="link_specs">Specs</a></li>
                     <li><a href="#team" id="link_team">Team</a></li>
                     <li><a href="#contact-us" id="link_contact">Contact</a></li>
-                    <li><a href="#" id="link_blog">Blog</a></li>
+                    <li><a href="http://blog.buzzarm.com/" id="link_blog">Blog</a></li>
                 </ul>
             </nav>
             <div class="right-list clearfix">
@@ -568,7 +568,7 @@
                 Even more unregistered thefts happen in the USA, <br>
                 but you can travel with confidence using Buzzarm.
             </p>
-            <button class="btn btn-tomato">Go to buzzarm society</button>
+            <a href="http://blog.buzzarm.com/" class="map-jumbo__a btn btn-tomato">Go to buzzarm society</a>
         </div>
     </div><!-- /.l-container -->
 
