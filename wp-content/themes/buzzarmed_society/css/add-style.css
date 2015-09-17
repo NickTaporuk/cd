@@ -5,23 +5,97 @@ h1,h2 {
     font-family: "NeoSansPro-Bold", sans-serif !important;
 }
 /*---------------------------------------
+ **   5.0 Navigation                 -----
+-----------------------------------------*/
+.main-logo-svg {
+    fill: #000;
+}
+.main-logo-svg:hover {
+    fill: #263C87;
+}
+/*---------------------------------------
+ **   5.2 Menus                  -----
+-----------------------------------------*/
+.nav.navbar-nav a {
+    font-family: "NeoSansPro-Bold", sans-serif;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+/*---------------------------------------
+ **   Header               -----
+-----------------------------------------*/
+.map-jumbo__heading,
+.map-jumbo__paragraph {
+    color: #fff;
+}
+/*---------------------------------------
  **   9.0 Widgets                   -----
 -----------------------------------------*/
 /* Search widget */
 .widget_search input {
     width: 80% !important;
-    padding: 6px 15% 6px 2% !important;
+    /*padding: 6px 15% 6px 10% !important;*/
+   /* padding: 0 !important;*/
     border-radius: 30px !important;
 }
 .widget_search .search-submit {
     width: 46px !important;
     height: 38px !important;
 }
-.search-field ::-webkit-input-placeholder{
+.search-field::-webkit-input-placeholder{
     text-align: left;
+    font-family: "Muli", sans-serif;
+    font-weight: 300;
+    font-size: 13px;
 }
 .search-field ::-webkit-input-placeholder{
     text-align: left;
+}
+.search-field {
+    /*width: 198px;*/
+    height: 38px;
+    padding-left: 15px !important;
+    font-family: "Muli", sans-serif;
+    font-weight: 300;
+    font-size: 13px;
+}
+.search-field:hover {
+    box-shadow: 0 3px 10px 0 rgba(21,21,21,.4) !important;
+    transition: all .2s ease;
+}
+/*---------------------------------------
+ **   Social Widget                -----
+-----------------------------------------*/
+.widget-socials {
+    padding-top: 5px;
+
+    text-align: left;
+}
+.widget-socials a {
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #ababab;
+    border-radius: 50%;
+    line-height: 40px;
+    color: #ababab !important;
+    font-size: 1rem;
+    text-align: center;
+    padding: 0;
+}
+.widget-socials a:nth-child(2) {
+    margin: 0 15px;
+}
+.widget-socials a:hover {
+    background-color: #ababab;
+    box-shadow: 0 3px 5px 0 rgba(21,21,21,.4);
+    color: #fff !important;
+    transition: all .2s ease;
+}
+.widget-socials a:active {
+    box-shadow: none;
 }
 /*---------------------------------------
  **   10.0 Content                   -----
@@ -29,9 +103,21 @@ h1,h2 {
 /*---------------------------------------
  **   Breadcrumps                   -----
 -----------------------------------------*/
+.breadcrumbs {
+    margin-top: 60px;
+}
 .breadcrumbs.container {
     text-align: left;
     padding-left: 30px;
+}
+.breadcrumbs,
+.breadcrumbs span,
+.breadcrumbs a {
+    font-family: "Muli", sans-serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 13px;
+    text-transform: uppercase;
 }
     /** -------------------------------------
      Start Pagination
@@ -60,6 +146,8 @@ h1,h2 {
     -ms-transition: background .15s ease-in-out;
     -o-transition: background .15s ease-in-out;
     transition: background .15s ease-in-out;
+    font-family: "NeoSansPro-Bold", sans-serif;
+    font-size: 13px;
 }
 
 .pagination a:hover{

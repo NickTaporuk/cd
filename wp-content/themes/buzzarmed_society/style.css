@@ -907,7 +907,7 @@ a:active {
 	height: 46px;
 	position: absolute;
 	top: 0;
-	right: 0;
+	right: 10%;
 	padding: 0;
 	margin: 0;
 	background: url(images/search_icon.png) no-repeat center center;
@@ -923,7 +923,8 @@ a:active {
 }
 .widget_search input{
 	width: 83%;
-	padding: 12px 15% 12px 2%;
+	/*padding: 12px 15% 12px 2%;*/
+	padding: 0 0 0 15px;
 }
 .widget ul {
 	margin:0;
@@ -3029,7 +3030,7 @@ article .posted-on a:hover{
 	padding-top: 60px;
 }
 .sidebar-wrap.content-left-wrap{
-	margin-top: 60px;
+	/*margin-top: 60px;*/
 	padding-top: 0;
 }
 .debar-wrap {

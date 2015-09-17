@@ -29,6 +29,18 @@
 .es_txt_email {
 	height: 38px;
 	border-radius: 30px !important;
+	font-family: "Muli", sans-serif;
+	font-weight: 300;
+	font-size: 13px;
+	text-align: center;
+	padding: 0 15px;
+}
+.es_txt_email::-webkit-input-placeholder{
+	font-family: "Muli", sans-serif;
+	font-weight: 300;
+	font-size: 14px;
+	text-align: center;
+	padding: 0;
 }
 .es_txt_email:hover,
 .es_button__email:hover {
