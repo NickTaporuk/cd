@@ -333,6 +333,7 @@ pre_order.initColor = function (color, formColor, parentEl, customCard) {
 pre_order.resetData = function () {
 
 };
+
 /** **/
 pre_order.submitPreOrder = function (name, formName, formEmail, formId) {
     $(name).on('click', function (e) {
